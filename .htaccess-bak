@@ -1,0 +1,317 @@
+#   BULLETPROOF .54.5 >>>>>>> SECURE .HTACCESS     
+
+# CUSTOM CODE TOP PHP/PHP.INI HANDLER/CACHE CODE
+# BEGIN WEBSITE SPEED BOOST
+# Time cheat sheet in seconds
+# A86400 = 1 day
+# A172800 = 2 days
+# A2419200 = 1 month
+# A4838400 = 2 months
+# A29030400 = 1 year
+
+# Test which ETag setting works best on your Host/Server/Website
+# with Firefox Firebug, Firephp and Yslow benchmark tests.
+
+# Create the ETag (entity tag) response header field
+# This is probably not the optimum choice to use.
+#FileETag MTime Size
+
+# Remove the ETag (entity tag) response header field
+# This is most likely the optimum choice to use.
+Header unset ETag
+FileETag none
+
+<IfModule mod_expires.c>
+ExpiresActive on
+# ExpiresByType overrides the ExpiresDefault...
+# cache expiration time of 2 days|A172800.
+ExpiresDefault A172800
+ExpiresByType image/jpg A4838400
+ExpiresByType image/jpeg A4838400
+ExpiresByType image/gif A4838400
+ExpiresByType image/png A4838400
+ExpiresByType image/bmp A4838400
+ExpiresByType image/x-icon A4838400
+ExpiresByType image/svg+xml A4838400
+ExpiresByType text/javascript A4838400
+ExpiresByType text/x-javascript A4838400 
+ExpiresByType text/css A4838400
+ExpiresByType text/html A4838400
+ExpiresByType application/x-font-ttf A4838400
+ExpiresByType application/x-font-woff A4838400
+ExpiresByType font/opentype A4838400
+ExpiresByType application/x-shockwave-flash A4838400
+ExpiresByType application/x-javascript A4838400
+ExpiresByType application/javascript A4838400
+ExpiresByType video/mp4 A4838400
+ExpiresByType video/ogg A4838400
+ExpiresByType video/webm A4838400
+</IfModule>
+
+<IfModule mod_headers.c>
+<FilesMatch "\.(js|css|flv|ico|pdf|avi|mov|ppt|doc|mp3|wmv|wav|gif|jpg|jpeg|png|swf|webm)$">
+Header append Cache-Control "public"
+</FilesMatch>
+<FilesMatch "\.(txt|html)$">
+Header append Cache-Control "proxy-revalidate"
+</FilesMatch>
+<FilesMatch "\.(php|cgi|pl|htm|xml)$">
+Header set Cache-Control "private, no-cache, no-store, proxy-revalidate, no-transform"
+Header set Pragma "no-cache"
+</FilesMatch>
+</IfModule>
+
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/plain text/html text/xml text/css text/javascript
+AddOutputFilterByType DEFLATE application/javascript application/x-javascript
+AddOutputFilterByType DEFLATE application/x-httpd-php application/x-httpd-fastphp
+AddOutputFilterByType DEFLATE application/xml application/xhtml+xml application/xml-dtd
+AddOutputFilterByType DEFLATE application/rdf+xml application/rss+xml application/atom+xml
+AddOutputFilterByType DEFLATE font/otf font/opentype application/font-otf application/x-font-otf
+AddOutputFilterByType DEFLATE font/ttf font/truetype application/font-ttf application/x-font-ttf
+AddOutputFilterByType DEFLATE image/svg+xml
+
+# Drop problematic browsers
+BrowserMatch ^Mozilla/4 gzip-only-text/html
+BrowserMatch ^Mozilla/4\.0[678] no-gzip
+BrowserMatch \bMSI[E] !no-gzip !gzip-only-text/html
+
+# Make sure proxies don't deliver the wrong content
+Header append Vary User-Agent env=!dont-vary
+</IfModule>
+# END WEBSITE SPEED BOOST
+
+
+
+<IfModule mod_headers.c>
+# Protects against Drive-by Download attacks
+# Protects against MIME/Content/Data sniffing
+Header set X-Content-Type-Options nosniff
+</IfModule>
+
+
+
+# Block other sites from displaying your website in iFrames
+# Protects against Clickjacking
+<IfModule mod_headers.c>
+# Using DENY will block all iFrames including iFrames on your own website
+# Header set X-Frame-Options DENY
+# Recommended: iFrames from the same site are allowed - other sites are blocked
+Header always append X-Frame-Options SAMEORIGIN
+</IfModule>
+
+# TURN OFF YOUR SERVER SIGNATURE
+# Suppresses the footer line server version number and ServerName of the serving virtual host
+ServerSignature Off
+
+# DO NOT SHOW DIRECTORY LISTING
+# Disallow mod_autoindex from displaying a directory listing
+# If a 500 Internal Server Error occurs when activating Root BulletProof Mode 
+# copy the entire DO NOT SHOW DIRECTORY LISTING and DIRECTORY INDEX sections of code 
+# and paste it into BPS Custom Code and comment out Options -Indexes 
+# by adding a # sign in front of it.
+# Example: #Options -Indexes
+Options -Indexes
+
+# DIRECTORY INDEX FORCE INDEX.PHP
+# Use index.php as default directory index file. index.html will be ignored.
+# If a 500 Internal Server Error occurs when activating Root BulletProof Mode 
+# copy the entire DO NOT SHOW DIRECTORY LISTING and DIRECTORY INDEX sections of code 
+# and paste it into BPS Custom Code and comment out DirectoryIndex 
+# by adding a # sign in front of it.
+# Example: #DirectoryIndex index.php index.html /index.php
+DirectoryIndex index.php index.html /index.php
+
+# CUSTOM CODE BRUTE FORCE LOGIN PAGE PROTECTION
+# Protect wp-login.php from Brute Force Login Attacks based on IP Address
+<FilesMatch "^(wp-login\.php)">
+Order Allow,Deny
+# Add your Public IP Address using 2 or 3 octets so that if/when
+# your IP address changes it will still be in your subnet range. If you
+# have a static IP address then use all 4 octets.
+# Examples: 2 octets: 65.100. 3 octets: 65.100.50. 4 octets: #65.100.50.1
+#Allow from 65.100.50.
+</FilesMatch>
+
+# BPS ERROR LOGGING AND TRACKING
+# Use BPS Custom Code to modify/edit/change this code and to save it permanently.
+# BPS has premade 400 Bad Request, 403 Forbidden, 404 Not Found, 405 Method Not Allowed and 
+# 410 Gone template logging files that are used to track and log 400, 403, 404, 405 and 410 errors 
+# that occur on your website. When a hacker attempts to hack your website the hackers IP address, 
+# Host name, Request Method, Referering link, the file name or requested resource, the user agent 
+# of the hacker and the query string used in the hack attempt are logged.
+# All BPS log files are htaccess protected so that only you can view them. 
+# The 400.php, 403.php, 404.php, 405.php and 410.php files are located in /wp-content/plugins/bulletproof-security/
+# The 400, 403, 405 and 410 Error logging files are already set up and will automatically start logging errors
+# after you install BPS and have activated BulletProof Mode for your Root folder.
+# If you would like to log 404 errors you will need to copy the logging code in the BPS 404.php file
+# to your Theme's 404.php template file. Simple instructions are included in the BPS 404.php file.
+# You can open the BPS 404.php file using the WP Plugins Editor or manually editing the file.
+# NOTE: By default WordPress automatically looks in your Theme's folder for a 404.php Theme template file.
+
+ErrorDocument 400 /wp-content/plugins/bulletproof-security/400.php
+ErrorDocument 401 default
+ErrorDocument 403 /wp-content/plugins/bulletproof-security/403.php
+ErrorDocument 404 /404.php
+ErrorDocument 405 /wp-content/plugins/bulletproof-security/405.php
+ErrorDocument 410 /wp-content/plugins/bulletproof-security/410.php
+
+# DENY ACCESS TO PROTECTED SERVER FILES AND FOLDERS
+# Use BPS Custom Code to modify/edit/change this code and to save it permanently.
+# Files and folders starting with a dot: .htaccess, .htpasswd, .errordocs, .logs
+RedirectMatch 403 \.(htaccess|htpasswd|errordocs|logs)$
+
+# WP-ADMIN/INCLUDES
+# Use BPS Custom Code to remove this code permanently.
+RewriteEngine On
+RewriteBase /
+RewriteRule ^wp-admin/includes/ - [F]
+RewriteRule !^wp-includes/ - [S=3]
+RewriteRule ^wp-includes/[^/]+\.php$ - [F]
+RewriteRule ^wp-includes/js/tinymce/langs/.+\.php - [F]
+RewriteRule ^wp-includes/theme-compat/ - [F]
+
+# WP REWRITE LOOP START
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+
+# CUSTOM CODE REQUEST METHODS FILTERED
+# REQUEST METHODS FILTERED
+# If you want to allow HEAD Requests use BPS Custom Code and copy
+# this entire REQUEST METHODS FILTERED section of code to this BPS Custom Code
+# text box: CUSTOM CODE REQUEST METHODS FILTERED.
+# See the CUSTOM CODE REQUEST METHODS FILTERED help text for additional steps.
+RewriteCond %{REQUEST_METHOD} ^(TRACE|DELETE|TRACK|DEBUG) [NC]
+RewriteRule ^(.*)$ - [F]
+RewriteCond %{REQUEST_METHOD} ^(HEAD) [NC]
+RewriteCond %{HTTP_USER_AGENT} !^(.*Jetpack.*)$
+RewriteRule ^(.*)$ /wp-content/plugins/bulletproof-security/405.php [L]
+
+# PLUGINS/THEMES AND VARIOUS EXPLOIT FILTER SKIP RULES
+# To add plugin/theme skip/bypass rules use BPS Custom Code.
+# The [S] flag is used to skip following rules. Skip rule [S=12] will skip 12 following RewriteRules.
+# The skip rules MUST be in descending consecutive number order: 12, 11, 10, 9...
+# If you delete a skip rule, change the other skip rule numbers accordingly.
+# Examples: If RewriteRule [S=5] is deleted than change [S=6] to [S=5], [S=7] to [S=6], etc.
+# If you add a new skip rule above skip rule 12 it will be skip rule 13: [S=13]
+
+# CUSTOM CODE PLUGIN/THEME SKIP/BYPASS RULES
+# WooCommerce shop, cart, checkout & wishlist URI skip/bypass rule
+RewriteCond %{REQUEST_URI} ^.*/(shop|cart|checkout|wishlist).* [NC]
+RewriteRule . - [S=14]
+
+# WooCommerce order & wc-ajax=get_refreshed_fragments Query String skip/bypass rule
+RewriteCond %{QUERY_STRING} .*(order|wc-ajax=get_refreshed_fragments).* [NC]
+RewriteRule . - [S=13]
+
+# Adminer MySQL management tool data populate
+RewriteCond %{REQUEST_URI} ^/wp-content/plugins/adminer/ [NC]
+RewriteRule . - [S=12]
+# Comment Spam Pack MU Plugin - CAPTCHA images not displaying 
+RewriteCond %{REQUEST_URI} ^/wp-content/mu-plugins/custom-anti-spam/ [NC]
+RewriteRule . - [S=11]
+# Peters Custom Anti-Spam display CAPTCHA Image
+RewriteCond %{REQUEST_URI} ^/wp-content/plugins/peters-custom-anti-spam-image/ [NC] 
+RewriteRule . - [S=10]
+# Status Updater plugin fb connect
+RewriteCond %{REQUEST_URI} ^/wp-content/plugins/fb-status-updater/ [NC] 
+RewriteRule . - [S=9]
+# Stream Video Player - Adding FLV Videos Blocked
+RewriteCond %{REQUEST_URI} ^/wp-content/plugins/stream-video-player/ [NC]
+RewriteRule . - [S=8]
+# XCloner 404 or 403 error when updating settings
+RewriteCond %{REQUEST_URI} ^/wp-content/plugins/xcloner-backup-and-restore/ [NC]
+RewriteRule . - [S=7]
+# BuddyPress Logout Redirect
+RewriteCond %{QUERY_STRING} action=logout&redirect_to=http%3A%2F%2F(.*) [NC]
+RewriteRule . - [S=6]
+# redirect_to=
+RewriteCond %{QUERY_STRING} redirect_to=(.*) [NC]
+RewriteRule . - [S=5]
+# Login Plugins Password Reset And Redirect 1
+RewriteCond %{QUERY_STRING} action=resetpass&key=(.*) [NC]
+RewriteRule . - [S=4]
+# Login Plugins Password Reset And Redirect 2
+RewriteCond %{QUERY_STRING} action=rp&key=(.*) [NC]
+RewriteRule . - [S=3]
+
+# TIMTHUMB FORBID RFI and MISC FILE SKIP/BYPASS RULE
+# Use BPS Custom Code to modify/edit/change this code and to save it permanently.
+# Remote File Inclusion (RFI) security rules
+# Note: Only whitelist your additional domains or files if needed - do not whitelist hacker domains or files
+RewriteCond %{QUERY_STRING} ^.*(http|https|ftp)(%3A|:)(%2F|/)(%2F|/)(w){0,3}.?(blogger|picasa|blogspot|tsunami|petapolitik|photobucket|imgur|imageshack|wordpress\.com|img\.youtube|tinypic\.com|upload\.wikimedia|kkc|start-thegame).*$ [NC,OR]
+RewriteCond %{THE_REQUEST} ^.*(http|https|ftp)(%3A|:)(%2F|/)(%2F|/)(w){0,3}.?(blogger|picasa|blogspot|tsunami|petapolitik|photobucket|imgur|imageshack|wordpress\.com|img\.youtube|tinypic\.com|upload\.wikimedia|kkc|start-thegame).*$ [NC]
+RewriteRule .* index.php [F]
+# 
+# Example: Whitelist additional misc files: (example\.php|another-file\.php|phpthumb\.php|thumb\.php|thumbs\.php)
+RewriteCond %{REQUEST_URI} (timthumb\.php|phpthumb\.php|thumb\.php|thumbs\.php) [NC]
+# Example: Whitelist additional website domains: RewriteCond %{HTTP_REFERER} ^.*(YourWebsite.com|AnotherWebsite.com).*
+RewriteCond %{HTTP_REFERER} ^.*whatsmycut.com.*
+RewriteRule . - [S=1]
+
+# CUSTOM CODE BPSQSE BPS QUERY STRING EXPLOITS
+# BEGIN BPSQSE BPS QUERY STRING EXPLOITS
+# The libwww-perl User Agent is forbidden - Many bad bots use libwww-perl modules, but some good bots use it too.
+# Good sites such as W3C use it for their W3C-LinkChecker. 
+# Use BPS Custom Code to add or remove user agents temporarily or permanently from the 
+# User Agent filters directly below or to modify/edit/change any of the other security code rules below.
+RewriteCond %{QUERY_STRING} (sp_executesql) [NC]
+RewriteRule ^(.*)$ - [F]
+# END BPSQSE BPS QUERY STRING EXPLOITS
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+# WP REWRITE LOOP END
+
+# DENY BROWSER ACCESS TO THESE FILES 
+# Use BPS Custom Code to modify/edit/change this code and to save it permanently.
+# wp-config.php, bb-config.php, php.ini, php5.ini, readme.html
+# To be able to view these files from a Browser, replace 127.0.0.1 with your actual 
+# current IP address. Comment out: #Require all denied and Uncomment: Require ip 127.0.0.1
+# Comment out: #Deny from all and Uncomment: Allow from 127.0.0.1 
+# Note: The BPS System Info page displays which modules are loaded on your server. 
+
+<FilesMatch "^(wp-config\.php|php\.ini|php5\.ini|readme\.html|bb-config\.php)">
+<IfModule mod_authz_core.c>
+Require all denied
+#Require ip 127.0.0.1
+</IfModule>
+
+<IfModule !mod_authz_core.c>
+<IfModule mod_access_compat.c>
+Order Allow,Deny
+Deny from all
+#Allow from 127.0.0.1
+</IfModule>
+</IfModule>
+</FilesMatch>
+
+# CUSTOM CODE BOTTOM HOTLINKING/FORBID COMMENT SPAMMERS/BLOCK BOTS/BLOCK IP/REDIRECT CODE
+# WP AUTHOR ENUMERATION BOT PROBE PROTECTION
+# Rewrites to author=999999 that does not actually exist
+# which results in a standard 404 error. To the hacker bot
+# it appears that this author does not exist without giving
+# any clues that the author does actually exist.
+
+RewriteCond %{QUERY_STRING} ^author=([0-9]){1,}$ [NC]
+RewriteRule ^(.*)$ $1?author=999999 [L]
+
+
+
+# Jetpack XML-RPC DDoS PROTECTION
+# You can whitelist your IP address if you use A Weblog Client
+# or want to whitelist an IP address for any other reasons.
+# Example: Add this line of code RewriteCond %{REMOTE_ADDR} ^(xxx\.xxx\.xxx\.xxx) [OR]
+# inbetween the first and second lines of code below. Then replace the x's with the
+# actual IP address you want to whitelist.
+# Note: It is recommended that you use 3 octets x.x.x. of your IP address
+# instead of 4 octets x.x.x.x of your IP address.
+# Example: RewriteCond %{REMOTE_ADDR} ^(xxx\.xxx\.xxx\.) [OR]
+RewriteCond %{REQUEST_URI} ^.*(xmlrpc\.php)$
+RewriteCond %{HTTP_USER_AGENT} !^(.*Jetpack.*)$
+RewriteRule ^(.*)$ - [F]
+
+
