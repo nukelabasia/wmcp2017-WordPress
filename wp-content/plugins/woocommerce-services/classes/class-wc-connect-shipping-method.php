@@ -25,6 +25,7 @@ if ( ! class_exists( 'WC_Connect_Shipping_Method' ) ) {
 		protected $api_client;
 
 		public function __construct( $id_or_instance_id = null ) {
+			parent::__construct( $id_or_instance_id );
 
 			// If $arg looks like a number, treat it as an instance_id
 			// Otherwise, treat it as a (method) id (e.g. wc_connect_usps)
@@ -265,7 +266,7 @@ if ( ! class_exists( 'WC_Connect_Shipping_Method' ) ) {
 			$settings_keys    = get_object_vars( $service_settings );
 
 			if ( empty( $settings_keys ) ) {
-				return $this->debug(
+				$this->debug(
 					sprintf(
 						'Service settings empty. Skipping %s rate request (instance id %d).',
 						$this->id,
@@ -273,6 +274,7 @@ if ( ! class_exists( 'WC_Connect_Shipping_Method' ) ) {
 					),
 					__FUNCTION__
 				);
+				return;
 			}
 
 			// TODO: Request rates for all WooCommerce Services powered methods in
@@ -286,7 +288,7 @@ if ( ! class_exists( 'WC_Connect_Shipping_Method' ) ) {
 			);
 
 			$custom_boxes = $this->service_settings_store->get_packages();
-			$predefined_boxes = $this->service_settings_store->get_predefined_packages_for_service( $this->id );
+			$predefined_boxes = $this->service_settings_store->get_predefined_packages_for_service( $this->service_schema->id );
 			$predefined_boxes = array_values( array_filter( $predefined_boxes, array( $this, 'filter_preset_boxes' ) ) );
 
 			$response_body = $this->api_client->get_shipping_rates( $services, $package, $custom_boxes, $predefined_boxes );
@@ -326,7 +328,7 @@ if ( ! class_exists( 'WC_Connect_Shipping_Method' ) ) {
 					continue;
 				}
 
-				$packaging_lookup = $this->service_settings_store->get_package_lookup_for_service( $instance->id );
+				$packaging_lookup = $this->service_settings_store->get_package_lookup();
 
 				foreach ( (array) $instance->rates as $rate_idx => $rate ) {
 					$package_names = array();
@@ -335,6 +337,7 @@ if ( ! class_exists( 'WC_Connect_Shipping_Method' ) ) {
 						$items = array();
 
 						foreach ( $rate_package->items as $package_item ) {
+							/** @var WC_Product $product */
 							$product = $this->lookup_product( $package, $package_item->product_id );
 							if ( $product ) {
 								$items[] = $product->get_title();

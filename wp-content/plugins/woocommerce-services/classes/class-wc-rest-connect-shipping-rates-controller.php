@@ -26,9 +26,8 @@ class WC_REST_Connect_Shipping_Rates_Controller extends WC_REST_Connect_Base_Con
 		$this->settings_store->update_origin_address( $payload[ 'origin' ] );
 		$this->settings_store->update_destination_address( $payload[ 'orderId' ], $payload[ 'destination' ] );
 
-		// Hardcode USPS rates for now
-		$payload[ 'carrier' ] = 'usps';
 		unset( $payload[ 'orderId' ] );
+
 		$response = $this->api_client->get_label_rates( $payload );
 
 		if ( is_wp_error( $response ) ) {

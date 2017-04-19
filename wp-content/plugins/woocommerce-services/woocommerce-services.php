@@ -5,7 +5,7 @@
  * Description: WooCommerce Services: Hosted services for WooCommerce, including free real-time USPS and Canada Post rates and discounted USPS shipping labels.
  * Author: Automattic
  * Author URI: http://woocommerce.com/
- * Version: 1.3.2
+ * Version: 1.4.0
  *
  * Copyright (c) 2017 Automattic
  *
@@ -131,9 +131,9 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 		protected $service_schemas_validator;
 
 		/**
-		 * @var WC_Connect_Settings_Page
+		 * @var WC_Connect_Settings_Pages
 		 */
-		protected $settings_page;
+		protected $settings_pages;
 
 		/**
 		 * @var WC_Connect_Help_View
@@ -357,14 +357,17 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 		 * @codeCoverageIgnore
 		 */
 		public function init() {
+			$this->load_dependencies();
 			add_action( 'admin_init', array( $this, 'admin_enqueue_scripts' ) );
 
-			if ( ! WC_Connect_Options::get_option( 'tos_accepted', false ) ) {
+			if ( ! $this->check_jetpack_install() ) {
+				add_action( 'admin_init', array( $this, 'admin_jetpack_notice' ) );
+				return;
+			} else if ( ! WC_Connect_Options::get_option( 'tos_accepted', false ) ) {
 				add_action( 'admin_init', array( $this, 'admin_tos_notice' ) );
 				return;
 			}
 
-			$this->load_dependencies();
 			$this->schedule_service_schemas_fetch();
 			$this->service_settings_store->migrate_legacy_services();
 			$this->attach_hooks();
@@ -375,6 +378,7 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 		 */
 		public function load_dependencies() {
 			require_once( plugin_basename( 'classes/class-wc-connect-error-notice.php' ) );
+			require_once( plugin_basename( 'classes/class-wc-connect-compatibility.php' ) );
 			require_once( plugin_basename( 'classes/class-wc-connect-logger.php' ) );
 			require_once( plugin_basename( 'classes/class-wc-connect-api-client.php' ) );
 			require_once( plugin_basename( 'classes/class-wc-connect-service-schemas-validator.php' ) );
@@ -454,6 +458,7 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 			add_action( 'woocommerce_admin_shipping_fields', array( $this, 'add_shipping_phone_to_order_fields' ) );
 			add_filter( 'woocommerce_get_order_address', array( $this, 'get_shipping_phone_from_order' ), 10, 3 );
 			add_action( 'admin_enqueue_scripts', array( $this->nux, 'show_pointers' ) );
+			add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), array( $this, 'add_plugin_action_links' ) );
 		}
 
 		/**
@@ -588,6 +593,8 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 				'formSchema'         => $service_schema->service_settings,
 				'formLayout'         => $service_schema->form_layout,
 				'formData'           => $settings_store->get_service_settings( $id, $instance ),
+				'methodId'           => $id,
+				'instanceId'         => $instance,
 				'callbackURL'        => get_rest_url( null, $path ),
 				'nonce'              => wp_create_nonce( 'wp_rest' ),
 				'rootView'           => 'wc-connect-service-settings',
@@ -595,7 +602,7 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 				'dismissURL'         => get_rest_url( null, '/wc/v1/connect/services/dismiss_notice' )
 			);
 
-			wp_localize_script( 'wc_connect_admin', 'wcConnectData', $admin_array );
+			wp_localize_script( 'wc_connect_admin', 'wcConnectData', array( $admin_array ) );
 			wp_enqueue_script( 'wc_connect_admin' );
 			wp_enqueue_style( 'wc_connect_admin' );
 		}
@@ -703,8 +710,10 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 			wp_register_script( 'wc_connect_admin', $this->wc_connect_base_url . 'woocommerce-services.js', array(), $plugin_version );
 			wp_register_script( 'wc_services_admin_pointers', $this->wc_connect_base_url . 'woocommerce-services-admin-pointers.js', array( 'wp-pointer', 'jquery' ), $plugin_version );
 			wp_register_style( 'wc_connect_banner', $this->wc_connect_base_url . 'woocommerce-services-banner.css', array(), $plugin_version );
+			wp_register_script( 'wc_connect_banner', $this->wc_connect_base_url . 'woocommerce-services-banner.js', array( 'updates' ), $plugin_version );
 
 			require_once( plugin_basename( 'i18n/strings.php' ) );
+			/** @var array $i18nStrings defined in i18n/strings.php */
 			wp_localize_script( 'wc_connect_admin', 'i18nLocaleStrings', $i18nStrings );
 		}
 
@@ -737,7 +746,6 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 			}
 
 			if ( $this->can_accept_tos() ) {
-				wp_enqueue_style( 'wc_connect_banner' );
 				add_action( 'admin_notices', array( $this, 'show_tos_notice' ) );
 			}
 		}
@@ -767,30 +775,19 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 		 * @return bool
 		 */
 		private function can_accept_tos() {
-			if ( defined( 'JETPACK_DEV_DEBUG' ) ) {
-				return true;
-			}
-
-			if ( ! class_exists( 'Jetpack_Data' ) ) {
-				return false;
-			}
-
 			$user_token = Jetpack_Data::get_access_token( JETPACK_MASTER_USER );
-			if ( $user_token && is_object( $user_token ) && isset( $user_token->external_user_id ) ) {
-				return get_current_user_id() === $user_token->external_user_id;
-			}
-
-			return false;
+			return get_current_user_id() === $user_token->external_user_id;
 		}
 
 		public function show_tos_notice() {
+			wp_enqueue_style( 'wc_connect_banner' );
 			$accept_url = admin_url( 'admin.php?page=wc-settings&tab=shipping&wc-connect-notice=accept' );
 			$decline_url = admin_url( 'plugins.php?wc-connect-notice=decline' );
 
 			?>
 			<div class="notice wcc-admin-notice">
-				<h1><?php _e( 'Welcome to WooCommerce Services' ) ?></h1>
-				<a href="<?php echo esc_url( $decline_url ); ?>" style="text-decoration: none;" class="notice-dismiss" title="<?php esc_attr_e( 'Dismiss and deactivate the plugin', 'woocommerce-services' ); ?>"></a>
+				<h2><?php _e( 'Welcome to WooCommerce Services', 'woocommerce-services' ) ?></h2>
+				<a href="<?php echo esc_url( $decline_url ); ?>" class="notice-dismiss" title="<?php esc_attr_e( 'Dismiss and deactivate the plugin', 'woocommerce-services' ); ?>"></a>
 				<p>
 					<b><?php _e( 'Connect to get live shipping rates and print discounted labels. You will also get access to new features as we add them.', 'woocommerce-services' ); ?></b>
 				</p>
@@ -814,6 +811,71 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 			?>
 			<div class="notice notice-success is-dismissible">
 				<p><?php _e( 'WooCommerce Services plugin has been disabled.', 'woocommerce-services' ); ?></p>
+			</div>
+			<?php
+		}
+
+		public function check_jetpack_install() {
+			if ( defined( 'JETPACK_DEV_DEBUG' ) ) {
+				return true;
+			}
+
+			if ( ! class_exists( 'Jetpack_Data' ) ) {
+				return false;
+			}
+
+			$user_token = Jetpack_Data::get_access_token( JETPACK_MASTER_USER );
+			return $user_token && is_object( $user_token ) && isset( $user_token->external_user_id );
+		}
+
+		public function admin_jetpack_notice() {
+			wp_enqueue_style( 'wc_connect_banner' ); // Including the CSS this early will mostly prevent a flash of Core styles in the banner
+			add_action( 'admin_notices', array( $this, 'show_jetpack_notice' ) );
+		}
+
+		public function show_jetpack_notice() {
+			$button_class = 'button-primary';
+
+			if ( class_exists( 'Jetpack_Data' ) ) {
+				$screen = get_current_screen();
+				if ( 'jetpack' === $screen->parent_base || 'plugins' === $screen->base ) {
+					return; // Jetpack Dashboard and the plugins list screen already have big "Connect to WordPress.com" buttons
+				}
+
+				$notice_text = __( 'To get started, please connect Jetpack to your WordPress.com account.', 'woocommerce-services' );
+				$button_label = __( 'Connect to WordPress.com', 'woocommerce-services' );
+				$redirect_to = admin_url( 'admin.php?page=wc-settings&tab=shipping' );
+				$button_url = Jetpack::init()->build_connect_url( false, $redirect_to, 'woocommerce-services' );
+			} else {
+				$activate_url = wp_nonce_url( 'plugins.php?action=activate&plugin=jetpack/jetpack.php', 'activate-plugin_jetpack/jetpack.php' );
+
+				if ( 0 === validate_plugin( 'jetpack/jetpack.php' ) ) {
+					$notice_text = __( 'To get started you need to activate Jetpack.', 'woocommerce-services' );
+					$button_label = __( 'Activate Jetpack', 'woocommerce-services' );
+					$button_url = $activate_url;
+				} else {
+					$notice_text = __( 'To get started you need to install Jetpack.', 'woocommerce-services' );
+					$button_label = __( 'Install Jetpack', 'woocommerce-services' );
+					$button_url = '#';
+					$button_class .= ' wcc-install-jetpack';
+
+					wp_enqueue_script( 'wc_connect_banner' );
+				}
+			}
+
+			?>
+			<div class="notice wcc-admin-notice">
+				<h2><?php _e( 'Welcome to WooCommerce Services', 'woocommerce-services' ) ?></h2>
+				<p>
+					<b><?php echo $notice_text ?></b>
+				</p>
+				<p>
+					<a href="<?php echo esc_url( $button_url ) ?>"
+					   data-error-message="<?php esc_attr_e( 'There was an error installing Jetpack. Please try installing it manually.', 'woocommerce-services' ) ?>"
+					   class="<?php echo esc_attr( $button_class ) ?>">
+						<?php echo $button_label ?>
+					</a>
+				</p>
 			</div>
 			<?php
 		}
@@ -885,9 +947,10 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 			return $fields;
 		}
 
-		function get_shipping_phone_from_order( $fields, $address_type, $order ) {
+		function get_shipping_phone_from_order( $fields, $address_type, WC_Order $order ) {
+			$order_id = WC_Connect_Compatibility::instance()->get_order_id( $order );
 			if ( 'shipping' === $address_type ) {
-				$shipping_phone = get_post_meta( $order->id, '_shipping_phone', true );
+				$shipping_phone = get_post_meta( $order_id, '_shipping_phone', true );
 				if ( ! $shipping_phone ) {
 					$billing_address = $order->get_address( 'billing' );
 					$shipping_phone = $billing_address[ 'phone' ];
@@ -895,6 +958,17 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 				$fields[ 'phone' ] =  $shipping_phone;
 			}
 			return $fields;
+		}
+
+		function add_plugin_action_links( $links ) {
+			$links[] = sprintf(
+				wp_kses(
+					__( '<a href="%s">Support</a>', 'woocommerce-services' ),
+					array(  'a' => array( 'href' => array() ) )
+				),
+				esc_url( 'https://woocommerce.com/my-account/create-a-ticket/' )
+			);
+			return $links;
 		}
 	}
 

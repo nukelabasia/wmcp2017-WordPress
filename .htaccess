@@ -1,4 +1,4 @@
-#   BULLETPROOF .54.5 >>>>>>> SECURE .HTACCESS     
+#   BULLETPROOF 1.1 SECURE .HTACCESS     
 
 # PHP/PHP.INI HANDLER/CACHE CODE
 # Use BPS Custom Code to add php/php.ini Handler and Cache htaccess code and to save it permanently.
@@ -34,12 +34,12 @@ DirectoryIndex index.php index.html /index.php
 
 # BPS ERROR LOGGING AND TRACKING
 # Use BPS Custom Code to modify/edit/change this code and to save it permanently.
-# BPS has premade 400 Bad Request, 403 Forbidden, 404 Not Found, 405 Method Not Allowed and 
-# 410 Gone template logging files that are used to track and log 400, 403, 404, 405 and 410 errors 
-# that occur on your website. When a hacker attempts to hack your website the hackers IP address, 
-# Host name, Request Method, Referering link, the file name or requested resource, the user agent 
+# BPS has premade 400 Bad Request, 403 Forbidden, 404 Not Found, 405 Method Not Allowed and
+# 410 Gone template logging files that are used to track and log 400, 403, 404, 405 and 410 errors
+# that occur on your website. When a hacker attempts to hack your website the hackers IP address,
+# Host name, Request Method, Referering link, the file name or requested resource, the user agent
 # of the hacker and the query string used in the hack attempt are logged.
-# All BPS log files are htaccess protected so that only you can view them. 
+# All BPS log files are htaccess protected so that only you can view them.
 # The 400.php, 403.php, 404.php, 405.php and 410.php files are located in /wp-content/plugins/bulletproof-security/
 # The 400, 403, 405 and 410 Error logging files are already set up and will automatically start logging errors
 # after you install BPS and have activated BulletProof Mode for your Root folder.
@@ -86,8 +86,6 @@ RewriteRule ^(.*)$ - [F]
 RewriteCond %{REQUEST_METHOD} ^(HEAD) [NC]
 RewriteCond %{HTTP_USER_AGENT} !^(.*Jetpack.*)$
 RewriteRule ^(.*)$ /wp-content/plugins/bulletproof-security/405.php [L]
-
-
 # PLUGINS/THEMES AND VARIOUS EXPLOIT FILTER SKIP RULES
 # To add plugin/theme skip/bypass rules use BPS Custom Code.
 # The [S] flag is used to skip following rules. Skip rule [S=12] will skip 12 following RewriteRules.
