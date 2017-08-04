@@ -254,6 +254,23 @@ function bpsPro_get_plugins_list() {
 			}
 		}
 	}
+
+	$all_mu_plugins = get_mu_plugins();
+
+	echo '<br><strong><font color="blue">'.__('Must-Use Plugins', 'bulletproof-security').':</font></strong><br>';
+
+	foreach ( $all_mu_plugins as $key => $value ) {
+			
+		if ( ! empty($key) ) {
+			
+			echo '<strong>';
+			print_r($value['Name']);
+			echo ' ';
+			print_r($value['Version']);
+			echo ' - <font color="green">'.__('Installed', 'bulletproof-security').'</font>';
+			echo ':</strong> '. $key .'<br>';
+		}
+	}
 }
 
 // Get Total # Plugins Installed
@@ -263,6 +280,21 @@ function bpsPro_count_installed_plugins($count) {
 	$count = 0;
 
 	foreach ( $all_plugins as $key => $value ) {
+			
+		if ( ! empty($key) ) {
+			$count++;
+		}
+	}
+	return $count;
+}
+
+// Get Total # of must-use Plugins Installed
+function bpsPro_count_mu_plugins($count) {
+
+	$all_mu_plugins = get_mu_plugins();
+	$count = 0;
+
+	foreach ( $all_mu_plugins as $key => $value ) {
 			
 		if ( ! empty($key) ) {
 			$count++;
@@ -531,11 +563,6 @@ echo '<strong><span class="sysinfo-label-text">'.__('ionCube Loader', 'bulletpro
 	echo bps_buddypress_site_type_check().'<br>';
 	echo '<strong><span class="sysinfo-label-text">'.__('bbPress', 'bulletproof-security').':</span></strong> ';
 	echo bps_bbpress_site_type_check().'<br>';	
-	if ( is_multisite() ) {
-	echo '<strong><span class="sysinfo-label-text">'.__('Total Plugins Network Activated', 'bulletproof-security').':</span></strong> ';
-	echo bpsPro_count_network_activated_plugins($count).'<br>';
-	}	
-
 	echo '<strong><span class="sysinfo-label-text">'.__('Plugins Folder', 'bulletproof-security').':</span></strong> ';
 	echo str_replace( ABSPATH, '', WP_PLUGIN_DIR ).'<br>';	
 	 $wp_upload_dir = wp_upload_dir();
@@ -560,10 +587,17 @@ echo '<strong><span class="sysinfo-label-text">'.__('ionCube Loader', 'bulletpro
 		echo '<strong><span class="sysinfo-label-text">'.__('DISABLE_WP_CRON constant', 'bulletproof-security').':</span></strong> '.__('Standard WP Crons are not disabled on your website.', 'bulletproof-security').'<br>';
 	}
 
-	echo '<strong><span class="sysinfo-label-text">'.__('Total Plugins Installed', 'bulletproof-security').':</span></strong> ';
+ 	echo '<strong><span class="sysinfo-label-text">'.__('Total Plugins Installed', 'bulletproof-security').':</span></strong> ';
 	echo bpsPro_count_installed_plugins($count).'<br>';
+ 	echo '<strong><span class="sysinfo-label-text">'.__('Total Must-Use Plugins Installed', 'bulletproof-security').':</span></strong> ';	
+	echo bpsPro_count_mu_plugins($count).'<br>';
 	echo '<strong><span class="sysinfo-label-text">'.__('Total Plugins Activated', 'bulletproof-security').':</span></strong> ';
 	echo bpsPro_count_activated_plugins($count).'<br>';
+	if ( is_multisite() ) {
+	echo '<strong><span class="sysinfo-label-text">'.__('Total Plugins Network Activated', 'bulletproof-security').':</span></strong> ';
+	echo bpsPro_count_network_activated_plugins($count).'<br>';
+	}
+
 ?>
 
 <h3><button id="bps-open-modal600" class="button bps-modal-button"><?php _e('Get Plugins List', 'bulletproof-security'); ?></button></h3>
@@ -948,13 +982,12 @@ echo '<strong><span class="sysinfo-label-text">'.__('ionCube Loader', 'bulletpro
 </div>
 
 <div id="bps-tabs-2" class="bps-tab-page">
-<h2><?php _e('Website Headers Check Tool ~ ', 'bulletproof-security'); ?><span style="font-size:.75em;"><?php _e('Check your website Headers or another website\'s Headers by making a GET or HEAD Request', 'bulletproof-security'); ?></span></h2>
 
 <?php if ( ! current_user_can('manage_options') ) { _e('Permission Denied', 'bulletproof-security'); } else { ?>
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="bps-help_faq_table">
   <tr>
-    <td class="bps-table_title">&nbsp;</td>
+    <td class="bps-table_title"><h2><?php _e('Website Headers Check Tool ~ ', 'bulletproof-security'); ?><span style="font-size:.75em;"><?php _e('Check your website Headers or another website\'s Headers by making a GET or HEAD Request', 'bulletproof-security'); ?></span></h2></td>
   </tr>
   <tr>
     <td class="bps-table_cell_help">
@@ -1074,33 +1107,21 @@ global $bps_topDiv, $bps_bottomDiv;
 
 </td>
   </tr>
-  <tr>
-    <td class="bps-table_cell_bottom">&nbsp;</td>
-  </tr>
 </table>
 <?php } ?>
 </div>
 
 <div id="bps-tabs-3" class="bps-tab-page">
-<h2><?php _e('BulletProof Security Help &amp; FAQ', 'bulletproof-security'); ?></h2>
+
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="bps-help_faq_table">
    <tr>
-    <td colspan="2" class="bps-table_title">&nbsp;</td>
+    <td class="bps-table_title"><h2><?php _e('BulletProof Security Help &amp; FAQ', 'bulletproof-security'); ?></h2></td>
   </tr>
   <tr>
-    <td width="50%" class="bps-table_cell_help_links"><a href="https://forum.ait-pro.com/forums/topic/security-log-event-codes/" target="_blank"><?php _e('Security Log Event Codes', 'bulletproof-security'); ?></a></td>
-    <td width="50%" class="bps-table_cell_help_links"><a href="https://www.ait-pro.com/aitpro-blog/category/bulletproof-security-contributors/" target="_blank"><?php _e('Contributors Page', 'bulletproof-security'); ?></a></td>
-  </tr>
-  <tr>
-    <td class="bps-table_cell_help_links"><a href="https://forum.ait-pro.com/forums/topic/plugin-conflicts-actively-blocked-plugins-plugin-compatibility/" target="_blank"><?php _e('Forum: Search, Troubleshooting Steps & Post Questions For Assistance', 'bulletproof-security'); ?></a></td>
-    <td class="bps-table_cell_help_links">&nbsp;</td>
-  </tr>
-  <tr>
-    <td class="bps-table_cell_help_links">&nbsp;</td>
-    <td class="bps-table_cell_help_links">&nbsp;</td>
-  </tr>
-  <tr>
-    <td colspan="2" class="bps-table_cell_bottom">&nbsp;</td>
+    <td class="bps-table_cell_help_links"><a href="https://forum.ait-pro.com/forums/topic/security-log-event-codes/" target="_blank"><?php _e('Security Log Event Codes', 'bulletproof-security'); ?></a><br /><br />
+    <a href="https://www.ait-pro.com/aitpro-blog/category/bulletproof-security-contributors/" target="_blank"><?php _e('Contributors Page', 'bulletproof-security'); ?></a><br /><br />
+    <a href="https://forum.ait-pro.com/forums/topic/plugin-conflicts-actively-blocked-plugins-plugin-compatibility/" target="_blank"><?php _e('Forum: Search, Troubleshooting Steps & Post Questions For Assistance', 'bulletproof-security'); ?></a>
+    </td>
   </tr>
 </table>
 </div>

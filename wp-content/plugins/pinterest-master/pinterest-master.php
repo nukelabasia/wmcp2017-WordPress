@@ -1,10 +1,10 @@
 <?php
 /**
 Plugin Name: Pinterest Master
-Plugin URI: http://wordpress.techgasp.com/pinterest-master/
-Version: 5.0.4
+Plugin URI: https://wordpress.techgasp.com/pinterest-master/
+Version: 5.0.6
 Author: TechGasp
-Author URI: http://wordpress.techgasp.com
+Author URI: https://wordpress.techgasp.com
 Text Domain: pinterest-master
 Description: Pinterest Master adds the follow me on pinterest, pin it button, show pinterest profile and show pinterest board to your wordpress website.
 License: GPL2 or later
@@ -25,7 +25,7 @@ License: GPL2 or later
 */
 if(!class_exists('pinterest_master')) :
 ///////DEFINE///////
-define( 'PINTEREST_MASTER_VERSION', '5.0.4' );
+define( 'PINTEREST_MASTER_VERSION', '5.0.6' );
 define( 'PINTEREST_MASTER_NAME', 'Pinterest Master' );
 
 class pinterest_master{

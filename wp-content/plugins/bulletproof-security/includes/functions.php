@@ -297,6 +297,12 @@ function bps_root_htaccess_status_dashboard() {
 	$pattern17 = '/#\sNEVER\sCOMMENT\sOUT\sTHIS\sLINE\sOF\sCODE\sBELOW\sFOR\sANY\sREASON(\s*){1}#{1,}(\s|){1,}RewriteCond\s%\{REQUEST_URI\}\s\!\^\.\*\/wp-admin\/\s\[NC\]/';
 	$pattern18 = '/#\sREQUEST\sMETHODS\sFILTERED(.*)RewriteCond\s\%\{REQUEST_METHOD\}\s\^\(HEAD\|TRACE\|DELETE\|TRACK\|DEBUG\)\s\[NC\](\s*){1}RewriteRule\s\^\(\.\*\)\$\s\-\s\[F\]/s';	
 	$pattern19 = '/RewriteRule\s\^\(\.\*\)\$\s\-\s\[R=405,L\]/';
+	// 2.3: Reverting: Match R,L for replacement to L
+	$pattern20 = '/RewriteRule\s\^\(\.\*\)\$(.*)\/bulletproof-security\/405\.php\s\[R,L\]/';
+	$pattern21 = '/RewriteCond\s%\{THE_REQUEST\}\s\(\\\?.*%2a\)\+\(%20.*HTTP\(:\/.*\[NC,OR\]/';
+	$pattern22 = '/RewriteCond\s%\{QUERY_STRING\}\s\[a-zA-Z0-9_\]=http:\/\/\s\[NC,OR\]/';
+	$pattern23 = '/RewriteCond\s%\{QUERY_STRING\}\s\^\(\.\*\)cPath=http:\/\/\(\.\*\)\$\s\[NC,OR\]/';
+	$pattern24 = '/RewriteCond\s%\{QUERY_STRING\}\shttp\\\:\s\[NC,OR\](.*\s*){1}.*RewriteCond\s%\{QUERY_STRING\}\shttps\\\:\s\[NC,OR\]/';
 	// BPS 1.0: version numbering change. The string replace is on line 365
 	$BPSVpattern = '/BULLETPROOF\s\.[\d](.*)[\>]/';
 	$BPSVpattern2 = '/BULLETPROOF\s[\d]\.[\d]/';
@@ -396,6 +402,29 @@ switch ( $bps_version ) {
 		// .53.1: New RMF R=405 Code exists: Replace the R=405 code if the host is Not Go Daddy & the R=405 code does not exist in Custom Code.
 		if ( preg_match( $pattern19, $stringReplace, $matches ) && ! preg_match( '/secureserver\.net/', $hostaddress ) && ! preg_match( '/R=405/', $BPSCustomCodeOptions['bps_customcode_request_methods'] ) ) {			
 			$stringReplace = preg_replace( $pattern19, "RewriteRule ^(.*)$ " . $bps_get_wp_root_secure . $bps_plugin_dir . "/bulletproof-security/405.php [L]", $stringReplace);
+		}
+
+		// 2.0: Add R to the dumb downed Request Methods Filtered 405 htaccess code in the Root htaccess file.
+		// 2.3: Reverted: Remove R due to duplicate security log entries
+		if ( preg_match( $pattern20, $stringReplace, $matches ) ) {			
+			$stringReplace = preg_replace( $pattern20, "RewriteRule ^(.*)$ " . $bps_get_wp_root_secure . $bps_plugin_dir . "/bulletproof-security/405.php [L]", $stringReplace);
+		}
+
+		// 2.0: Add additional https scheme conditions to 3 htaccess security rules and combine 2 rules into 1 rule.
+		if ( preg_match( $pattern21, $stringReplace, $matches ) ) {			
+			$stringReplace = preg_replace( $pattern21, "RewriteCond %{THE_REQUEST} (\?|\*|%2a)+(%20+|\\\\\s+|%20+\\\\\s+|\\\\\s+%20+|\\\\\s+%20+\\\\\s+)(http|https)(:/|/) [NC,OR]", $stringReplace);	
+		}
+
+		if ( preg_match( $pattern22, $stringReplace, $matches ) ) {			
+			$stringReplace = preg_replace( $pattern22, "RewriteCond %{QUERY_STRING} [a-zA-Z0-9_]=(http|https):// [NC,OR]", $stringReplace);	
+		}
+
+		if ( preg_match( $pattern23, $stringReplace, $matches ) ) {			
+			$stringReplace = preg_replace( $pattern23, "RewriteCond %{QUERY_STRING} ^(.*)cPath=(http|https)://(.*)$ [NC,OR]", $stringReplace);	
+		}
+
+		if ( preg_match( $pattern24, $stringReplace, $matches ) ) {			
+			$stringReplace = preg_replace( $pattern24, "RewriteCond %{QUERY_STRING} (http|https)\: [NC,OR]", $stringReplace);
 		}
 
 		if ( preg_match($pattern1, $stringReplace, $matches) ) {
@@ -560,7 +589,11 @@ function bps_wpadmin_htaccess_status_dashboard() {
 	$pattern10c = '/RewriteCond\s%\{THE_REQUEST\}\s\(\\\\?.*%2a\)\+\(%20\+\|\\\\s\+.*HTTP\(:\/.*\[NC,OR\]/';
 	$pattern1 = '/(\[|\]|\(|\)|<|>)/s';
 	$pattern_amod = '/#\sWPADMIN\sDENY\sBROWSER\sACCESS\sTO\sFILES(.*\s*){13,16}#\sEND\sBPS\sWPADMIN\sDENY\sACCESS\sTO\sFILES/';
-
+	$pattern21 = '/RewriteCond\s%\{THE_REQUEST\}\s\(\\\?.*%2a\)\+\(%20.*HTTP\(:\/.*\[NC,OR\]/';
+	$pattern22 = '/RewriteCond\s%\{QUERY_STRING\}\s\[a-zA-Z0-9_\]=http:\/\/\s\[NC,OR\]/';
+	$pattern23 = '/RewriteCond\s%\{QUERY_STRING\}\s\^\(\.\*\)cPath=http:\/\/\(\.\*\)\$\s\[NC,OR\]/';
+	$pattern24 = '/RewriteCond\s%\{QUERY_STRING\}\shttp\\\:\s\[NC,OR\](.*\s*){1}.*RewriteCond\s%\{QUERY_STRING\}\shttps\\\:\s\[NC,OR\]/';
+	$pattern25 = '/#\sREQUEST\sMETHODS\sFILTERED(.*\s*){1}RewriteEngine\sOn(.*\s*){1}RewriteCond(.*\s*){1}RewriteRule\s\^\(\.\*\)\$\s\-\s\[F\]/';
 	$BPSVpattern = '/BULLETPROOF\s\.[\d](.*)WP-ADMIN/';
 	$BPSVpattern2 = '/BULLETPROOF\s[\d]\.[\d]\sWP-ADMIN/';
 	$BPSVreplace = "BULLETPROOF $bps_version WP-ADMIN";
@@ -625,6 +658,10 @@ switch ( $bps_version ) {
 			$stringReplace = preg_replace( $pattern_amod, "# WPADMIN DENY BROWSER ACCESS TO FILES\n# Deny Browser access to /wp-admin/install.php\n# Use BPS Custom Code to modify/edit/change this code and to save it permanently.\n# To be able to view the install.php file from a Browser, replace 127.0.0.1 with your actual\n# current IP address. Comment out: #Deny from all and Uncomment: Allow from 127.0.0.1\n# Note: The BPS System Info page displays which modules are loaded on your server.\n\n# BEGIN BPS WPADMIN DENY ACCESS TO FILES\n<FilesMatch \"^(install\.php)\">\nOrder Allow,Deny\nDeny from all\n#Allow from 127.0.0.1\n</FilesMatch>\n# END BPS WPADMIN DENY ACCESS TO FILES", $stringReplace);	
 		}
 
+		if ( preg_match( $pattern25, $stringReplace, $matches ) ) {
+			$stringReplace = preg_replace( $pattern25, "# BPS REWRITE ENGINE\nRewriteEngine On", $stringReplace);
+		}
+
 		if ( preg_match($pattern10a, $stringReplace, $matches) ) {
 			$stringReplace = preg_replace( $pattern10a, "RewriteCond %{THE_REQUEST} (\?|\*|%2a)+(%20+|\\\\\s+|%20+\\\\\s+|\\\\\s+%20+|\\\\\s+%20+\\\\\s+)HTTP(:/|/) [NC,OR]", $stringReplace);
 		}
@@ -635,6 +672,23 @@ switch ( $bps_version ) {
 
 		if ( preg_match($pattern10c, $stringReplace, $matches) ) {
 			$stringReplace = preg_replace( $pattern10c, "RewriteCond %{THE_REQUEST} (\?|\*|%2a)+(%20+|\\\\\s+|%20+\\\\\s+|\\\\\s+%20+|\\\\\s+%20+\\\\\s+)HTTP(:/|/) [NC,OR]", $stringReplace);
+		}
+
+		// 2.0: Add additional https scheme conditions to 3 htaccess security rules and combine 2 rules into 1 rule.
+		if ( preg_match( $pattern21, $stringReplace, $matches ) ) {			
+			$stringReplace = preg_replace( $pattern21, "RewriteCond %{THE_REQUEST} (\?|\*|%2a)+(%20+|\\\\\s+|%20+\\\\\s+|\\\\\s+%20+|\\\\\s+%20+\\\\\s+)(http|https)(:/|/) [NC,OR]", $stringReplace);	
+		}
+
+		if ( preg_match( $pattern22, $stringReplace, $matches ) ) {			
+			$stringReplace = preg_replace( $pattern22, "RewriteCond %{QUERY_STRING} [a-zA-Z0-9_]=(http|https):// [NC,OR]", $stringReplace);	
+		}
+
+		if ( preg_match( $pattern23, $stringReplace, $matches ) ) {			
+			$stringReplace = preg_replace( $pattern23, "RewriteCond %{QUERY_STRING} ^(.*)cPath=(http|https)://(.*)$ [NC,OR]", $stringReplace);	
+		}
+
+		if ( preg_match( $pattern24, $stringReplace, $matches ) ) {			
+			$stringReplace = preg_replace( $pattern24, "RewriteCond %{QUERY_STRING} (http|https)\: [NC,OR]", $stringReplace);
 		}
 
 		if ( preg_match($pattern1, $stringReplace, $matches) ) {

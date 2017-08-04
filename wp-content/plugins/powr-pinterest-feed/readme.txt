@@ -3,8 +3,8 @@ Contributors: powr
 Donate link: https://www.powr.io/
 Tags: Pinterest, social media, pinterest board, pinterest gallery, pinterest feed, pinterest stream, social stream, pinterest embed
 Requires at least: 3.0
-Tested up to: 4.7
-Stable tag: 1.6.2
+Tested up to: 4.74
+Stable tag: 1.6.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,7 +22,7 @@ First, download, install, and activate POWr Pinterest Feed. Then drop the plugin
 = <a href='https://www.powr.io/tutorials/how-to-add-pinterest-feed-plugin-to-your-wordpress-site'>Click Here for 2 Minute Install Tutorial</a> =
 <br>
 = Free Features =
-* Connect to Facebook, Instagram, Pinterest, YouTube, Twitter, Vine, Tumblr, Flickr, Vimeo, Dailymotion, or RSS.
+* Connect to Facebook, Instagram, Pinterest, YouTube, Twitter, Tumblr, Flickr, Vimeo, Dailymotion, or RSS.
 * Display images, videos, and articles.
 * Daily content updates.
 * Adjust the priority of different feeds.
@@ -71,27 +71,35 @@ Or add to a page/post with the POWr Icon in the WP text editor.
 <br>
 Then visit your site to and click the settings icon to edit right in the page.
 <br>
-= <a href='http://www.powr.io/tutorials/how-to-add-pinterest-feed-plugin-to-your-wordpress-site'>Click Here for 2 Minute Install Tutorial</a> =
+= <a href='https://www.powr.io/tutorials/how-to-add-pinterest-feed-plugin-to-your-wordpress-site'>Click Here for 2 Minute Install Tutorial</a> =
 
 
 
 == Frequently Asked Questions ==
 
-= Do I need to create a POWr Account? = Yes, you need a POWr Account.  Your account allows you to create and save plugins, edit them in your live page, and use them on multiple different websites.
+= Do I need to create a POWr Account? =
+Yes, you need a POWr Account.  Your account allows you to create and save plugins, edit them in your live page, and use them on multiple different websites.
 
-= How do I add Pinterest Feed to a page or blog post? = Create and save the plugin in your WP Dashboard.  Then copy and paste the unique shortcode into any page or post. You can continue editing the plugin on your live page, in your WP Dashboard, or by logging in to www.powr.io.
+= How do I add Pinterest Feed to a page or blog post? =
+Create and save the plugin in your WP Dashboard.  Then copy and paste the unique shortcode into any page or post. You can continue editing the plugin on your live page, in your WP Dashboard, or by logging in to www.powr.io.
 
-= How do I add Pinterest Feed to a theme?  = In your WP Dashboard, select Appearance > Widgets from the left sidebar. Find Pinterest Feed under Available Widgets and drag it into a sidebar or footer.  Then visit the live page to set up the plugin.
+= How do I add Pinterest Feed to a theme? =
+In your WP Dashboard, select Appearance > Widgets from the left sidebar. Find Pinterest Feed under Available Widgets and drag it into a sidebar or footer.  Then visit the live page to set up the plugin.
 
-= Can I add more than one Pinterest Feed? = Yes, absolutely!  To clone an existing Pinterest Feed, paste the exact same unique shortcode into another page or post.  To create a new version, select Pinterest Feed from the sidebar in your WP Dashboard and click Create New.  You can then edit and save a new version, and paste the new unique shortcode into a page or post.
+= Can I add more than one Pinterest Feed? =
+Yes, absolutely!  To clone an existing Pinterest Feed, paste the exact same unique shortcode into another page or post.  To create a new version, select Pinterest Feed from the sidebar in your WP Dashboard and click Create New.  You can then edit and save a new version, and paste the new unique shortcode into a page or post.
 
-= Will my users see the Edit button above Pinterest Feed? = No! You only see the Edit button because you own the plugin. To temporarily hide it, click on your page and then type 'p + down arrow' (the letter p followed by the down arrow). You can show the icon again by typing 'p + up-arrow'.
+= Will my users see the Edit button above Pinterest Feed? =
+No! You only see the Edit button because you own the plugin. To temporarily hide it, click on your page and then type 'p + down arrow' (the letter p followed by the down arrow). You can show the icon again by typing 'p + up-arrow'.
 
-= I can't see the settings icon anymore, what happened? = You are just logged out of POWr.io. Visit <a href='https://www.powr.io'>www.powr.io</a> and log in to your account.  Then return to your website and refresh the page.
+= I can't see the settings icon anymore, what happened? =
+You are just logged out of POWr.io. Visit <a href='https://www.powr.io'>www.powr.io</a> and log in to your account.  Then return to your website and refresh the page.
 
-= Is POWr Pinterest Feed Free? = Yes, the basic version of Pinterest Feed is completely free!
+= Is POWr Pinterest Feed Free? =
+Yes, the basic version of Pinterest Feed is completely free!
 
-= Why should I upgrade? = Upgrading gives you access to advanced features, removes the POWr logo, and gives you automatic priority support.
+= Why should I upgrade? =
+Upgrading gives you access to advanced features, removes the POWr logo, and gives you automatic priority support.
 
 
 
@@ -134,6 +142,10 @@ Easier to create and manage your POWr Plugins.
 = 1.6.2 =
 Bug Fixes (resolved some PHP notices seen by some users)
 
+= 1.6.3 =
+Supports latest plugins from POWr
+
+
 == Changelog ==
 = 1.0 =
 * First released version
@@ -167,4 +179,7 @@ Bug Fixes (resolved some PHP notices seen by some users)
 
 = 1.6.2 =
 * Fixed PHP Notices about undefined constants
+
+= 1.6.3 =
+* TinyMCE supports latest POWr Plugins
 

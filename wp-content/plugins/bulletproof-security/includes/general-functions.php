@@ -645,6 +645,173 @@ $file = ABSPATH . '.htaccess';
 	}
 }
 
+// 2.0: Add R to the dumb downed Request Methods Filtered 405 htaccess code in Root Custom Code.
+// 2.3: Revert: Remove R from the dumbed downed Request Methods Filtered 405 htaccess code in Root Custom Code.
+// Add additional https scheme conditions to 3 htaccess security rules and combine 2 rules into 1 rule in Root and wp-admin Custom Code.
+// Note: htmlspecialchars_decode() is not necessary.
+function bpsPro_upgrade_CC_automatic_fix() {
+	
+	$CC_Options_root = get_option('bulletproof_security_options_customcode');
+	$bps_get_wp_root_secure = bps_wp_get_root_folder();
+	$bps_plugin_dir = str_replace( ABSPATH, '', WP_PLUGIN_DIR );
+	$pattern1 = '/RewriteRule\s\^\(\.\*\)\$(.*)\/bulletproof-security\/405\.php\s\[R,L\]/';
+	$pattern2 = '/RewriteCond\s%\{THE_REQUEST\}\s\(\\\?.*%2a\)\+\(%20.*HTTP\(:\/.*\[NC,OR\]/';
+	$pattern3 = '/RewriteCond\s%\{QUERY_STRING\}\s\[a-zA-Z0-9_\]=http:\/\/\s\[NC,OR\]/';
+	$pattern4 = '/RewriteCond\s%\{QUERY_STRING\}\s\^\(\.\*\)cPath=http:\/\/\(\.\*\)\$\s\[NC,OR\]/';
+	$pattern5 = '/RewriteCond\s%\{QUERY_STRING\}\shttp\\\:\s\[NC,OR\](.*\s*){1}.*RewriteCond\s%\{QUERY_STRING\}\shttps\\\:\s\[NC,OR\]/';
+
+	if ( $CC_Options_root['bps_customcode_bpsqse'] != '' ) {
+
+		if ( preg_match( $pattern1, $CC_Options_root['bps_customcode_request_methods'] ) ) {
+			$bps_customcode_request_methods = preg_replace( $pattern1, "RewriteRule ^(.*)$ " . $bps_get_wp_root_secure . $bps_plugin_dir . "/bulletproof-security/405.php [L]", $CC_Options_root['bps_customcode_request_methods']);
+		}
+	
+	} else {
+		$bps_customcode_request_methods = $CC_Options_root['bps_customcode_request_methods'];
+	}
+
+	if ( $CC_Options_root['bps_customcode_bpsqse'] != '' ) {
+
+		if ( preg_match( $pattern2, $CC_Options_root['bps_customcode_bpsqse'], $matches ) ) {			
+			$p2 = array($pattern2);
+			$r2 = array("RewriteCond %{THE_REQUEST} (\?|\*|%2a)+(%20+|\\\\\s+|%20+\\\\\s+|\\\\\s+%20+|\\\\\s+%20+\\\\\s+)(http|https)(:/|/) [NC,OR]");
+		} else {
+			$p2 = array();
+			$r2 = array();
+		}
+
+		if ( preg_match( $pattern3, $CC_Options_root['bps_customcode_bpsqse'], $matches ) ) {			
+			$p3 = array($pattern3);
+			$r3 = array("RewriteCond %{QUERY_STRING} [a-zA-Z0-9_]=(http|https):// [NC,OR]");
+		} else {
+			$p3 = array();
+			$r3 = array();
+		}
+
+		if ( preg_match( $pattern4, $CC_Options_root['bps_customcode_bpsqse'], $matches ) ) {			
+			$p4 = array($pattern4);
+			$r4 = array("RewriteCond %{QUERY_STRING} ^(.*)cPath=(http|https)://(.*)$ [NC,OR]");
+		} else {
+			$p4 = array();
+			$r4 = array();
+		}
+
+		if ( preg_match( $pattern5, $CC_Options_root['bps_customcode_bpsqse'], $matches ) ) {			
+			$p5 = array($pattern5);
+			$r5 = array("RewriteCond %{QUERY_STRING} (http|https)\: [NC,OR]");
+		} else {
+			$p5 = array();
+			$r5 = array();
+		}
+
+		$pattern_array = array_merge($p2, $p3, $p4, $p5);
+		$replace_array = array_merge($r2, $r3, $r4, $r5);
+		$bps_customcode_bpsqse_replace = preg_replace($pattern_array, $replace_array, $CC_Options_root['bps_customcode_bpsqse']);
+	
+	} else {
+		$bps_customcode_bpsqse_replace = $CC_Options_root['bps_customcode_bpsqse'];
+	}
+
+	if ( ! is_multisite() ) {
+
+		$Root_CC_Options = array(
+		'bps_customcode_one' 				=> $CC_Options_root['bps_customcode_one'], 
+		'bps_customcode_server_signature' 	=> $CC_Options_root['bps_customcode_server_signature'], 
+		'bps_customcode_directory_index' 	=> $CC_Options_root['bps_customcode_directory_index'], 
+		'bps_customcode_server_protocol' 	=> $CC_Options_root['bps_customcode_server_protocol'], 
+		'bps_customcode_error_logging' 		=> $CC_Options_root['bps_customcode_error_logging'], 
+		'bps_customcode_deny_dot_folders' 	=> $CC_Options_root['bps_customcode_deny_dot_folders'], 
+		'bps_customcode_admin_includes' 	=> $CC_Options_root['bps_customcode_admin_includes'], 
+		'bps_customcode_wp_rewrite_start' 	=> $CC_Options_root['bps_customcode_wp_rewrite_start'], 
+		'bps_customcode_request_methods' 	=> $bps_customcode_request_methods, 
+		'bps_customcode_two' 				=> $CC_Options_root['bps_customcode_two'], 
+		'bps_customcode_timthumb_misc' 		=> $CC_Options_root['bps_customcode_timthumb_misc'], 
+		'bps_customcode_bpsqse' 			=> $bps_customcode_bpsqse_replace, 
+		'bps_customcode_deny_files' 		=> $CC_Options_root['bps_customcode_deny_files'], 
+		'bps_customcode_three' 				=> $CC_Options_root['bps_customcode_three'] 
+		);
+				
+	} else {
+					
+		$Root_CC_Options = array(
+		'bps_customcode_one' 				=> $CC_Options_root['bps_customcode_one'], 
+		'bps_customcode_server_signature' 	=> $CC_Options_root['bps_customcode_server_signature'], 
+		'bps_customcode_directory_index' 	=> $CC_Options_root['bps_customcode_directory_index'], 
+		'bps_customcode_server_protocol' 	=> $CC_Options_root['bps_customcode_server_protocol'], 
+		'bps_customcode_error_logging' 		=> $CC_Options_root['bps_customcode_error_logging'], 
+		'bps_customcode_deny_dot_folders' 	=> $CC_Options_root['bps_customcode_deny_dot_folders'], 
+		'bps_customcode_admin_includes' 	=> $CC_Options_root['bps_customcode_admin_includes'], 
+		'bps_customcode_wp_rewrite_start' 	=> $CC_Options_root['bps_customcode_wp_rewrite_start'], 
+		'bps_customcode_request_methods' 	=> $bps_customcode_request_methods, 
+		'bps_customcode_two' 				=> $CC_Options_root['bps_customcode_two'], 
+		'bps_customcode_timthumb_misc' 		=> $CC_Options_root['bps_customcode_timthumb_misc'], 
+		'bps_customcode_bpsqse' 			=> $bps_customcode_bpsqse_replace, 
+		'bps_customcode_wp_rewrite_end' 	=> $CC_Options_root['bps_customcode_wp_rewrite_end'], 
+		'bps_customcode_deny_files' 		=> $CC_Options_root['bps_customcode_deny_files'], 
+		'bps_customcode_three' 				=> $CC_Options_root['bps_customcode_three'] 
+		);					
+	}
+
+	foreach( $Root_CC_Options as $key => $value ) {
+		update_option('bulletproof_security_options_customcode', $Root_CC_Options);
+	}
+
+	$CC_Options_wpadmin = get_option('bulletproof_security_options_customcode_WPA');
+	
+	if ( $CC_Options_wpadmin['bps_customcode_bpsqse_wpa'] != '' ) {
+
+		if ( preg_match( $pattern2, $CC_Options_wpadmin['bps_customcode_bpsqse_wpa'], $matches ) ) {			
+			$p2 = array($pattern2);
+			$r2 = array("RewriteCond %{THE_REQUEST} (\?|\*|%2a)+(%20+|\\\\\s+|%20+\\\\\s+|\\\\\s+%20+|\\\\\s+%20+\\\\\s+)(http|https)(:/|/) [NC,OR]");
+		} else {
+			$p2 = array();
+			$r2 = array();
+		}
+
+		if ( preg_match( $pattern3, $CC_Options_wpadmin['bps_customcode_bpsqse_wpa'], $matches ) ) {			
+			$p3 = array($pattern3);
+			$r3 = array("RewriteCond %{QUERY_STRING} [a-zA-Z0-9_]=(http|https):// [NC,OR]");
+		} else {
+			$p3 = array();
+			$r3 = array();
+		}
+
+		if ( preg_match( $pattern4, $CC_Options_wpadmin['bps_customcode_bpsqse_wpa'], $matches ) ) {			
+			$p4 = array($pattern4);
+			$r4 = array("RewriteCond %{QUERY_STRING} ^(.*)cPath=(http|https)://(.*)$ [NC,OR]");
+		} else {
+			$p4 = array();
+			$r4 = array();
+		}
+
+		if ( preg_match( $pattern5, $CC_Options_wpadmin['bps_customcode_bpsqse_wpa'], $matches ) ) {			
+			$p5 = array($pattern5);
+			$r5 = array("RewriteCond %{QUERY_STRING} (http|https)\: [NC,OR]");
+		} else {
+			$p5 = array();
+			$r5 = array();
+		}
+
+		$pattern_array = array_merge($p2, $p3, $p4, $p5);
+		$replace_array = array_merge($r2, $r3, $r4, $r5);
+		$bps_customcode_bpsqse_wpa_replace = preg_replace($pattern_array, $replace_array, $CC_Options_wpadmin['bps_customcode_bpsqse_wpa']);
+	
+	} else {
+		$bps_customcode_bpsqse_wpa_replace = $CC_Options_wpadmin['bps_customcode_bpsqse_wpa'];
+	}
+
+	$wpadmin_CC_Options = array(
+	'bps_customcode_deny_files_wpa' => $CC_Options_wpadmin['bps_customcode_deny_files_wpa'], 
+	'bps_customcode_one_wpa' 		=> $CC_Options_wpadmin['bps_customcode_one_wpa'], 
+	'bps_customcode_two_wpa' 		=> $CC_Options_wpadmin['bps_customcode_two_wpa'], 
+	'bps_customcode_bpsqse_wpa' 	=> $bps_customcode_bpsqse_wpa_replace 
+	);
+			
+	foreach( $wpadmin_CC_Options as $key => $value ) {
+		update_option('bulletproof_security_options_customcode_WPA', $wpadmin_CC_Options);
+	}
+}
+
 // BPS upgrade: adds/updates/saves any new DB options, does cleanup & everything else.
 // This function is executed in this function: bpsPro_new_feature_autoupdate() which is executed ONLY during BPS upgrades.
 // .53.1: This function has been completely changed: literally checks if a DB option exists and has a value using ternary operations.
@@ -657,6 +824,83 @@ function bpsPro_new_version_db_options_files_autoupdate() {
 		global $bps_version, $bps_last_version, $wp_version, $wpdb, $aitpro_bullet, $pagenow, $current_user;
 	
 		$user_id = $current_user->ID;
+		
+		// 2.0: New SBC Dismiss Notice check created: checks for redundant Browser caching code & the BPS NOCHECK Marker in BPS Custom Code
+		delete_user_meta($user_id, 'bpsPro_ignore_speed_boost_notice');
+		// 2.0: New Endurance Page Cache Dismiss Notice check created: A dismiss notice will only be displayed if: EPC is enabled and Cache level is 1,2,3,4
+		delete_user_meta($user_id, 'bpsPro_ignore_EPC_plugin_notice');
+		// 2.0: Delete these old Dismiss Notices permanently that are no longer being used
+		delete_user_meta($user_id, 'bps_ignore_BLC_notice');
+		delete_user_meta($user_id, 'bps_ignore_jetpack_notice');
+		delete_user_meta($user_id, 'bps_ignore_woocommerce_notice');
+
+		// 2.0|2.3 BugFix: Changed the default option setting to: Do Not Log POST Request Body Data on new BPS installations & upgrades.
+		// This will only update the db options 1 time if the bps_security_log_post_none DB option does not exist.
+		// .52.7: Set Security Log Limit POST Request Body Data option to checked/limited by default		
+		if ( ! get_option('bulletproof_security_options_sec_log_post_limit') ) {
+
+			$SecLog_post_limit_settings = array( 
+			'bps_security_log_post_limit' 	=> '', 
+			'bps_security_log_post_none' 	=> '1', 
+			'bps_security_log_post_max' 	=> '' 
+			);
+			
+			foreach( $SecLog_post_limit_settings as $key => $value ) {
+				update_option('bulletproof_security_options_sec_log_post_limit', $SecLog_post_limit_settings);
+			}
+		}
+
+		// 2.0|2.3: Revert: Remove R from the dumbed downed Request Methods Filtered 405 htaccess code in Root Custom Code.
+		// Add additional https scheme conditions to 3 htaccess security rules and combine 2 rules into 1 rule in Root and wp-admin Custom Code.
+		bpsPro_upgrade_CC_automatic_fix();	
+		
+		// 2.3: Always update the mu tools timestamp to time + 5 minutes on BPS upgrade. Hopefully that will prevent email alerts being sent during BPS upgrades.
+		// 2.0: Update and Pre-save the new BPS MU Tools DB options
+		// Delete the old bulletproof_security_options_autoupdate DB option
+		// Delete the old bps-plugin-autoupdate.php files
+		// Copy the new BPS MU Tools file to the /mu-plugins/ folder
+		$AutoUpdate_options = get_option('bulletproof_security_options_autoupdate');
+		$MUTools_Options = get_option('bulletproof_security_options_MU_tools_free');
+		
+		if ( $AutoUpdate_options['bps_autoupdate'] == 'On' ) {
+			$bps_mu_tools2 = 'enable';
+		} else {
+			$bps_mu_tools2 = ! $MUTools_Options['bps_mu_tools_enable_disable_autoupdate'] ? 'disable' : $MUTools_Options['bps_mu_tools_enable_disable_autoupdate'];
+		}
+
+		$bps_mu_tools3 = ! $MUTools_Options['bps_mu_tools_enable_disable_deactivation'] ? 'enable' : $MUTools_Options['bps_mu_tools_enable_disable_deactivation'];
+
+		$MUTools_Option_settings = array( 
+		'bps_mu_tools_timestamp' 					=> time() + 300,
+		'bps_mu_tools_enable_disable_autoupdate' 	=> $bps_mu_tools2, 
+		'bps_mu_tools_enable_disable_deactivation' 	=> $bps_mu_tools3 
+		);	
+
+		foreach ( $MUTools_Option_settings as $key => $value ) {
+			update_option('bulletproof_security_options_MU_tools_free', $MUTools_Option_settings);
+		}		
+		
+		delete_option('bulletproof_security_options_autoupdate');
+		$autoupdate_master_file = WP_PLUGIN_DIR . '/bulletproof-security/admin/htaccess/bps-plugin-autoupdate.php';
+		$autoupdate_muplugins_file = WP_CONTENT_DIR . '/mu-plugins/bps-plugin-autoupdate.php';
+		
+		if ( file_exists($autoupdate_master_file) ) {
+			unlink($autoupdate_master_file);
+		}
+		
+		if ( file_exists($autoupdate_muplugins_file) ) {
+			unlink($autoupdate_muplugins_file);
+		}
+		
+		if ( ! is_dir( WP_CONTENT_DIR . '/mu-plugins' ) ) {
+			mkdir( WP_CONTENT_DIR . '/mu-plugins', 0755, true );
+			chmod( WP_CONTENT_DIR . '/mu-plugins/', 0755 );
+		}
+		
+		$bps_mu_tools_master_file = WP_PLUGIN_DIR . '/bulletproof-security/admin/htaccess/bps-mu-tools.php';
+		$bps_mu_tools_muplugins_file = WP_CONTENT_DIR . '/mu-plugins/bps-mu-tools.php';
+
+		copy($bps_mu_tools_master_file, $bps_mu_tools_muplugins_file);
 		
 		// .54.6: New Sucuri Dismiss Notice check created. Delete the user_meta for this Dismiss Notice.
 		delete_user_meta($user_id, 'bps_ignore_sucuri_notice');		
@@ -754,18 +998,19 @@ function bpsPro_new_version_db_options_files_autoupdate() {
 		}
 		}
 
+		// 2.3: BugFix: Enable Login Security for WooCommerce option being reset on upgrade. Only enable once if the option does not exist.
 		// .54.3: New Enable LSM for WooCommerce option added
 		// .51.8: New Login Security Attempts Remaining option added
 		$lsm = get_option('bulletproof_security_options_login_security');	
 	
-		if ( $woo_return_var == 1 ) {
-			if ( ! $lsm['bps_enable_lsm_woocommerce'] ) {
-				$bps_enable_lsm_woocommerce = '1';
-			} else {
+		if ( $woo_plugin_active == 1 || is_plugin_active_for_network( $woo_plugin ) ) {
+			if ( $lsm['bps_enable_lsm_woocommerce'] == '' || $lsm['bps_enable_lsm_woocommerce'] == '1' ) {
 				$bps_enable_lsm_woocommerce = $lsm['bps_enable_lsm_woocommerce'];
-			}
+			} elseif ( ! $lsm['bps_enable_lsm_woocommerce'] ) {
+				$bps_enable_lsm_woocommerce = '1';
+			} 
 		} else {
-			$bps_enable_lsm_woocommerce = $lsm['bps_enable_lsm_woocommerce'];
+			$bps_enable_lsm_woocommerce = '';
 		}
 
 		$lsm1 = ! $lsm['bps_max_logins'] ? '3' : $lsm['bps_max_logins'];
@@ -871,18 +1116,6 @@ function bpsPro_new_version_db_options_files_autoupdate() {
 		// .53: Condition added to allow commenting out wp-admin URI whitelist rule
 		// .52.9: POST Request Attack Protection code correction|addition
 		bpsPro_post_request_protection_check();
-
-		// .52.7: Set Security Log Limit POST Request Body Data option to checked/limited by default
-		$bps_seclog_post_limit_Options = 'bulletproof_security_options_sec_log_post_limit';			
-
-		$seclog_post_limit_Options = array( 'bps_security_log_post_limit' => '1' );
-			
-		if ( ! get_option( $bps_seclog_post_limit_Options ) ) {			
-		
-			foreach( $seclog_post_limit_Options as $key => $value ) {
-				update_option('bulletproof_security_options_sec_log_post_limit', $seclog_post_limit_Options);
-			}
-		}
 
 		// BPS .52.6: Pre-save UI Theme Skin with Blue Theme if DB option does not exist
 		bpsPro_presave_ui_theme_skin_options();

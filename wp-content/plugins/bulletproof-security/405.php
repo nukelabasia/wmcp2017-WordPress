@@ -67,11 +67,18 @@ $timeNow = time();
 $gmt_offset = get_option( 'gmt_offset' ) * 3600;
 	
 	$post_limit = get_option('bulletproof_security_options_sec_log_post_limit'); 
+	$query_string = parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY);
 
-	if ( $post_limit['bps_security_log_post_limit'] == '1' ) {
-		$request_body = file_get_contents( 'php://input', NULL, NULL, 0, 500 );
+	if ( $post_limit['bps_security_log_post_none'] == '1' ) {
+		$request_body = file_get_contents( 'php://input', NULL, NULL, 0, 5 );
+	
 	} else {
-		$request_body = file_get_contents( 'php://input', NULL, NULL, 0, 250000 ); // roughly 250KB Max Limit
+	
+		if ( $post_limit['bps_security_log_post_limit'] == '1' ) {
+			$request_body = file_get_contents( 'php://input', NULL, NULL, 0, 500 );
+		} else {
+			$request_body = file_get_contents( 'php://input', NULL, NULL, 0, 250000 ); // roughly 250KB Max Limit
+		}
 	}
 
 	if ( ! get_option( 'gmt_offset' ) ) {
@@ -82,6 +89,10 @@ $gmt_offset = get_option( 'gmt_offset' ) * 3600;
 	
 	// Note: A HEAD Request should not have a Body, but leaving this code here anyway.
 	if ( ! empty($request_body) ) {
+
+		if ( $post_limit['bps_security_log_post_none'] == '1' ) {
+			$request_body = 'BPS Security Log option set to: Do Not Log POST Request Body Data';
+		}
 
 	if ( preg_match_all('/(.*)\/plugins\/(.*)\.js|(.*)\/plugins\/(.*)\.json|(.*)\/plugins\/(.*)\.php|(.*)\/plugins\/(.*)\.swf/', $_SERVER['REQUEST_URI'], $matches ) ) {
 		$event = 'PSBR-HPRA-HEAD';
@@ -96,7 +107,7 @@ $gmt_offset = get_option( 'gmt_offset' ) * 3600;
 		$solution = 'https://forum.ait-pro.com/forums/topic/security-log-event-codes/';
 	}
 
-@$log_contents = "\r\n" . '[405 HEAD Request: ' . $timestamp . ']' . "\r\n" . 'BPS: ' . $bps_version . "\r\n" . 'WP: ' . $wp_version . "\r\n" . 'Event Code: ' . $event . "\r\n" . 'Solution: ' . $solution . "\r\n" . 'REMOTE_ADDR: ' . $_SERVER['REMOTE_ADDR'] . "\r\n" . 'Host Name: ' . $hostname . "\r\n" . 'SERVER_PROTOCOL: ' . $_SERVER['SERVER_PROTOCOL'] . "\r\n" . 'HTTP_CLIENT_IP: ' . $_SERVER['HTTP_CLIENT_IP'] . "\r\n" . 'HTTP_FORWARDED: ' . $_SERVER['HTTP_FORWARDED'] . "\r\n" . 'HTTP_X_FORWARDED_FOR: ' . $_SERVER['HTTP_X_FORWARDED_FOR'] . "\r\n" . 'HTTP_X_CLUSTER_CLIENT_IP: ' . $_SERVER['HTTP_X_CLUSTER_CLIENT_IP'] . "\r\n" . 'REQUEST_METHOD: HEAD' . "\r\n" . 'HTTP_REFERER: ' . $_SERVER['HTTP_REFERER'] . "\r\n" . 'REQUEST_URI: ' . $_SERVER['REQUEST_URI'] . "\r\n" . 'QUERY_STRING: ' . $_SERVER['QUERY_STRING'] . "\r\n" . 'HTTP_USER_AGENT: '. $_SERVER['HTTP_USER_AGENT'] . "\r\n" . 'REQUEST BODY: ' . $request_body . "\r\n";
+@$log_contents = "\r\n" . '[405 HEAD Request: ' . $timestamp . ']' . "\r\n" . 'BPS: ' . $bps_version . "\r\n" . 'WP: ' . $wp_version . "\r\n" . 'Event Code: ' . $event . "\r\n" . 'Solution: ' . $solution . "\r\n" . 'REMOTE_ADDR: ' . $_SERVER['REMOTE_ADDR'] . "\r\n" . 'Host Name: ' . $hostname . "\r\n" . 'SERVER_PROTOCOL: ' . $_SERVER['SERVER_PROTOCOL'] . "\r\n" . 'HTTP_CLIENT_IP: ' . $_SERVER['HTTP_CLIENT_IP'] . "\r\n" . 'HTTP_FORWARDED: ' . $_SERVER['HTTP_FORWARDED'] . "\r\n" . 'HTTP_X_FORWARDED_FOR: ' . $_SERVER['HTTP_X_FORWARDED_FOR'] . "\r\n" . 'HTTP_X_CLUSTER_CLIENT_IP: ' . $_SERVER['HTTP_X_CLUSTER_CLIENT_IP'] . "\r\n" . 'REQUEST_METHOD: HEAD' . "\r\n" . 'HTTP_REFERER: ' . $_SERVER['HTTP_REFERER'] . "\r\n" . 'REQUEST_URI: ' . $_SERVER['REQUEST_URI'] . "\r\n" . 'QUERY_STRING: ' . $query_string . "\r\n" . 'HTTP_USER_AGENT: '. $_SERVER['HTTP_USER_AGENT'] . "\r\n" . 'REQUEST BODY: ' . $request_body . "\r\n";
 
 	if ( is_writable( $bpsProLog ) ) {
 
@@ -128,7 +139,7 @@ $gmt_offset = get_option( 'gmt_offset' ) * 3600;
 		$solution = 'https://forum.ait-pro.com/forums/topic/security-log-event-codes/';
 	}
 
-@$log_contents = "\r\n" . '[405 HEAD Request: ' . $timestamp . ']' . "\r\n" . 'BPS: ' . $bps_version . "\r\n" . 'WP: ' . $wp_version . "\r\n" . 'Event Code: ' . $event . "\r\n" . 'Solution: ' . $solution . "\r\n" . 'REMOTE_ADDR: ' . $_SERVER['REMOTE_ADDR'] . "\r\n" . 'Host Name: ' . $hostname . "\r\n" . 'SERVER_PROTOCOL: ' . $_SERVER['SERVER_PROTOCOL'] . "\r\n" . 'HTTP_CLIENT_IP: ' . $_SERVER['HTTP_CLIENT_IP'] . "\r\n" . 'HTTP_FORWARDED: ' . $_SERVER['HTTP_FORWARDED'] . "\r\n" . 'HTTP_X_FORWARDED_FOR: ' . $_SERVER['HTTP_X_FORWARDED_FOR'] . "\r\n" . 'HTTP_X_CLUSTER_CLIENT_IP: ' . $_SERVER['HTTP_X_CLUSTER_CLIENT_IP'] . "\r\n" . 'REQUEST_METHOD: HEAD' . "\r\n" . 'HTTP_REFERER: ' . $_SERVER['HTTP_REFERER'] . "\r\n" . 'REQUEST_URI: ' . $_SERVER['REQUEST_URI'] . "\r\n" . 'QUERY_STRING: ' . $_SERVER['QUERY_STRING'] . "\r\n" . 'HTTP_USER_AGENT: ' . $_SERVER['HTTP_USER_AGENT'] . "\r\n";
+@$log_contents = "\r\n" . '[405 HEAD Request: ' . $timestamp . ']' . "\r\n" . 'BPS: ' . $bps_version . "\r\n" . 'WP: ' . $wp_version . "\r\n" . 'Event Code: ' . $event . "\r\n" . 'Solution: ' . $solution . "\r\n" . 'REMOTE_ADDR: ' . $_SERVER['REMOTE_ADDR'] . "\r\n" . 'Host Name: ' . $hostname . "\r\n" . 'SERVER_PROTOCOL: ' . $_SERVER['SERVER_PROTOCOL'] . "\r\n" . 'HTTP_CLIENT_IP: ' . $_SERVER['HTTP_CLIENT_IP'] . "\r\n" . 'HTTP_FORWARDED: ' . $_SERVER['HTTP_FORWARDED'] . "\r\n" . 'HTTP_X_FORWARDED_FOR: ' . $_SERVER['HTTP_X_FORWARDED_FOR'] . "\r\n" . 'HTTP_X_CLUSTER_CLIENT_IP: ' . $_SERVER['HTTP_X_CLUSTER_CLIENT_IP'] . "\r\n" . 'REQUEST_METHOD: HEAD' . "\r\n" . 'HTTP_REFERER: ' . $_SERVER['HTTP_REFERER'] . "\r\n" . 'REQUEST_URI: ' . $_SERVER['REQUEST_URI'] . "\r\n" . 'QUERY_STRING: ' . $query_string . "\r\n" . 'HTTP_USER_AGENT: ' . $_SERVER['HTTP_USER_AGENT'] . "\r\n";
 
 	if ( is_writable( $bpsProLog ) ) {
 

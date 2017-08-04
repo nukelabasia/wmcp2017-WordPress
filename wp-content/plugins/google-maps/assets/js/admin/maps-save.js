@@ -83,4 +83,57 @@ jQuery(document).ready(function(){
 
         return false;
     });
+
+    jQuery("#locator_enabled").on("change",function () {
+        var locator_data,locatorCheck;
+        var id = jQuery("#map_id").val();
+        if(jQuery("#locator_enabled").is(":checked")){
+            locatorCheck = confirm("Enable Store Locator?");
+            if(locatorCheck) {
+                locator_data = {
+                    action: "hugeit_maps_save_locator",
+                    nonce: mapSaveL10n.nonce,
+                    map_id: id,
+                    locator_enabled:1
+                };
+                jQuery("#locator_submit").parent().find('.spinner').css('visibility','visible');
+                jQuery.post(ajaxurl, locator_data, function (response) {
+                    jQuery("#locator_submit").parent().find('.spinner').css('visibility','hidden');
+                    if (!response.success) {
+                        console.log(response);
+                    }
+                }, "json");
+            }
+            else {
+                jQuery("#locator_enabled").prop("checked",false);
+
+            }
+        }
+        else {
+            locatorCheck = confirm("Disable Store Locator?");
+            if(locatorCheck) {
+                locator_data = {
+                    action: "hugeit_maps_save_locator",
+                    nonce: mapSaveL10n.nonce,
+                    map_id: id,
+                    locator_enabled:0
+                };
+                jQuery("#locator_submit").parent().find('.spinner').css('visibility','visible');
+                jQuery.post(ajaxurl, locator_data, function (response) {
+                    jQuery("#locator_submit").parent().find('.spinner').css('visibility','hidden');
+                    if (!response.success) {
+                        console.log(response);
+                    }
+                }, "json");
+            }
+            else {
+
+                jQuery("#locator_enabled").prop("checked",true);
+
+            }
+
+        }
+        return false;
+    });
+
 });

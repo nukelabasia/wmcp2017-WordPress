@@ -27,6 +27,49 @@ if ( $ScrollTop_options['bps_scrolltop'] != 'Off' ) {
 		bpsPro_Browser_UA_scroll_animation();
 	}
 }
+
+## Preloads the w3tc_dashboard page in an iFrame, which writes W3TC htaccess code to the Root htaccess file ONLY if W3TC htaccess code does not already exist.
+// The iFrame cannot be loaded in this function: bpsPro_Pwizard_Autofix_W3TC() because things do not happen in time for processing data due to a delay in loading the iFrame.
+// Unlock the Root htaccess file if it is locked. Force generate W3TC htaccess code in the Root htaccess file by loading the W3TC Dashboard page in an iFrame.
+// Unlock the wp-config.php file if it is locked, writes the WPSC wp-config.php code.
+function bpsPro_w3tc_dashboard_iframe_preload() {
+	
+	if ( isset( $_POST['Submit-Setup-Wizard'] ) ) {
+		return;
+	}
+
+	$w3tc_plugin = 'w3-total-cache/w3-total-cache.php';
+	$w3tc_plugin_active = in_array( $w3tc_plugin, apply_filters('active_plugins', get_option('active_plugins')));
+
+	if ( $w3tc_plugin_active == 1 || is_plugin_active_for_network( $w3tc_plugin ) ) {	
+
+		$rootHtaccess = ABSPATH . '.htaccess';
+		
+		if ( file_exists($rootHtaccess) ) {
+		
+			$wpconfig = ABSPATH . 'wp-config.php';
+			$sapi_type = php_sapi_name();
+			$perms_wpconfig = @substr(sprintf('%o', fileperms($wpconfig)), -4);
+			$permsRootHtaccess = @substr(sprintf('%o', fileperms($rootHtaccess)), -4);
+				
+			if ( @substr($sapi_type, 0, 6) != 'apache' || @$perms_wpconfig != '0666' || @$perms_wpconfig != '0777' ) {
+				@chmod( $wpconfig, 0644 );
+			}
+	
+			if ( @substr($sapi_type, 0, 6) != 'apache' || @$permsRootHtaccess != '0666' || @$permsRootHtaccess != '0777' ) {
+				chmod( $rootHtaccess, 0644 );
+			}
+
+			if ( is_multisite() ) {
+				echo '<iframe src="'.network_admin_url( 'admin.php?page=w3tc_dashboard' ).'" style="width:0;height:0;border:0;border:none;"></iframe>';
+			} else {
+				echo '<iframe src="'.admin_url( 'admin.php?page=w3tc_dashboard' ).'" style="width:0;height:0;border:0;border:none;"></iframe>';
+			}
+		}
+	}
+}
+
+bpsPro_w3tc_dashboard_iframe_preload();
 ?>
 
 <?php
@@ -69,6 +112,8 @@ $bpsSpacePop = '-------------------------------------------------------------';
 
 if ( isset( $_POST['Submit-Setup-Wizard'] ) ) {
 require_once( WP_PLUGIN_DIR . '/bulletproof-security/admin/wizard/wizard-functions.php' );
+require_once( WP_PLUGIN_DIR . '/bulletproof-security/admin/wizard/pwizard-autofix.php' );
+require_once( WP_PLUGIN_DIR . '/bulletproof-security/admin/wizard/pwizard-autofix-setup.php' );
 }
 
 // Wizard Prep: Apache Module directive check to get and create the apache modules and htaccess files enabled|disabled DB options/values.
@@ -176,6 +221,9 @@ $sapi_type = php_sapi_name();
 	
 	echo '<span class="setup-wizard-checks-text">';
 
+	echo '<div style="color:black;font-size:1.13em;font-weight:bold;margin-bottom:0px;margin-top:10px;">'.__('Compatibility & Basic Checks', 'bulletproof-security').'</div>';
+	echo '<div id="pw-compatibility" style="border-top:3px solid #999999;border-bottom:3px solid #999999;margin-top:0px;"><p>';
+
 	if ( @substr($sapi_type, 0, 6) != 'apache' && get_filesystem_method() == 'direct') {
 		echo $successTextBegin.__('Pass! Compatible Server Configuration: Server API: CGI | WP Filesystem API Method: direct.', 'bulletproof-security').$successTextEnd;
 	}
@@ -278,6 +326,7 @@ switch ( $memoryLimit ) {
  		echo $failTextBegin.__('Error: The ', 'bulletproof-security').$defaultHtaccess.__(' File is NOT writable. If your Server type is DSO and the WP Filesystem API Method is NOT "direct" you can use the Setup Wizard, but you must first make some one-time manual changes to your website before running the Setup Wizard. Please click this Forum Link for instructions: ', 'bulletproof-security').'<a href="https://forum.ait-pro.com/forums/topic/dso-setup-steps/" target="_blank" title="Link opens in a new Browser window"><strong>'.__('DSO Setup Steps', 'bulletproof-security').'</a>'.__(' If your Server type is CGI check the file permissions. File permissions should be either 644 or 604.', 'bulletproof-security').$failTextEnd.'<br>';
 	}
 
+	echo '</p></div><br>'; // end Compatibility & Basic Checks visual section divider
 	echo '</span>';
 	echo '</div>';
 }
@@ -336,8 +385,29 @@ $HFiles_options = get_option('bulletproof_security_options_htaccess_files');
 	
 	echo '<span class="setup-wizard-checks-text">';
 
+	// 2.0: Setup Wizard AutoFix (AutoWhitelist|AutoSetup|AutoCleanup): Create & Save Custom Code
+	echo '<div style="color:black;font-size:1.13em;font-weight:bold;margin-bottom:0px;margin-top:10px;">'.__('AutoFix (AutoWhitelist|AutoSetup|AutoCleanup)', 'bulletproof-security').'</div>';
+	echo '<div id="pw-autofix" style="border-top:3px solid #999999;border-bottom:3px solid #999999;margin-top:0px;"><p>';
+
+	// AutoWhitelist functions
+	bpsPro_Pwizard_Autofix_Request_methods();
+	bpsPro_Pwizard_Autofix_plugin_skip_bypass_root();
+	bpsPro_Pwizard_Autofix_RFI();
+	bpsPro_Pwizard_Autofix_BPSQSE_root();
+	bpsPro_Pwizard_Autofix_plugin_skip_bypass_wpadmin();
+	bpsPro_Pwizard_Autofix_BPSQSE_wpadmin();
+	// AutoSetup|AutoCleanup functions
+	bpsPro_Pwizard_Autofix_WPSC();
+	bpsPro_Pwizard_Autofix_W3TC();
+	bpsPro_Pwizard_Autofix_Comet_Cache();
+	bpsPro_Pwizard_Autofix_Endurance();
+	bpsPro_Pwizard_Autofix_WPFC();
+	bpsPro_Pwizard_Autofix_WPR();
+	
+	echo '</p></div>';
+
 	echo '<div style="color:black;font-size:1.13em;font-weight:bold;margin-bottom:15px;">'.__('BulletProof Security Database Tables Setup', 'bulletproof-security').'</div>';
-	echo '<div id="SWDBTables" style="border-top:3px solid #999999;margin-top:-10px;"><p>';
+	echo '<div id="SWDBTables" style="border-top:3px solid #999999;border-bottom:3px solid #999999;margin-top:-10px;"><p>';
 	
 	if ( $wpdb->get_var( $wpdb->prepare( "SHOW TABLES LIKE %s", $Stable_name ) ) == $Stable_name ) {
 		echo $successTextBegin.$Stable_name.$successMessage.$successTextEnd;
@@ -360,7 +430,7 @@ $HFiles_options = get_option('bulletproof_security_options_htaccess_files');
 	echo '</p></div>';	
 	
 	echo '<div style="color:black;font-size:1.13em;font-weight:bold;margin-bottom:15px;">'.__('BulletProof Security Core Folders Setup', 'bulletproof-security').'</div>';
-	echo '<div id="SWFolders" style="border-top:3px solid #999999;margin-top:-10px;"><p>';
+	echo '<div id="SWFolders" style="border-top:3px solid #999999;border-bottom:3px solid #999999;margin-top:-10px;"><p>';
 	
 	$successMessage2 = __(' Folder created Successfully!', 'bulletproof-security');
 	$failMessage2 = __('Error: Unable to create Folder ', 'bulletproof-security');
@@ -386,7 +456,7 @@ $HFiles_options = get_option('bulletproof_security_options_htaccess_files');
 	echo '</p></div>';
 	
 	echo '<div style="color:black;font-size:1.13em;font-weight:bold;margin-bottom:15px;">'.__('BulletProof Security Core Files Setup', 'bulletproof-security').'</div>';
-	echo '<div id="SWFiles" style="border-top:3px solid #999999;margin-top:-10px;"><p>';
+	echo '<div id="SWFiles" style="border-top:3px solid #999999;border-bottom:3px solid #999999;margin-top:-10px;"><p>';
 
 	$successMessage3 = __(' File created or updated Successfully!', 'bulletproof-security');
 	$failMessage3 = __('Error: Unable to create or update File ', 'bulletproof-security');	
@@ -516,7 +586,7 @@ $HFiles_options = get_option('bulletproof_security_options_htaccess_files');
 	echo '</p></div>';
 
 	echo '<div style="color:black;font-size:1.13em;font-weight:bold;margin-bottom:15px;">'.__('BulletProof Security DB Backup Setup', 'bulletproof-security').'</div>';
-	echo '<div id="DBBackup" style="border-top:3px solid #999999;margin-top:-10px;"><p>';
+	echo '<div id="DBBackup" style="border-top:3px solid #999999;border-bottom:3px solid #999999;margin-top:-10px;"><p>';
 
 	bpsSetupWizard_dbbackup_folder_check();
 	
@@ -537,7 +607,7 @@ $HFiles_options = get_option('bulletproof_security_options_htaccess_files');
 	echo '</p></div>';
 	
 	echo '<div style="color:black;font-size:1.13em;font-weight:bold;margin-bottom:15px;">'.__('BulletProof Security Hidden Plugin Folders|Files (HPF) Setup', 'bulletproof-security').'</div>';
-	echo '<div id="HPFoptions" style="border-top:3px solid #999999;margin-top:-10px;"><p>';
+	echo '<div id="HPFoptions" style="border-top:3px solid #999999;border-bottom:3px solid #999999;margin-top:-10px;"><p>';
 	
 	$hpf_successMessage = __(' DB Option created or updated Successfully!', 'bulletproof-security');
 	$hpf_cron = get_option('bulletproof_security_options_hpf_cron');
@@ -573,25 +643,28 @@ $HFiles_options = get_option('bulletproof_security_options_htaccess_files');
 	echo '</p></div>';
 
 	echo '<div style="color:black;font-size:1.13em;font-weight:bold;margin-bottom:15px;">'.__('BulletProof Security Security Log User Agent Filter Setup', 'bulletproof-security').'</div>';
-	echo '<div id="SLuserAgentFilter" style="border-top:3px solid #999999;margin-top:-10px;"><p>';
+	echo '<div id="SLuserAgentFilter" style="border-top:3px solid #999999;border-bottom:3px solid #999999;margin-top:-10px;"><p>';
 	bpsSetupWizard_autoupdate_useragent_filters();
 	
+	// 2.0|2.3 BugFix: Changed the default option setting to: Do Not Log POST Request Body Data on new BPS installations & upgrades.
 	// .52.7: Set Security Log Limit POST Request Body Data option to checked/limited by default
-	$bps_seclog_post_limit_Options = 'bulletproof_security_options_sec_log_post_limit';			
-
-	$seclog_post_limit_Options = array( 'bps_security_log_post_limit' => '1' );
-			
-	if ( ! get_option( $bps_seclog_post_limit_Options ) ) {			
+	if ( ! get_option('bulletproof_security_options_sec_log_post_limit') ) {
 		
-		foreach( $seclog_post_limit_Options as $key => $value ) {
-			update_option('bulletproof_security_options_sec_log_post_limit', $seclog_post_limit_Options);
+		$SecLog_post_limit_settings = array( 
+		'bps_security_log_post_limit' 	=> '', 
+		'bps_security_log_post_none' 	=> '1', 
+		'bps_security_log_post_max' 	=> '' 
+		);
+			
+		foreach( $SecLog_post_limit_settings as $key => $value ) {
+			update_option('bulletproof_security_options_sec_log_post_limit', $SecLog_post_limit_settings);
 		}
-	}		
+	}
 	
 	echo '</p></div>';
 	
 	echo '<div style="color:black;font-size:1.13em;font-weight:bold;margin-bottom:15px;">'.__('BulletProof Security Email Alerting & Log File Options Setup', 'bulletproof-security').'</div>';
-	echo '<div id="SWSmonitor" style="border-top:3px solid #999999;margin-top:-10px;"><p>';	
+	echo '<div id="SWSmonitor" style="border-top:3px solid #999999;border-bottom:3px solid #999999;margin-top:-10px;"><p>';	
 	
 	$admin_email = get_option('admin_email');
 	$successMessage7 = __(' DB Option created or updated Successfully!', 'bulletproof-security');
@@ -628,25 +701,27 @@ $HFiles_options = get_option('bulletproof_security_options_htaccess_files');
 	echo '</p></div>';	
 	
 	echo '<div style="color:black;font-size:1.13em;font-weight:bold;margin-bottom:15px;">'.__('BulletProof Security Login Security & Monitoring Options Setup', 'bulletproof-security').'</div>';
-	echo '<div id="SWLoginSecurity" style="border-top:3px solid #999999;margin-top:-10px;"><p>';	
+	echo '<div id="SWLoginSecurity" style="border-top:3px solid #999999;border-bottom:3px solid #999999;margin-top:-10px;"><p>';	
 	
 	$successMessage8 = __(' DB Option created or updated Successfully!', 'bulletproof-security');
 
-	$woo_plugin_var = 'woocommerce/woocommerce.php';
-	$woo_return_var = in_array( $woo_plugin_var, apply_filters('active_plugins', get_option('active_plugins')));
+	$BPS_LSM_Options = get_option('bulletproof_security_options_login_security');
+	$woo_plugin = 'woocommerce/woocommerce.php';
+	$woo_plugin_active = in_array( $woo_plugin, apply_filters('active_plugins', get_option('active_plugins')));
 	
-	if ( $woo_return_var == 1 ) {
+	// 2.3: BugFix: Enable Login Security for WooCommerce option being reset on rerun. Only enable once if the option does not exist.
+	if ( $woo_plugin_active == 1 || is_plugin_active_for_network( $woo_plugin ) ) {
 		// .54.36: New installations of BPS should not display the WooCommerce Enable LSM option Dismiss Notice if WooCommerce is already installed.
 		$bps_woo_lsm_jtc_options = array( 'bps_wizard_woo' => '1' );
 
-		if ( ! $BPS_LSM_Options['bps_enable_lsm_woocommerce'] ) {
-			$bps_enable_lsm_woocommerce = '1';
-		} else {
+		if ( $BPS_LSM_Options['bps_enable_lsm_woocommerce'] == '' || $BPS_LSM_Options['bps_enable_lsm_woocommerce'] == '1' ) {
 			$bps_enable_lsm_woocommerce = $BPS_LSM_Options['bps_enable_lsm_woocommerce'];
+		} elseif ( ! $BPS_LSM_Options['bps_enable_lsm_woocommerce'] ) {
+			$bps_enable_lsm_woocommerce = '1';
 		}
 
 	} else {
-		$bps_enable_lsm_woocommerce = $BPS_LSM_Options['bps_enable_lsm_woocommerce'];
+		$bps_enable_lsm_woocommerce = '';
 		$bps_woo_lsm_jtc_options = array( 'bps_wizard_woo' => '' );
 	}
 
@@ -654,18 +729,16 @@ $HFiles_options = get_option('bulletproof_security_options_htaccess_files');
 			update_option('bulletproof_security_options_setup_wizard_woo', $bps_woo_lsm_jtc_options);
 		}
 
-	$$bps_login_security = get_option('bulletproof_security_options_login_security');
-	
-	$bps_login_security1 = ! $bps_login_security['bps_max_logins'] ? '3' : $bps_login_security['bps_max_logins'];
-	$bps_login_security2 = ! $bps_login_security['bps_lockout_duration'] ? '60' : $bps_login_security['bps_lockout_duration'];
-	$bps_login_security3 = ! $bps_login_security['bps_manual_lockout_duration'] ? '60' : $bps_login_security['bps_manual_lockout_duration'];
-	$bps_login_security4 = ! $bps_login_security['bps_max_db_rows_display'] ? '' : $bps_login_security['bps_max_db_rows_display'];
-	$bps_login_security5 = ! $bps_login_security['bps_login_security_OnOff'] ? 'On' : $bps_login_security['bps_login_security_OnOff'];
-	$bps_login_security6 = ! $bps_login_security['bps_login_security_logging'] ? 'logLockouts' : $bps_login_security['bps_login_security_logging'];
-	$bps_login_security7 = ! $bps_login_security['bps_login_security_errors'] ? 'wpErrors' : $bps_login_security['bps_login_security_errors'];
-	$bps_login_security8 = ! $bps_login_security['bps_login_security_remaining'] ? 'On' : $bps_login_security['bps_login_security_remaining'];
-	$bps_login_security9 = ! $bps_login_security['bps_login_security_pw_reset'] ? 'enable' : $bps_login_security['bps_login_security_pw_reset'];
-	$bps_login_security10 = ! $bps_login_security['bps_login_security_sort'] ? 'ascending' : $bps_login_security['bps_login_security_sort'];
+	$bps_login_security1 = ! $BPS_LSM_Options['bps_max_logins'] ? '3' : $BPS_LSM_Options['bps_max_logins'];
+	$bps_login_security2 = ! $BPS_LSM_Options['bps_lockout_duration'] ? '60' : $BPS_LSM_Options['bps_lockout_duration'];
+	$bps_login_security3 = ! $BPS_LSM_Options['bps_manual_lockout_duration'] ? '60' : $BPS_LSM_Options['bps_manual_lockout_duration'];
+	$bps_login_security4 = ! $BPS_LSM_Options['bps_max_db_rows_display'] ? '' : $BPS_LSM_Options['bps_max_db_rows_display'];
+	$bps_login_security5 = ! $BPS_LSM_Options['bps_login_security_OnOff'] ? 'On' : $BPS_LSM_Options['bps_login_security_OnOff'];
+	$bps_login_security6 = ! $BPS_LSM_Options['bps_login_security_logging'] ? 'logLockouts' : $BPS_LSM_Options['bps_login_security_logging'];
+	$bps_login_security7 = ! $BPS_LSM_Options['bps_login_security_errors'] ? 'wpErrors' : $BPS_LSM_Options['bps_login_security_errors'];
+	$bps_login_security8 = ! $BPS_LSM_Options['bps_login_security_remaining'] ? 'On' : $BPS_LSM_Options['bps_login_security_remaining'];
+	$bps_login_security9 = ! $BPS_LSM_Options['bps_login_security_pw_reset'] ? 'enable' : $BPS_LSM_Options['bps_login_security_pw_reset'];
+	$bps_login_security10 = ! $BPS_LSM_Options['bps_login_security_sort'] ? 'ascending' : $BPS_LSM_Options['bps_login_security_sort'];
 
 	$BPS_Options_LSM = array(
 	'bps_max_logins' 				=> $bps_login_security1, 
@@ -688,7 +761,9 @@ $HFiles_options = get_option('bulletproof_security_options_htaccess_files');
 	
 	// Custom Code - no echo/output: pre-save CC DB options for Custom Code Export|Import features ONLY if DB options do not exist
 	bpsSetupWizardCustomCodePresave();
-
+	// BPS MU Tools - no echo/output: pre-save MU Tools DB options for new BPS installations.
+	bpsSetupWizardMUToolsPresave();
+	
 	echo '</p></div>';	
 	
 	echo '</span>';
@@ -776,8 +851,6 @@ function bpsSpinnerSWizard() {
             
 <div id="bps-tabs-1" class="bps-tab-page">
 
-<h2><?php _e('Setup Wizard ~ ', 'bulletproof-security'); ?><span style="font-size:.75em;"><?php _e('One-Click Complete Setup', 'bulletproof-security'); ?></span></h2>
-
 <?php
 function bpsPro_hfiles_inpage_message() {       
 
@@ -795,7 +868,9 @@ bpsPro_hfiles_inpage_message();
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="bps-help_faq_table">
   <tr>
-    <td class="bps-table_title">&nbsp;</td>
+    <td class="bps-table_title">
+<?php $text = '<h2>'.__('Setup Wizard ~ ', 'bulletproof-security').'<span style="font-size:.75em;">'.__('One-Click Complete Setup', 'bulletproof-security').'</span></h2><div class="promo-text">'.__('Want even more security protection?', 'bulletproof-security').'<br>'.__('Protect all of your website files with AutoRestore|Quarantine Intrusion Detection & Prevention System: ', 'bulletproof-security').'<a href="https://affiliates.ait-pro.com/po/" target="_blank" title="BPS Pro ARQ IDPS">'.__('Get BPS Pro ARQ IDPS', 'bulletproof-security').'</a><br>'.__('Protect against SpamBot & HackerBot (auto-registering, auto-logins, auto-posting, auto-commenting): ', 'bulletproof-security').'<a href="https://affiliates.ait-pro.com/po/" target="_blank" title="BPS Pro JTC Anti-Spam|Anti-Hacker">'.__('Get BPS Pro JTC Anti-Spam|Anti-Hacker', 'bulletproof-security').'</a><br>'.__('Protect all of your Plugins (plugin folders and files) with an IP Firewall: ', 'bulletproof-security').'<a href="https://affiliates.ait-pro.com/po/" target="_blank" title="BPS Pro Plugin Firewall">'.__('Get BPS Pro Plugin Firewall', 'bulletproof-security').'</a><br>'.__('Protect your WordPress uploads folder against remote access or execution of files: ', 'bulletproof-security').'<a href="https://affiliates.ait-pro.com/po/" target="_blank" title="BPS Pro Uploads Anti-Exploit Guard">'.__('Get BPS Pro Uploads Anti-Exploit Guard', 'bulletproof-security').'</a></div>'; echo $text; ?>
+    </td>
   </tr>
   <tr>
     <td class="bps-table_cell_help">
@@ -852,22 +927,19 @@ bpsSetupWizardPrechecks();
 
 </td>
   </tr>
-  <tr>
-    <td class="bps-table_cell_bottom">&nbsp;</td>
-  </tr>
 </table>
 
 </div>
         
 <div id="bps-tabs-2" class="bps-tab-page">
 
-<h2><?php _e('Setup Wizard Options ~ ', 'bulletproof-security'); ?><span style="font-size:.75em;"><?php _e('Click the Setup Wizard Options Read Me help button for help info about each option setting', 'bulletproof-security'); ?></span></h2>
-
 <?php bpsPro_hfiles_inpage_message(); ?>
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="bps-help_faq_table">
   <tr>
-    <td class="bps-table_title">&nbsp;</td>
+    <td class="bps-table_title">
+<?php $text = '<h2>'.__('Setup Wizard Options ~ ', 'bulletproof-security').'<span style="font-size:.75em;">'.__('Click the Setup Wizard Options Read Me help button for help info about each option setting', 'bulletproof-security').'</span></h2><div class="promo-text">'.__('Want even more security protection?', 'bulletproof-security').'<br>'.__('Protect all of your website files with AutoRestore|Quarantine Intrusion Detection & Prevention System: ', 'bulletproof-security').'<a href="https://affiliates.ait-pro.com/po/" target="_blank" title="BPS Pro ARQ IDPS">'.__('Get BPS Pro ARQ IDPS', 'bulletproof-security').'</a><br>'.__('Protect against SpamBot & HackerBot (auto-registering, auto-logins, auto-posting, auto-commenting): ', 'bulletproof-security').'<a href="https://affiliates.ait-pro.com/po/" target="_blank" title="BPS Pro JTC Anti-Spam|Anti-Hacker">'.__('Get BPS Pro JTC Anti-Spam|Anti-Hacker', 'bulletproof-security').'</a><br>'.__('Protect all of your Plugins (plugin folders and files) with an IP Firewall: ', 'bulletproof-security').'<a href="https://affiliates.ait-pro.com/po/" target="_blank" title="BPS Pro Plugin Firewall">'.__('Get BPS Pro Plugin Firewall', 'bulletproof-security').'</a><br>'.__('Protect your WordPress uploads folder against remote access or execution of files: ', 'bulletproof-security').'<a href="https://affiliates.ait-pro.com/po/" target="_blank" title="BPS Pro Uploads Anti-Exploit Guard">'.__('Get BPS Pro Uploads Anti-Exploit Guard', 'bulletproof-security').'</a></div>'; echo $text; ?>    
+    </td>
   </tr>
   <tr>
     <td class="bps-table_cell_help">
@@ -885,10 +957,11 @@ bpsSetupWizardPrechecks();
 	?>
 	
     <strong><a href="https://forum.ait-pro.com/forums/topic/gdmw/" title="Go Daddy Managed WordPress Hosting (GDMW)" target="_blank"><?php _e('Go Daddy Managed WordPress Hosting (GDMW)', 'bulletproof-security'); ?></a></strong><br />
-    <strong><a href="https://forum.ait-pro.com/forums/topic/htaccess-files-disabled-setup-wizard-enable-disable-htaccess-files/" title="Enable|Disable htaccess Files" target="_blank"><?php _e('Enable|Disable htaccess Files', 'bulletproof-security'); ?></a></strong><br /><br />	
-
+    <strong><a href="https://forum.ait-pro.com/forums/topic/htaccess-files-disabled-setup-wizard-enable-disable-htaccess-files/" title="Enable|Disable htaccess Files" target="_blank"><?php _e('Enable|Disable htaccess Files', 'bulletproof-security'); ?></a></strong><br />
+ 	<strong><a href="https://forum.ait-pro.com/forums/topic/setup-wizard-autofix/" title="AutoFix" target="_blank"><?php _e('AutoFix Forum Topic', 'bulletproof-security'); ?></a></strong><br /><br />
+	
 	<?php
-    $dialog_text = '<strong>'.__('Go Daddy Managed WordPress Hosting (GDMW):', 'bulletproof-security').'</strong><br>'.__('This option is ONLY for a special type of Go Daddy Hosting account called "Managed WordPress Hosting" and is NOT for regular/standard Go Daddy Hosting account types. Leave the default setting set to No, unless you have a Go Daddy Managed WordPress Hosting account. See the Forum Help Links section above for more information.', 'bulletproof-security').'<br><br><strong>'.__('Enable|Disable htaccess Files:', 'bulletproof-security').'</strong><br>'.__('Before changing this option setting, click the ', 'bulletproof-security').'<strong><font color="blue">'.__('Enable|Disable htaccess Files', 'bulletproof-security').'</font></strong>'.__(' Forum Help Link at the top of this Read Me help window to find out exactly what this option setting does and when it should or should not be used. htaccess Files Disabled: Will disable all BPS htaccess features and files. htaccess Files Enabled: Will enable all BPS htaccess freatures and files.', 'bulletproof-security').'<br><br><strong>'.__('Enable|Disable wp-admin BulletProof Mode', 'bulletproof-security').'</strong><br>'.__('The default setting is already set to: wp-admin BulletProof Mode Enabled. If you would like to disable wp-admin BulletProof Mode select wp-admin BulletProof Mode Disabled.', 'bulletproof-security').'<br><br><strong>'.__('Zip File Download Fix (Incapsula, Proxy, Other Cause):', 'bulletproof-security').'</strong><br>'.__('This option should only be set to On if you are seeing a 403 error and/or unable to download these Zip files: Custom Code Export Zip file, Login Security Table Export Zip file or the Setup Wizard Root htaccess file backup Zip file. The Setup Wizard Root htaccess file backup Zip file link is only displayed if BPS detects that your current Root htaccess file is not a BPS Root htaccess file. If you are still unable to download zip files after setting this option to On then you will need to whitelist your Proxy IP address in the Plugin Firewall Whitelist by Hostname (domain name) and IP Address tool under the Plugin Firewall Additional Whitelist Tools accordion tab. If that does not work then you will need to deactivate the Plugin Firewall temporarily, download the zip file and then activate the Plugin Firewall again.', 'bulletproof-security').'<br><br><strong>'.__('Network|Multisite Sitewide Login Security Settings', 'bulletproof-security').'</strong><br>'.__('This option is for Network|Multisite sites ONLY. This is an independent option Form that creates and saves Login Security DB option settings for all Network sites when you click the Save Network LSM Options Sitewide button. If Login Security option settings have already been setup and saved for any Network site then those Login Security option settings will NOT be changed. If Login Security options settings have NOT already been setup and saved for any Network site then those Login Security option settings will be created and saved with these default settings: Max Login Attempts: 3, Automatic Lockout Time: 60, Manual Lockout Time: 60, Max DB Rows To Show: blank show all rows, Turn On|Turn Off: Turn On Login Security, Logging Options: Log Only Account Lockouts, Error Messages: Standard WP Login Errors, Attempts Remaining: Show Login Attempts Remaining, Password Reset: Enable Password Reset, Sort DB Rows: Ascending - Show Oldest Login First.', 'bulletproof-security'); 
+    $dialog_text = '<strong>'.__('AutoFix (AutoWhitelist|AutoSetup|AutoCleanup)', 'bulletproof-security').'</strong><br>'.__('Setup Wizard AutoFix is turned On by default. When AutoFix is turned On the Setup Wizard will automatically create htaccess whitelist rules in BPS Custom Code and your Live htaccess files for other plugins and themes that you have installed that require htaccess code whitelist rules. Setup Wizard AutoFix will also automatically setup or cleanup htaccess code in BPS Custom Code for these caching plugins: WP Super Cache, W3 Total Cache, Comet Cache Plugin (free & Pro), WP Fastest Cache Plugin (free & Premium), Endurance Page Cache and WP Rocket. If a problem occurs with AutoFix you can turn On the AutoFix Debugger on the BPS UI|UX Settings page > BPS UI|UX|AutoFix Debug option to check the plugin or theme name and the BPS Custom Code text box where the problem is occurring. You can also turn Off AutoFix and AutoFix will not try to detect or create Custom Code whitelist rules or setup or cleanup caching plugins htaccess code. If a problem does occur with AutoFix turn On the BPS UI|UX|AutoFix Debug option, copy the AutoFix Debug information that is displayed to you and then click the AutoFix Forum Topic link at the top of this Read Me help window and post a forum Reply with your AutoFix Debug information so that we can figure out what the problem is.', 'bulletproof-security').'<br><br><strong>'.__('Go Daddy Managed WordPress Hosting (GDMW):', 'bulletproof-security').'</strong><br>'.__('This option is ONLY for a special type of Go Daddy Hosting account called "Managed WordPress Hosting" and is NOT for regular/standard Go Daddy Hosting account types. Leave the default setting set to No, unless you have a Go Daddy Managed WordPress Hosting account. See the Forum Help Links section above for more information.', 'bulletproof-security').'<br><br><strong>'.__('Enable|Disable htaccess Files:', 'bulletproof-security').'</strong><br>'.__('Before changing this option setting, click the ', 'bulletproof-security').'<strong><font color="blue">'.__('Enable|Disable htaccess Files', 'bulletproof-security').'</font></strong>'.__(' Forum Help Link at the top of this Read Me help window to find out exactly what this option setting does and when it should or should not be used. htaccess Files Disabled: Will disable all BPS htaccess features and files. htaccess Files Enabled: Will enable all BPS htaccess freatures and files.', 'bulletproof-security').'<br><br><strong>'.__('Enable|Disable wp-admin BulletProof Mode', 'bulletproof-security').'</strong><br>'.__('The default setting is already set to: wp-admin BulletProof Mode Enabled. If you would like to disable wp-admin BulletProof Mode select wp-admin BulletProof Mode Disabled.', 'bulletproof-security').'<br><br><strong>'.__('Zip File Download Fix (Incapsula, Proxy, Other Cause):', 'bulletproof-security').'</strong><br>'.__('This option should only be set to On if you are seeing a 403 error and/or unable to download these Zip files: Custom Code Export Zip file, Login Security Table Export Zip file or the Setup Wizard Root htaccess file backup Zip file. The Setup Wizard Root htaccess file backup Zip file link is only displayed if BPS detects that your current Root htaccess file is not a BPS Root htaccess file. If you are still unable to download zip files after setting this option to On then you will need to whitelist your Proxy IP address in the Plugin Firewall Whitelist by Hostname (domain name) and IP Address tool under the Plugin Firewall Additional Whitelist Tools accordion tab. If that does not work then you will need to deactivate the Plugin Firewall temporarily, download the zip file and then activate the Plugin Firewall again.', 'bulletproof-security').'<br><br><strong>'.__('Network|Multisite Sitewide Login Security Settings', 'bulletproof-security').'</strong><br>'.__('This option is for Network|Multisite sites ONLY. This is an independent option Form that creates and saves Login Security DB option settings for all Network sites when you click the Save Network LSM Options Sitewide button. If Login Security option settings have already been setup and saved for any Network site then those Login Security option settings will NOT be changed. If Login Security options settings have NOT already been setup and saved for any Network site then those Login Security option settings will be created and saved with these default settings: Max Login Attempts: 3, Automatic Lockout Time: 60, Manual Lockout Time: 60, Max DB Rows To Show: blank show all rows, Turn On|Turn Off: Turn On Login Security, Logging Options: Log Only Account Lockouts, Error Messages: Standard WP Login Errors, Attempts Remaining: Show Login Attempts Remaining, Password Reset: Enable Password Reset, Sort DB Rows: Ascending - Show Oldest Login First.', 'bulletproof-security'); 
 	echo $dialog_text; 
 	?>
     </td>
@@ -896,6 +969,18 @@ bpsSetupWizardPrechecks();
 </table> 
 
 </div>
+
+<form name="AutoFix" action="options.php#bps-tabs-2" method="post">
+	<?php settings_fields('bulletproof_security_options_wizard_autofix'); ?>
+	<?php $AutoFix_Options = get_option('bulletproof_security_options_wizard_autofix'); ?>
+	
+    <strong><label for="auto-fix"><?php _e('AutoFix (AutoWhitelist|AutoSetup|AutoCleanup):', 'bulletproof-security'); ?></label></strong><br />
+<select name="bulletproof_security_options_wizard_autofix[bps_wizard_autofix]" class="form-300" style="margin-top:5px;">
+<option value="On" <?php selected('On', $AutoFix_Options['bps_wizard_autofix']); ?>><?php _e('AutoFix On', 'bulletproof-security'); ?></option>
+<option value="Off" <?php selected('Off', $AutoFix_Options['bps_wizard_autofix']); ?>><?php _e('AutoFix Off', 'bulletproof-security'); ?></option>
+</select><br />
+<input type="submit" name="Submit-AutoFix" class="button bps-button" style="margin:10px 0px 20px 0px;" value="<?php esc_attr_e('Save AutoFix Option', 'bulletproof-security') ?>" />
+</form>
 
 <form name="SetupWizardGDMW" action="options.php#bps-tabs-2" method="post">
 	<?php settings_fields('bulletproof_security_options_GDMW'); ?> 
@@ -1077,9 +1162,6 @@ if ( isset( $_POST['Submit-Net-LSM'] ) && current_user_can('manage_options') ) {
 ?>
 
 	</td>
-  </tr>
-  <tr>
-    <td class="bps-table_cell_bottom">&nbsp;</td>
   </tr>
 </table>
 

@@ -79,7 +79,7 @@ class pinterest_master_admin_addons_table extends WP_List_Table {
 		</tr>
 		<tr class="alternate">
 			<td style="vertical-align:middle"><img src="<?php echo plugins_url('images/techgasp-pinterestmaster-admin-addons-support.png', dirname(__FILE__)); ?>" alt="<?php echo $plugin_master_name; ?>" align="left" width="300px" height="139px" style="padding:5px;"/></td>
-			<td style="vertical-align:middle"><h3>Award Winning Professional Support</h3><p>Need professional help deploying this plugin? TechGasp provides 24/7 award winning professional wordpress support for all advanced version costumers and replies to support tickets usually within minutes of being received. Support Us and we will Support You.</p></td>
+			<td style="vertical-align:middle"><h3>Award Winning Professional Support</h3><p>Need professional help deploying this plugin? TechGasp provides award winning professional wordpress support for all advanced version costumers and wordpress professionals. Support Us and we will Support You.</p></td>
 			<td style="vertical-align:middle"><img src="<?php echo plugins_url('images/techgasp-check-'.$pinterest_master_addon.'.png', dirname(__FILE__)); ?>" alt="<?php echo $plugin_master_name; ?>" align="left" width="200px" height="121px" style="padding:5px;"/></td>
 		</tr>
 	</tbody>

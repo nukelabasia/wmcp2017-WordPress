@@ -4,6 +4,7 @@ function hugeitMapsInitializeAllMaps(id, response){
     hugeitMapsLoadPolygonMap(id, "#" + response.hue, response.saturation, response.lightness, response.gamma, response.zoom, response.type, response.bike, response.traffic, response.transit);
     hugeitMapsLoadPolylineMap(id, "#" + response.hue, response.saturation, response.lightness, response.gamma, response.zoom, response.type, response.bike, response.traffic, response.transit);
     hugeitMapsLoadCircleMap(id, "#" + response.hue, response.saturation, response.lightness, response.gamma, response.zoom, response.type, response.bike, response.traffic, response.transit);
+    hugeitMapsLoadLocatorsMap(id, "#" + response.hue, response.saturation, response.lightness, response.gamma, response.zoom, response.type, response.bike, response.traffic, response.transit);
 }
 
 var data,
@@ -118,6 +119,9 @@ jQuery(document).ready(function () {
                 marker.splice(x,1);
                 hugeitMapsDeleteItem(id, table, li, x);
                 break;
+            case "locator":
+                hugeitMapsDeleteItem(id, table, li, x);
+                break;
         }
         return false;
     });
@@ -187,6 +191,7 @@ function hugeitMapsLoadMap(id, hue, saturation, lightness, gamma, zoom, type, bi
                     zoom: parseInt(zoom),
                     center: mapcenter,
                     disableDefaultUI: true,
+                    fullscreenControl: true
                 };
 
 

@@ -383,6 +383,33 @@ if ( ! class_exists( 'WC_Connect_API_Client' ) ) {
 		}
 
 		/**
+		 * Proxy an HTTP request through the WCS Server
+		 *
+		 * @param $path Path of proxy route
+		 * @param $args WP_Http request args
+		 *
+		 * @return array|WP_Error
+		 */
+		public function proxy_request( $path, $args ) {
+			$proxy_url = trailingslashit( WOOCOMMERCE_CONNECT_SERVER_URL );
+			$proxy_url .= ltrim( $path, '/' );
+
+			$args['headers']['Authorization'] = $this->authorization_header();
+
+			$http_timeout = 60; // 1 minute
+
+			if ( function_exists( 'wc_set_time_limit' ) ) {
+				wc_set_time_limit( $http_timeout + 10 );
+			}
+
+			$args['timeout'] = $http_timeout;
+
+			$response = wp_remote_request( $proxy_url, $args );
+
+			return $response;
+		}
+
+		/**
 		 * Adds useful WP/WC/WCC information to request bodies
 		 *
 		 * @param array $initial_body
@@ -395,7 +422,7 @@ if ( ! class_exists( 'WC_Connect_API_Client' ) ) {
 			$body = array_merge( $default_body, $initial_body );
 
 			// Add interesting fields to the body of each request
-			$body['settings'] = wp_parse_args( $body['settings'], array(
+			$body[ 'settings' ] = wp_parse_args( $body[ 'settings' ], array(
 				'store_guid' => $this->get_guid(),
 				'base_city' => WC()->countries->get_base_city(),
 				'base_country' => WC()->countries->get_base_country(),
@@ -428,11 +455,13 @@ if ( ! class_exists( 'WC_Connect_API_Client' ) ) {
 			}
 
 			$headers = array();
-			$lang = strtolower( str_replace( '_', '-', get_locale() ) );
-			$headers['Accept-Language'] = $lang;
-			$headers['Content-Type'] = 'application/json; charset=utf-8';
-			$headers['Accept'] = 'application/vnd.woocommerce-connect.v1';
-			$headers['Authorization'] = $authorization;
+			$locale = strtolower( str_replace( '_', '-', get_locale() ) );
+			$locale_elements = explode( '-', $locale );
+			$lang = $locale_elements[ 0 ];
+			$headers[ 'Accept-Language' ] = $locale . ',' . $lang;
+			$headers[ 'Content-Type' ] = 'application/json; charset=utf-8';
+			$headers[ 'Accept' ] = 'application/vnd.woocommerce-connect.v1';
+			$headers[ 'Authorization' ] = $authorization;
 			return $headers;
 		}
 

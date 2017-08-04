@@ -1,117 +1,209 @@
 <?php
-/* THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY */
+/* THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY. */
 $i18nStrings = array(
-	"More" => __( "More", "woocommerce-services" ),
-	"N/A" => __( "N/A", "woocommerce-services" ),
-	"Cancel" => __( "Cancel", "woocommerce-services" ),
-	"Print" => __( "Print", "woocommerce-services" ),
-	"NOTE: If you already used the label in a package, printing and using it again is a violation of our terms of service and may result in criminal charges." => __( "NOTE: If you already used the label in a package, printing and using it again is a violation of our terms of service and may result in criminal charges.", "woocommerce-services" ),
-	"If there was a printing error when you purchased the label, you can print it again." => __( "If there was a printing error when you purchased the label, you can print it again.", "woocommerce-services" ),
-	"Reprint shipping label" => __( "Reprint shipping label", "woocommerce-services" ),
-	"Refund label (-%s)" => __( "Refund label (-%s)", "woocommerce-services" ),
-	"Amount eligible for refund" => __( "Amount eligible for refund", "woocommerce-services" ),
-	"Purchase date" => __( "Purchase date", "woocommerce-services" ),
-	"You may request a refund for a shipping label that has not been used to ship a package. Note that it will take at least 14 days to process." => __( "You can request a refund for a shipping label that has not been used to ship a package. It will take at least 14 days to process.", "woocommerce-services" ),
-	"Request a refund" => __( "Request a refund", "woocommerce-services" ),
-	"Select one..." => __( "Select one...", "woocommerce-services" ),
-	"Choose rate: Package %(index)d" => __( "Choose rate: Package %(index)d", "woocommerce-services" ),
-	"Choose rate" => __( "Choose rate", "woocommerce-services" ),
-	"The service and rate chosen by the customer at checkout is not available. Please choose another." => __( "The service and rate chosen by the customer at checkout is not available. Please choose another.", "woocommerce-services" ),
-	"Rates" => __( "Rates", "woocommerce-services" ),
-	"Total rate: %(currencySymbol)s%(total).2f" => __( "Total rate: %(currencySymbol)s%(total).2f", "woocommerce-services" ),
-	"" => __( "", "woocommerce-services" ),
-	"%(serviceName)s: %(currencySymbol)s%(rate).2f" => __( "%(serviceName)s: %(currencySymbol)s%(rate).2f", "woocommerce-services" ),
-	"Preview" => __( "Preview", "woocommerce-services" ),
-	"Package dimensions" => __( "Package dimensions", "woocommerce-services" ),
-	"Total Weight" => __( "Total Weight", "woocommerce-services" ),
-	"Quantity" => __( "Quantity", "woocommerce-services" ),
-	"Package contents" => __( "Package contents", "woocommerce-services" ),
-	"Package %d (of %d)" => __( "Package %d (of %d)", "woocommerce-services" ),
-	"Use this package" => __( "Use this package", "woocommerce-services" ),
-	"Packages" => __( "Packages", "woocommerce-services" ),
-	"Weight not entered" => __( "Weight not entered", "woocommerce-services" ),
-	"%d packages" => __( "%d packages", "woocommerce-services" ),
-	"Use selected address" => __( "Use selected address", "woocommerce-services" ),
-	"Suggested address" => __( "Suggested address", "woocommerce-services" ),
-	"Edit address" => __( "Edit address", "woocommerce-services" ),
-	"Address entered" => __( "Address entered", "woocommerce-services" ),
-	"We have slightly modified the address entered. If correct, please use the suggested address to ensure accurate delivery." => __( "We have slightly modified the address entered. If correct, please use the suggested address to ensure accurate delivery.", "woocommerce-services" ),
-	"Destination address" => __( "Destination address", "woocommerce-services" ),
-	"Origin address" => __( "Origin address", "woocommerce-services" ),
-	"Invalid address" => __( "Invalid address", "woocommerce-services" ),
-	"Validating address..." => __( "Validating address...", "woocommerce-services" ),
-	"Use this address" => __( "Use this address", "woocommerce-services" ),
-	"Country" => __( "Country", "woocommerce-services" ),
-	"Postal code" => __( "Postal code", "woocommerce-services" ),
-	"State" => __( "State", "woocommerce-services" ),
-	"City" => __( "City", "woocommerce-services" ),
-	"Address" => __( "Address", "woocommerce-services" ),
-	"Company" => __( "Company", "woocommerce-services" ),
-	"Name" => __( "Name", "woocommerce-services" ),
-	"Create shipping labels" => __( "Create shipping labels", "woocommerce-services" ),
-	"Create shipping label" => __( "Create shipping label", "woocommerce-services" ),
-	"%d Labels" => __( "%d Labels", "woocommerce-services" ),
-	"1 Label" => __( "1 Label", "woocommerce-services" ),
-	"Buy & Print" => __( "Buy & Print", "woocommerce-services" ),
-	"Refund label" => __( "Refund label", "woocommerce-services" ),
-	"Reprint label" => __( "Reprint label", "woocommerce-services" ),
-	"Ship via" => __( "Ship via", "woocommerce-services" ),
-	"Tracking" => __( "Tracking", "woocommerce-services" ),
-	"Refund request date" => __( "Refund request date", "woocommerce-services" ),
-	"Refund submitted" => __( "Refund submitted", "woocommerce-services" ),
-	"Refund status" => __( "Refund status", "woocommerce-services" ),
-	"Create label" => __( "Create label", "woocommerce-services" ),
-	"Saved Packages" => __( "Saved Packages", "woocommerce-services" ),
-	"Add and edit saved packages using the <a href=\"%(url)s\" target=\"_blank\">Packaging Manager</a>." => __( "Add and edit saved packages using the <a href=\"%(url)s\" target=\"_blank\">Packaging Manager</a>.", "woocommerce-services" ),
-	"Price adjustment" => __( "Price adjustment", "woocommerce-services" ),
-	"Service" => __( "Service", "woocommerce-services" ),
-	"Expand Services" => __( "Expand Services", "woocommerce-services" ),
-	"%d services selected" => __( "%d services selected", "woocommerce-services" ),
-	"%d service selected" => __( "%d service selected", "woocommerce-services" ),
-	"All services selected" => __( "All services selected", "woocommerce-services" ),
-	"Dimensions (L x W x H)" => __( "Dimensions (L x W x H)", "woocommerce-services" ),
-	"Type" => __( "Type", "woocommerce-services" ),
-	"Your packages will display here once they are added." => __( "Your packages will display here once they are added.", "woocommerce-services" ),
-	"Untitled" => __( "Untitled", "woocommerce-services" ),
-	"Add a package" => __( "Add a package", "woocommerce-services" ),
-	"Packaging" => __( "Packaging", "woocommerce-services" ),
-	"Save changes" => __( "Save changes", "woocommerce-services" ),
-	"Unable to save your packages. Please try again." => __( "Unable to save your packages. Please try again.", "woocommerce-services" ),
-	"Your packages have been saved." => __( "Your packages have been saved.", "woocommerce-services" ),
-	"Defines both the weight of the empty box and the max weight it can hold" => __( "Defines both the weight of the empty box and the max weight it can hold", "woocommerce-services" ),
-	"Max weight" => __( "Max weight", "woocommerce-services" ),
-	"Weight of box" => __( "Weight of box", "woocommerce-services" ),
-	"Package weight" => __( "Package weight", "woocommerce-services" ),
-	"Outer Dimensions (L x W x H) %s" => __( "Outer Dimensions (L x W x H) %s", "woocommerce-services" ),
-	"Inner Dimensions (L x W x H) %s" => __( "Inner Dimensions (L x W x H) %s", "woocommerce-services" ),
-	"This field must be unique" => __( "This field must be unique", "woocommerce-services" ),
-	"The customer will see this during checkout" => __( "The customer will see this during checkout", "woocommerce-services" ),
-	"Package name" => __( "Package name", "woocommerce-services" ),
-	"Edit package" => __( "Edit package", "woocommerce-services" ),
-	"This field is required" => __( "This field is required", "woocommerce-services" ),
-	"Invalid value" => __( "Invalid value", "woocommerce-services" ),
-	"View exterior dimensions" => __( "View exterior dimensions", "woocommerce-services" ),
-	"Apply changes" => __( "Apply changes", "woocommerce-services" ),
-	"Add package" => __( "Add package", "woocommerce-services" ),
-	"Type of package" => __( "Type of package", "woocommerce-services" ),
-	"You have unsaved changes." => __( "You have unsaved changes.", "woocommerce-services" ),
-	"Expires %(monthAndYear)s" => __( "Expires %(monthAndYear)s", "woocommerce-services" ),
-	"No payment methods available" => __( "No payment methods available", "woocommerce-services" ),
-	"Payment Method" => __( "Payment Method", "woocommerce-services" ),
-	"Manage your payment methods on %(startLink)sWordPress.com%(endLink)s" => __( "Manage your payment methods on %(startLink)sWordPress.com%(endLink)s", "woocommerce-services" ),
-	"Unable to update your payment method. Please try again." => __( "Unable to update your payment method. Please try again.", "woocommerce-services" ),
-	"Your payment method has been updated." => __( "Your payment method has been updated.", "woocommerce-services" ),
-	"Please choose a rate" => __( "Please choose a rate", "woocommerce-services" ),
-	"Invalid weight" => __( "Invalid weight", "woocommerce-services" ),
-	"Invalid ZIP code format" => __( "Invalid ZIP code format", "woocommerce-services" ),
-	"This address is not recognized. Please try another." => __( "This address is not recognized. Please try another.", "woocommerce-services" ),
-	"Dismiss" => __( "Dismiss", "woocommerce-services" ),
-	"Expand" => __( "Expand", "woocommerce-services" ),
-	"There was a problem with one or more entries. Please fix the errors below and try saving again." => __( "There was a problem with one or more entries. Please fix the errors below and try saving again.", "woocommerce-services" ),
-	"Your changes have been saved." => __( "Your changes have been saved.", "woocommerce-services" ),
-	"Unexpected server error." => __( "Unexpected server error.", "woocommerce-services" ),
-	"The refund request has been sent successfully." => __( "The refund request has been sent successfully", "woocommerce-services" ),
-	"Save Settings" => __( "Save Settings", "woocommerce-services" ),
-	"Saving…" => __( "Saving…", "woocommerce-services" ),
+__( "N/A", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Cancel", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Print", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Paper size", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "NOTE: If you already used the label in a package, printing and using it again is a violation of our terms of service and may result in criminal charges.", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "If there was a printing error when you purchased the label, you can print it again.", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Reprint shipping label", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Cancel", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Refund label (-%(amount)s)", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Amount eligible for refund", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Purchase date", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "You can request a refund for a shipping label that has not been used to ship a package. It will take at least 14 days to process.", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Request a refund", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Select one...", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Choose rate: %(pckg)s", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Choose rate", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "The service and rate chosen by the customer at checkout is not available. Please choose another.", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Rates", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Total rate: %(currencySymbol)s%(total)s", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( " ", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "%(serviceName)s: %(currencySymbol)s%(rate).2f", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Unsaved changes made to packages", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "There are no items saved for a later delivery", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Saved for later", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Remove this package", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Total Weight", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "There are no items in this package.", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Contents", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Custom Packages", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Add item", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Cancel", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Move", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Save for later", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Ship in original packaging", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Where would you like to move it?", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Move item", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "{{itemLink/}} is currently in {{pckg/}}.", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "{{itemLink/}} is currently shipped in its original packaging.", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "{{itemLink/}} is currently saved for a later shipment.", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Saved for later", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Add package", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Original packaging", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Boxed", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Use these packages", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "There are no packages or items associated with this order", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "There are no packages configured. The items have been packed individually. You can add or enable packages using the {{a}}Packaging Manager{{/a}}.", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "%(itemsCount)d items in %(packageCount)d packages: %(weight)f %(unit)s total", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "%(itemsCount)d items in 1 package: %(weight)f %(unit)s total", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "1 item in 1 package: %(weight)f %(unit)s total", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Weight not entered", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "No packages selected", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Packages", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Cancel", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Add", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Which item would you like to add to {{pckg/}}?", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Add item", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "%(item)s from {{pckg/}}", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Use selected address", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Suggested address", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Edit address", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Address entered", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "We have slightly modified the address entered. If correct, please use the suggested address to ensure accurate delivery.", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Destination address", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Origin address", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Invalid address", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Validating address...", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Use this address", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Country", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Postal code", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "State", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "City", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Address", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Phone", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Company", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Name", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Paper size", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Create shipping labels", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Create shipping label", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Cancel", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Buy & Print", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Buy", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Buy & Print (%(currencySymbol)s%(ratesTotal)s)", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Buy (%(currencySymbol)s%(ratesTotal)s)", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Purchasing...", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Print", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Tracking #: {{trackingLink/}}", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "purchased", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Label #%(labelNum)s", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Reprint", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Refund rejected", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Refunded on %(date)s", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Refund pending", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Request refund", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Create new label", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Add a credit card", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "To purchase shipping labels, you will first need to add a credit card.", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Manage cards", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Labels will be purchased using card ending: {{strong}}%(cardDigits)s.{{/strong}}", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Add and edit saved packages using the {{a}}Packaging Manager{{/a}}.", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Saved Packages", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Okay", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Now add your zip code and chose which services you want to offer your customers.", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Increase the rates calculated by the carrier to account for packaging and handling costs. You can also add a negative amount to save your customers money.", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Price adjustment", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Service", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Expand Services", "woocommerce-services" ), // dist/woocommerce-services.js:1
+_n( "%(numSelected)d service selected", "%(numSelected)d services selected", 1, "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "All services selected", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Print", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Paper size", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "You can run a test print for shipping labels by selecting the paper size, then print.", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Having trouble configuring your printer?", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Print", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Dimensions (L x W x H)", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Name", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Type", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Your packages will display here once they are added.", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Untitled", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Unable to get your settings. Please refresh the page to try again.", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Predefined packages", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Add a package", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Custom packages", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Save changes", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Unable to save your packages. Please try again.", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Your packages have been saved.", "woocommerce-services" ), // dist/woocommerce-services.js:1
+_n( "%(selectedCount)d package selected", "%(selectedCount)d packages selected", 1, "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "All packages selected", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Expand Services", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Defines both the weight of the empty box and the max weight it can hold", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Max weight", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Max weight", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Weight of box", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Package weight", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Outer Dimensions (L x W x H) %(dimensionUnit)s", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Inner Dimensions (L x W x H) %(dimensionUnit)s", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "This field must be unique", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "The customer will see this during checkout", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Package name", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Add a package", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Edit package", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "This field is required", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Invalid value", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "View exterior dimensions", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Cancel", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Apply changes", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Add package", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Type of package", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "less than a minute ago", "woocommerce-services" ), // dist/woocommerce-services.js:1
+_n( "a minute ago", "%(interval)d minutes ago", 1, "woocommerce-services" ), // dist/woocommerce-services.js:1
+_n( "an hour ago", "%(interval)d hours ago", 1, "woocommerce-services" ), // dist/woocommerce-services.js:1
+_n( "a day ago", "%(interval)d days ago", 1, "woocommerce-services" ), // dist/woocommerce-services.js:1
+_n( "a month ago", "%(interval)d months ago", 1, "woocommerce-services" ), // dist/woocommerce-services.js:1
+_n( "a year ago", "%(interval)d years ago", 1, "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Select one...", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Add another credit card", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Use your credit card on file to pay for the labels you print or add a new one.", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Credit card", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Paper size", "woocommerce-services" ), // dist/woocommerce-services.js:1
+_x( "Expires %(date)s", "date is of the form MM/YY", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "****%(digits)s", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "PayPal", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "VISA", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "MasterCard", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Discover", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "American Express", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Unable to get your settings. Please refresh the page to try again.", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Save changes", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Unable to update your payment method. Please try again.", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Your payment method has been updated.", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "You have unsaved changes.", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "More", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Move", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "TEST LABEL 2", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "TEST LABEL 1", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Unexpected server error.", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Unexpected server error.", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "There was a problem saving your settings. Please try again after the page is reloaded.", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Expand", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "This field is required", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Please choose a rate", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "We couldn't get a rate for this package, please try again.", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Invalid weight", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "This field is required", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Invalid ZIP code format", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Invalid phone number for %(country)s", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "This field is required", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "This address is not recognized. Please try another.", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "There was a problem with one or more entries. Please fix the errors below and try saving again.", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "There was a problem with one or more entries. Please fix the errors below and try saving again.", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Your changes have been saved.", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Box %d", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Envelope %d", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Package %d", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "The refund request has been sent successfully.", "woocommerce-services" ), // dist/woocommerce-services.js:1
+_n( "Your shipping label was purchased successfully", "Your %(count)d shipping labels were purchased successfully", 1, "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "PACKAGE %(num)d (OF %(total)d)", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "There was a problem saving your settings. Please try again after the page is reloaded.", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Dismiss", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Letter", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Legal", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Label (4\"x6\")", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "A4", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Save Settings", "woocommerce-services" ), // dist/woocommerce-services.js:1
+__( "Saving…", "woocommerce-services" ), // dist/woocommerce-services.js:1
 );
 /* THIS IS THE END OF THE GENERATED FILE */

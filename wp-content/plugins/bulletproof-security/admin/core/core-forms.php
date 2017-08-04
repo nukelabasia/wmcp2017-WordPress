@@ -614,30 +614,6 @@ if ( isset( $_POST['bpsResetDismissSubmit'] ) && current_user_can('manage_option
 		echo $text;
 	}	
 
-	if ( ! delete_user_meta($user_id, 'bps_ignore_BLC_notice') ) {
-		$text = __('The Broken Link Checker plugin HEAD Request Method filter Dismiss Notice is NOT set. Nothing to reset.', 'bulletproof-security').'<br>';
-		echo $text;
-	} else {
-		$text = '<span style="color:#008000;">'.__('Success! The Broken Link Checker plugin HEAD Request Method filter check is reset.', 'bulletproof-security').'</span><br>';
-		echo $text;
-	}
-
-	if ( ! delete_user_meta($user_id, 'bps_ignore_jetpack_notice') ) {
-		$text = __('The Jetpack XML-RPC Bonus Custom Code & Site Uptime Monitor Notices are NOT set. Nothing to reset.', 'bulletproof-security').'<br>';
-		echo $text;
-	} else {
-		$text = '<span style="color:#008000;">'.__('Success! The Jetpack XML-RPC Bonus Custom Code & Site Uptime Monitor checks are reset.', 'bulletproof-security').'</span><br>';
-		echo $text;
-	}
-
-	if ( ! delete_user_meta($user_id, 'bps_ignore_woocommerce_notice') ) {
-		$text = __('The WooCommerce Notice is NOT set. Nothing to reset.', 'bulletproof-security').'<br>';
-		echo $text;
-	} else {
-		$text = '<span style="color:#008000;">'.__('Success! The WooCommerce Notice is reset.', 'bulletproof-security').'</span><br>';
-		echo $text;
-	}
-
 	if ( ! delete_user_meta($user_id, 'bps_ignore_woocommerce_lsm_jtc_notice') ) {
 		$text = __('The BPS WooCommerce Options Notice: Enable Login Security for WooCommerce is NOT set. Nothing to reset.', 'bulletproof-security').'<br>';
 		echo $text;

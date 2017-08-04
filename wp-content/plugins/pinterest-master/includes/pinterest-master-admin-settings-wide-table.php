@@ -26,7 +26,7 @@ class pinterest_master_admin_settings_wide_table extends WP_List_Table {
 		<tr class="alternate">
 			<td>
 				<p>These Settings apply to all shortcodes and widgets. Pinterest API only allows one instance to be loaded per page. Pinterest Master avoids just that and allows you to load all widgets, shortcodes and buttons into a single page.</p>
-				<p>This is the central place where you can easily control the pin-it button hover, size, shape and colour. Make sure the <b>Activate TechGasp Pinterest System</b> is <b>On</b>.</p>
+				<p>This is the central place where you can easily control the pinterest save button hover, size and shape. Make sure the <b>Activate TechGasp Pinterest System</b> is <b>On</b>.</p>
 			</td>
 		</tr>
 	</tbody>

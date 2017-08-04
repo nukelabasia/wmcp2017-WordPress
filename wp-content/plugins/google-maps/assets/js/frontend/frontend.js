@@ -1,11 +1,11 @@
 var hugeitMaps = [];
 
 function hugeitMapsBindInfoWindow(marker, map, infowindow, description, infoType, openOnload) {
-    if(openOnload){
-        google.maps.event.addListenerOnce(map, 'tilesloaded', function() {
-            infowindow.setContent(description);
-            infowindow.open(map, marker);
-        });
+    if (openOnload) {
+        /* Temporarily unnecessary       google.maps.event.addListenerOnce(map, 'tilesloaded', function() {
+         infowindow.setContent(description);
+         infowindow.open(map, marker);
+         });*/
     }
 
     google.maps.event.addListener(marker, 'click', function () {
@@ -15,7 +15,7 @@ function hugeitMapsBindInfoWindow(marker, map, infowindow, description, infoType
 }
 
 function hugeitMapsAttachInstructionText(stepDisplay, marker, text, map) {
-    google.maps.event.addListener(marker, 'click', function() {
+    google.maps.event.addListener(marker, 'click', function () {
         /*Open an info window when the marker is clicked on, containing the text of the step.*/
         stepDisplay.setContent(text);
         stepDisplay.open(map, marker);
@@ -23,11 +23,9 @@ function hugeitMapsAttachInstructionText(stepDisplay, marker, text, map) {
 }
 
 
-
-
 jQuery(document).ready(function () {
-    function hugeitMapsInitializeMap( elementId ) {
-        var element = jQuery( "#"+elementId ),
+    function hugeitMapsInitializeMap(elementId) {
+        var element = jQuery("#" + elementId),
             marker = [],
             polygone = [],
             polyline = [],
@@ -42,6 +40,7 @@ jQuery(document).ready(function () {
             infowindows = [],
             newcirclemarker = [],
             circlepoint,
+            locatorEnabled = element.data('locator-enabled'),
             width = element.width(),
             height = element.height(),
             div = parseInt(width) / parseInt(height),
@@ -55,6 +54,7 @@ jQuery(document).ready(function () {
             dataZoomController = parseInt(element.data('zoom-controller')),
             dataTypeController = parseInt(element.data('type-controller')),
             dataScaleController = parseInt(element.data('scale-controller')),
+            imgurl = element.data('img-url'),
             dataStreetViewController = parseInt(element.data('street-view-controller')),
             dataOverviewMapController = parseInt(element.data('overview-map-controller')),
             dataInfoType = element.data('info-type'),
@@ -79,7 +79,8 @@ jQuery(document).ready(function () {
             overviewMapControl: dataOverviewMapController,
             mapTypeId: google['maps']['MapTypeId']['ROADMAP'],
             minZoom: dataMinZoom,
-            maxZoom: dataMaxZoom
+            maxZoom: dataMaxZoom,
+            fullscreenControl: true
         };
         var front_end_map = new google.maps.Map(document.getElementById(elementId), frontEndMapOptions);
         var front_end_data = {
@@ -95,6 +96,7 @@ jQuery(document).ready(function () {
             }
         }).done(function (response) {
             hugeitMapsInitializeMap(response);
+            locStores = response.success.locators;
         }).fail(function () {
             console.log('Failed to load response from database');
         });
@@ -119,9 +121,9 @@ jQuery(document).ready(function () {
                     });
                     var currentInfoWindow;
 
-                    if(dataOpenInfowindowsOnload){
+                    if (dataOpenInfowindowsOnload) {
                         currentInfoWindow = infowindows[i] = new google.maps.InfoWindow;
-                    }else{
+                    } else {
                         currentInfoWindow = infowindow;
                     }
                     hugeitMapsBindInfoWindow(marker[i], front_end_map, currentInfoWindow, description, dataInfoType, dataOpenInfowindowsOnload);
@@ -208,24 +210,367 @@ jQuery(document).ready(function () {
                 }
             }
         }
+
+        /* locator start */
+        if (locatorEnabled != 0) {
+            var locpOptions = {
+                map: front_end_map,
+                strokeColor: "#00FF00",
+                strokeOpacity: 0.9,
+                strokeWeight: 4
+            };
+            var locDirectionsService = new google.maps.DirectionsService;
+            var locDirectionsDisplay = new google.maps.DirectionsRenderer({
+                suppressMarkers: true,
+                polylineOptions: locpOptions
+            });
+            var locRouteInfowindow = new google.maps.InfoWindow;
+            var locClosest, locClosetPosition, def, locClosetAddress, locInfoWindow, locCurrent,fromLatLng, locMarker, finalStores = [], locClosetArr = [], locMarkers = [];
+            var locBounds = new google.maps.LatLngBounds();
+            var locMap_id = dataMapId;
+            var input = document.getElementById('searchLocator_' + locMap_id);
+            var autocomplete = new google.maps.places.Autocomplete(input);
+            var searchBox = new google.maps.places.SearchBox(input);
+            var LocatorIcon = {
+                url: imgurl + "/str-marker-icon.png",
+                labelOrigin: new google.maps.Point(22, 20)
+            };
+            var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            var labelIndex = 1;
+
+            function calcDistance(pointA, pointB) {
+
+                return (google.maps.geometry.spherical.computeDistanceBetween(pointA, pointB) / 1000).toFixed(2);
+
+            }
+
+            function clearDistance() {
+                for (var i in locMarkers) {
+                    if (locMarkers[i].get('name') == 'closest') {
+                        locMarkers[i].setMap(null);
+                        locMarkers[i].length = 0;
+                    }
+
+                    if (locCurrent) {
+                        locCurrent.setMap(null);
+                        locCurrent.length = 0;
+                    }
+
+                }
+            }
+
+            function clearLocations() {
+                for (var i in locMarkers) {
+                    locMarkers[i].setMap(null);
+                }
+                locMarkers.length = 0;
+            }
+
+            function clearDirections() {
+                locDirectionsDisplay.setMap(null);
+            }
+
+
+
+            var oldRadius;
+            var hgCounter=0;
+            var hgTheSame;
+            jQuery(document).on("click", "#submitLocator_" + locMap_id, function () {
+                if(oldRadius!=jQuery("#locatorRadius_" + locMap_id).val()){
+                    oldRadius = jQuery("#locatorRadius_" + locMap_id).val();
+                    hgTheSame=false;
+                }
+                else {
+                    hgTheSame=true;
+                }
+
+                var locAddress = jQuery("#searchLocator_" + locMap_id).val();
+                var locRadius =  jQuery("#locatorRadius_" + locMap_id).val();
+                var testGetDist = function (lp1, lp2) {
+                    var deferred = jQuery.Deferred();
+                    var tLocRoute, tLocContent;
+                    locDirectionsService.route({
+                        origin: lp1,
+                        destination: lp2,
+                        travelMode: 'DRIVING'
+                    }, function (response, status) {
+                        if (status === google.maps.DirectionsStatus.OK) {
+                            tLocRoute = response.routes[0];
+                            deferred.resolve(tLocContent = Number(tLocRoute.legs[0].distance.value / 1000).toFixed(1));
+                        }
+                        else {
+                            deferred.reject(status);
+                        }
+                    });
+                    return deferred.promise();
+                };
+
+
+                function getFinalStores(locStores) {
+                    var dfd = jQuery.Deferred();
+                    for (var i in locStores) {
+                        (function(i){
+
+                            locStores[i].latLng = new google.maps.LatLng(locStores[i].locator_lat, locStores[i].locator_lng);
+
+
+                            testGetDist(fromLatLng, locStores[i].latLng).then(function (resp) {
+                                    if (resp < parseInt(locRadius)) {
+                                        locStores[i].distance = resp;
+                                        finalStores.push(locStores[i]);
+                                    }
+
+                                },
+                                function (err) {
+
+                                    console.log(err);
+
+                                }).always(function () {
+                                if (i == locStores.length - 1) {
+                                    dfd.resolve();
+                                }
+                            });
+                        }(i));
+
+                    }
+
+                    return dfd.promise();
+                }
+                if (locAddress != "" && locRadius != "") {
+                    finalStores = [];
+                    var geocoder = new google.maps.Geocoder();
+                    geocoder.geocode({'address': locAddress}, function (result, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            /* Compare old with new value */
+                            if(!!fromLatLng){
+                                var oldLatLng = fromLatLng;
+                            }
+                            fromLatLng = new google.maps.LatLng(result[0].geometry.location.lat(), result[0].geometry.location.lng());
+                                if(!!oldLatLng){
+                                    if(oldLatLng.lat()===fromLatLng.lat() && oldLatLng.lng()===fromLatLng.lng() && hgTheSame ){
+                                        return false;
+                                    }
+                                }
+
+                            /* Compare old with new value */
+                            getFinalStores(locStores).then(function () {
+                                if (finalStores.length > 0) {
+                                    labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                                    labelIndex = 1;
+                                    jQuery(document).find("#huge_main_store_block").remove();
+                                    jQuery(".huge_it_google_map_container").after("<div id='huge_main_store_block'></div>");
+                                    var StoreBlock = "";
+                                    StoreBlock += "<div class='str-block'>";
+                                    StoreBlock += "        <div class='addr-info'>";
+                                    StoreBlock += "            <div class='str-img'>";
+                                    StoreBlock += "                <img src='" + imgurl + "\/str-marker.png' alt=''>";
+                                    StoreBlock += "            <\/div>";
+                                    StoreBlock += "            <div class='addr_block'>";
+                                    StoreBlock += "                <p class='str-name'><\/p>";
+                                    StoreBlock += "                <p class='str-dir'><a href='' target='_blank'>Get Directions<\/a><\/p>";
+                                    StoreBlock += "                <div class='str-phone'>";
+                                    StoreBlock += "                    <img src='" + imgurl + "\/phone.png' alt=''><p class='str-number'><\/p>";
+                                    StoreBlock += "                <\/div>";
+                                    StoreBlock += "";
+                                    StoreBlock += "            <\/div>";
+                                    StoreBlock += "";
+                                    StoreBlock += "            <p class='str-addr'><\/p>";
+                                    StoreBlock += "        <\/div>";
+                                    StoreBlock += "";
+                                    StoreBlock += "        <div class='a_info'>";
+                                    StoreBlock += "            <table>";
+                                    StoreBlock += "                <tr>";
+                                    StoreBlock += "                    <td>Sun<\/td>";
+                                    StoreBlock += "                    <td name='sun'><\/td>";
+                                    StoreBlock += "                <\/tr>";
+                                    StoreBlock += "                <tr>";
+                                    StoreBlock += "                    <td>Mon<\/td>";
+                                    StoreBlock += "                    <td name='mon'><\/td>";
+                                    StoreBlock += "                <\/tr>";
+                                    StoreBlock += "                <tr>";
+                                    StoreBlock += "                    <td>Tue<\/td>";
+                                    StoreBlock += "                    <td name='tue'><\/td>";
+                                    StoreBlock += "                <\/tr>";
+                                    StoreBlock += "                <tr>";
+                                    StoreBlock += "                    <td>Wed<\/td>";
+                                    StoreBlock += "                    <td name='wed'><\/td>";
+                                    StoreBlock += "                <\/tr>";
+                                    StoreBlock += "                <tr>";
+                                    StoreBlock += "                    <td>Thu<\/td>";
+                                    StoreBlock += "                    <td name='thu'><\/td>";
+                                    StoreBlock += "                <\/tr>";
+                                    StoreBlock += "                <tr>";
+                                    StoreBlock += "                    <td>Fri<\/td>";
+                                    StoreBlock += "                    <td name='fri'><\/td>";
+                                    StoreBlock += "                <\/tr>";
+                                    StoreBlock += "                <tr>";
+                                    StoreBlock += "                    <td>Sat<\/td>";
+                                    StoreBlock += "                    <td name='sat'><\/td>";
+                                    StoreBlock += "                <\/tr>";
+                                    StoreBlock += "";
+                                    StoreBlock += "            <\/table>";
+                                    StoreBlock += "";
+                                    StoreBlock += "        <\/div>";
+                                    StoreBlock += "    <\/div>";
+                                    locClosetArr = [];
+                                    clearDistance();
+                                    clearLocations();
+                                    clearDirections();
+                                    locClosest = parseInt(locRadius);
+
+                                    for (var i in finalStores) {
+                                        locClosetArr.push(finalStores[i].distance);
+                                    }
+                                    locClosest = Math.min.apply(null, locClosetArr);
+                                    for (var i in finalStores) {
+
+                                        if (typeof(finalStores[i].locator_days) != "object" && finalStores[i].locator_days != "") {
+                                            finalStores[i].locator_days = JSON.parse(finalStores[i].locator_days);
+                                        }
+                                        else {
+
+                                            if(typeof(finalStores[i].locator_days) != "object" && finalStores[i].locator_days == ""){
+                                                finalStores[i].locator_days = JSON.parse(null);
+                                            }
+
+                                        }
+
+                                        locMarker = new google.maps.Marker({
+                                            map: front_end_map,
+                                            position: {
+                                                lat: finalStores[i].locator_lat,
+                                                lng: finalStores[i].locator_lng
+                                            },
+                                            id: i,
+                                            icon: LocatorIcon,
+                                            label: labels[labelIndex++ % labels.length]
+
+                                        });
+                                        locInfoWindow = new google.maps.InfoWindow;
+
+                                        if (parseFloat(finalStores[i].distance) <= parseFloat(locClosest)) {
+                                            locClosest = finalStores[i].distance;
+                                            locClosetPosition = {
+                                                lat: parseFloat(finalStores[i].locator_lat),
+                                                lng: parseFloat(finalStores[i].locator_lng)
+                                            };
+                                            locClosetAddress = finalStores[i].locator_addr;
+                                            locMarker.set('name', 'closest');
+                                        }
+
+                                        locBounds.extend(locMarker.getPosition());
+                                        google.maps.event.addListener(locMarker, 'click', function (i) {
+                                            return function () {
+                                                testGetDist(fromLatLng, this.position).then(function (resp) {
+                                                    locInfoWindow.setContent("<b>" + finalStores[i].name + "</b><br/>" + finalStores[i].locator_addr + "<br/>" + resp+" km");
+                                                }, function (err) {
+                                                    console.log(err);
+                                                });
+                                                locInfoWindow.open(front_end_map, this);
+                                            }
+                                        }(i));
+
+                                        locMarkers.push(locMarker);
+                                        jQuery("#huge_main_store_block").append(StoreBlock);
+                                        if (finalStores[i].locator_phone == "") {
+                                            jQuery(document).find(".str-phone").last().css("visibility", 'hidden');
+                                        }
+                                        else {
+                                            jQuery(document).find(".str-phone").last().css("visibility", 'visible');
+                                        }
+                                        var gDirQuery = finalStores[i].locator_addr;
+                                        gDirQuery = gDirQuery.replace(/ /g, '+');
+                                        jQuery(document).find("#huge_main_store_block .str-name").last().text(finalStores[i].name);
+                                        jQuery(document).find("#huge_main_store_block .str-addr").last().text(finalStores[i].locator_addr);
+                                        jQuery(document).find("#huge_main_store_block .str-number").last().text(finalStores[i].locator_phone);
+                                        jQuery(document).find("#huge_main_store_block .str-dir a").last().prop('href', 'https://www.google.com/maps/dir//' + gDirQuery);
+                                        jQuery(document).find("#huge_main_store_block .str-img img").last().before("<p class='markerLabel'>" + locMarker.label + "</p>");
+                                        jQuery(document).find("#huge_main_store_block .a_info").last().find("table tr td:last-child").each(function () {
+                                            var nameDayOfWeek = jQuery(this).attr('name');
+                                            if (finalStores[i].locator_days[nameDayOfWeek].start != "" && finalStores[i].locator_days[nameDayOfWeek].end != "") {
+                                                jQuery(this).text(finalStores[i].locator_days[nameDayOfWeek].start + " - " + finalStores[i].locator_days[nameDayOfWeek].end);
+                                            }
+                                            else {
+                                                jQuery(this).text("Closed");
+                                            }
+                                        });
+                                    }
+                                    locCurrent = new google.maps.Marker({
+                                        map: front_end_map,
+                                        icon: LocatorIcon,
+                                        label: 'A',
+                                        position: fromLatLng
+                                    });
+                                    google.maps.event.addListener(locCurrent, "click", function () {
+                                        locInfoWindow.setContent(locAddress);
+                                        locInfoWindow.open(front_end_map, this);
+                                    });
+
+                                    locBounds.extend(locCurrent.getPosition());
+                                    front_end_map.fitBounds(locBounds);
+                                    center_coords = locBounds;
+                                    var locRoute, locContent;
+                                    locDirectionsDisplay.setMap(front_end_map);
+                                    locDirectionsService.route({
+                                        origin: locCurrent.getPosition(),
+                                        destination: locClosetPosition,
+                                        travelMode: 'DRIVING'
+                                    }, function (response, status) {
+                                        if (status === google.maps.DirectionsStatus.OK) {
+                                            locDirectionsDisplay.setDirections(response);
+                                            locRoute = response.routes[0];
+                                            locContent = "<b>Total distance: </b>" + locRoute.legs[0].distance.text;
+                                            front_end_map.fitBounds(locBounds);
+                                        }
+                                        else {
+                                            window.alert('Directions request failed due to ' + status);
+                                        }
+                                    });
+                                    locRouteInfowindow.close();
+                                    google.maps.event.clearListeners(locpOptions, 'click');
+                                    google.maps.event.addListener(locpOptions, "click", function (e) {
+                                        locRouteInfowindow.close();
+                                        locRouteInfowindow.setPosition(e.latLng);
+                                        locRouteInfowindow.setContent(locContent);
+                                        locRouteInfowindow.open(front_end_map);
+                                    });
+
+                                }
+                                else {
+                                    clearDistance();
+                                    clearLocations();
+                                    clearDirections();
+                                    jQuery(document).find("#huge_main_store_block").remove();
+                                    alert("Sorry, but there are not available stores in certain radius!");
+
+                                }
+                            });
+                        } else {
+                            alert('Geocode was not successful for the following reason: ' + status);
+                        }
+
+                    });
+                }
+            });
+        }
+
+        /* locator end */
     }
 
     var allMaps = jQuery('.huge_it_google_map');
 
-    if( allMaps.length ){
+    if (allMaps.length) {
 
-        allMaps.each(function(i){
+        allMaps.each(function (i) {
 
             var id = jQuery(this).attr('id');
 
-            hugeitMaps[i] = hugeitMapsInitializeMap( id );
-
+            hugeitMaps[i] = hugeitMapsInitializeMap(id);
 
 
         });
 
     }
-
 
 
 });

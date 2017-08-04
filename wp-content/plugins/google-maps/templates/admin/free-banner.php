@@ -15,7 +15,7 @@
 		<a target="_blank"  href="https://wordpress.org/support/plugin/google-maps/reviews/"><?php _e( 'Rate Us', 'hugeit_maps' ); ?></a>
 		<a target="_blank"  href="https://goo.gl/fL6fnN"><?php _e( 'Full Demo', 'hugeit_maps' ); ?></a>
 		<a target="_blank"  href="https://goo.gl/S37Km3"><?php _e( 'FAQ', 'hugeit_maps' ); ?></a>
-		<a target="_blank"  href="http://huge-it.com/contact-us/"><?php _e( 'Contact Us', 'hugeit_maps' ); ?></a>
+		<a target="_blank"  href="https://wordpress.org/support/plugin/google-maps"><?php _e( 'Contact Us', 'hugeit_maps' ); ?></a>
 	</div>
 	<div  class="description_text"><p><?php _e( 'This is the Lite version of the plugin. Click "GET THE FULL VERSION" for more advanced options and customization possibilities. We appreciate your attention and cooperation.', 'hugeit_maps' ); ?></p></div>
 	<div style="clear: both;"></div>

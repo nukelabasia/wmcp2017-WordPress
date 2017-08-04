@@ -130,6 +130,13 @@ interface Hugeit_Maps_Map_Interface {
 	 */
 	public function set_pan_controller( $pan_controller );
 
+    /**
+     * @param int $locator_enabled
+     * @return Hugeit_Maps_Map
+     * @throws Exception
+     */
+    public function set_locator_enabled( $locator_enabled );
+
 	/**
 	 * @return string
 	 */

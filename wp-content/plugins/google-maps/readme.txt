@@ -1,10 +1,10 @@
-=== Google Map ===
+=== Google Maps - Google Maps Builder ===
 Contributors: Huge-IT
 Donate link: https://huge-it.com/google-map/
-Tags: google map, google maps, easy map, map, maps, map plugin, map markers, marker, polygons, polylines, store locator, google maps plugin,
+Tags: google map, google maps, map, maps, marker,
 Requires at least: 3.0.1
-Tested up to: 4.7.2
-Stable tag: 2.2.4
+Tested up to: 4.7.5
+Stable tag: 2.2.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -19,7 +19,7 @@ Google Map plugin form Huge-IT-the best solution to add awesome Google Maps to y
 * [Google Maps FAQ](https://huge-it.com/wordpress-google-map-faq/)
 * [Google Maps User Manual](https://huge-it.com/wordpress-google-map-user-manual/)
 * [Google Maps Support](https://huge-it.com/contact-us/)
-* [Google Maps Forum](https://huge-it.com/forums/forum/wordpress/wordpress-google-maps/)
+* [Google Maps Forum](https://wordpress.org/support/plugin/google-maps)
 * [Google Maps Github Project](https://github.com/Huge-IT/google-maps)
 
 https://www.youtube.com/watch?v=-2z8tDZeaBs
@@ -130,9 +130,11 @@ Huge-IT Google Maps exports CSV file, which makes it easy to export data, create
 
 If you think, that you found a bug in our [WordPress Google Maps](https://huge-it.com/google-map/) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
 
+
+
 == Installation ==
 
-### Uploading in WordPress Dashboard
+#### Uploading in WordPress Dashboard
 
 1. First download the ZIP file from Wordpress website
 2. Log in to your website administrator panel
@@ -159,8 +161,6 @@ If you think, that you found a bug in our [WordPress Google Maps](https://huge-i
 5. You can see the plugin installed on Wordpress left menu
 
 Now you can set your Image Gallery options, images and use our Google Maps.
-
-If you think, that you found a bug in our [WordPress Google Maps](https://huge-it.com/google-map/) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
 
 == Screenshots ==
 
@@ -243,9 +243,34 @@ In order to install pro version of the plugin, simply follow these steps:
 * Using the php shortcode that Google Maps provides, you may insert it in the desired file of template, let it be footer, header or the content file.
 
 
+= How to disable Google Maps zoom while scrolling? =
+
+* There is Wheel Scrolling option in General options of the plugin pro version, you need to set it off to disable Google Maps zoom while scrolling.
+
+
+= How Google Maps Markers can be created for one Google Maps project? =
+
+* The Google Maps  plugin offers an opportunity to add unlimited markers for the map.
+
+
+= Does the Google Maps plugin have an option to change the Google Maps marker logo? =
+
+* The Google Maps plugin offers an option to change the icon of the Google Maps marker in the General Options (option is available in the PRO version). Simply go to Admin page> Markers> Add New Marker> Choose Marker Icon. Google Maps also supports an option to add the logo you wish (e.g. Company logo).
+
+
 If you think, that you found a bug in our [WordPress Google Maps](https://huge-it.com/google-map/) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
 
 == Changelog ==
+
+= 2.2.6 =
+* 1) ADD: Added advanced view for store locator ith detailed description.
+* 2) FIX: UX/UI issue fixes as well as functionality optimization.
+* 3) EDIT: Approved the licensing page with the whole list of pugin functionality.
+
+= 2.2.5 =
+* 1) We have added a new option of maps full screen.
+* 2) We have added 15 new icons for markers (Pro).
+* 3) We have added a new ption called Store locator, allowing users to search certain locations on front end of the Google Map.
 
 = 2.2.4 =
 * 1) General Options-Marker Infowindow Opens on-doesn't save.
@@ -436,3 +461,22 @@ In order to add created Google Maps plugin in post/page, copy/past the shortcode
 * PRO On-Hover Fill Color. Choose color  for internal area of circle while hover
 * PRO On-Hover Line Transparency. Select the level of transparency for boundary line while hover
 * PRO On-Hover Line Color. Choose color for  boundary line while hover
+
+### 2.6 Frontend Directions
+
+* An advance feature is already implemented in the Google Maps plugin.
+* This feature offers an option to have see the directions on the Front-End of the Google Maps. 
+
+* Enable Frontend Directions. Enable the function to allow showing Google Maps directions on the Front-End
+* Directions Window Align. This option gives an opportunity to set an alignment to the Google Maps Directions Window. Left, right, bottom alignments are available for the Google Maps Directions Window.
+* Directions Window Width. The option gives an opportunity to set a width value to the Google Maps Directions Window.
+
+**Create Copy Of this Map**
+
+* The option allows copying the particular Google Maps project. After copying the Google Maps project, it saves the project in the admin page, adding the word “copy” before the original name.
+* Besides, the Google Maps displays the shortcode of the new Google Maps project and displays it below the map. This will allow copying the Google Maps project shortcode and publish it in a few seconds.
+
+**Template Include**
+
+* The plugin offers a shortcode to copy insert  into a template file to include the Google Maps within your theme.
+* The plugin is designed in a way to show the existing Google Maps projects in a tabs. With this option, you can quickly move from one Google Maps to another by one click. 

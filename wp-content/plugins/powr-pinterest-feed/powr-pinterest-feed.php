@@ -1,14 +1,14 @@
 <?php
     /**
      * @package POWr Pinterest Feed
-     * @version 1.6.2
+     * @version 1.6.3
      */
     /*
     Plugin Name: POWr Pinterest Feed
-    Plugin URI: https://www.powr.io
+    Plugin URI: https://www.powr.io/plugins/pinterest-feed
     Description: Get more pins with an automatic Pinterest feed  Drop the widget anywhere in your theme. Or use the POWr icon in your WP text editor to add to a page or post. Edit on your live page by clicking the settings icon. More plugins and tutorials at POWr.io.
     Author: POWr.io
-    Version: 1.6.2
+    Version: 1.6.3
     Author URI: https://www.powr.io
     */
 

@@ -83,6 +83,26 @@ class Hugeit_Maps_Install {
 			}
 
 		}
+
+        $new_columns=array(
+            Hugeit_Maps()->get_table_name( 'maps' )=>array(
+                'locator_enabled'=>'INT DEFAULT 0',
+            ),
+            Hugeit_Maps()->get_table_name( 'stores' )=>array(
+                'locator_phone'=>'VARCHAR(80) NOT NULL',
+                'locator_days' =>'TEXT NOT NULL',
+            )
+        );
+        foreach ($new_columns as $table=>$columns){
+            foreach($columns as $column=>$type){
+                $column_exists=$wpdb->get_var(" SELECT count('COLUMN_TYPE') FROM INFORMATION_SCHEMA.COLUMNS WHERE table_schema = '" . $wpdb->dbname . "' AND table_name = '".$table."' AND column_name = '".$column."' ");
+
+                if(!$column_exists){
+                    $wpdb->query("ALTER TABLE $table ADD $column $type");
+                }
+            }
+        }
+
 	}
 
 	/**
@@ -157,6 +177,7 @@ class Hugeit_Maps_Install {
 				styling_gamma int(2) UNSIGNED NOT NULL DEFAULT '1',
 				styling_saturation int(3) NOT NULL DEFAULT '0',
 				animation varchar(100) NOT NULL DEFAULT 'none',
+				locator_enabled int(2) NOT NULL DEFAULT '0',
 		
 				PRIMARY KEY (id)
 			) {$collate}"
@@ -257,6 +278,22 @@ class Hugeit_Maps_Install {
             ){$collate}"
 		);
 
+        $wpdb->query(
+            "CREATE TABLE IF NOT EXISTS " . $wpdb->prefix . "hugeit_maps_stores(
+                id int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+                map_id int(11) UNSIGNED DEFAULT NULL,
+                name varchar(60) NOT NULL,
+                locator_addr varchar(80) NOT NULL,
+                locator_phone varchar(80) NOT NULL,
+                locator_days TEXT NOT NULL,
+                locator_lat float(10,6) NOT NULL,
+                locator_lng float(10,6) NOT NULL,
+                
+                PRIMARY KEY (id)
+            ){$collate}"
+        );
+
+
         self::alter_tables();
 
 	}
@@ -337,7 +374,8 @@ class Hugeit_Maps_Install {
             ->set_align( 'center' )
             ->set_border_radius( 0 )
             ->set_language( 'location based' )
-            ->set_animation( 'none' );
+            ->set_animation( 'none' )
+            ->set_locator_enabled(0);;
 
         $saved_map = $map->save();
 

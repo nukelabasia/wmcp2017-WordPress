@@ -78,13 +78,18 @@ function bps_zip_root_htaccess_file() {
 	if ( class_exists('ZipArchive') ) {
 
 		$zip = new ZipArchive();
-		$filename = WP_PLUGIN_DIR . '/bulletproof-security/admin/wizard/root-htaccess-file.zip';
+		$filename = WP_PLUGIN_DIR . '/bulletproof-security/admin/wizard/htaccess-files.zip';
 	
 		if ( $zip->open($filename, ZIPARCHIVE::CREATE) !== TRUE ) {
     		exit("Error: Cannot Open $filename\n");
 		}
 
-		$zip->addFile(ABSPATH . '.htaccess', ".htaccess");
+		$zip->addFile( ABSPATH . '.htaccess', "root.htaccess" );
+		
+		if ( file_exists( ABSPATH . '/wp-admin/.htaccess' ) ) {
+			$zip->addFile( ABSPATH . '/wp-admin/.htaccess', "wp-admin.htaccess" );
+		}
+		
 		$zip->close();
 
 	return true;
@@ -100,14 +105,45 @@ function bps_zip_root_htaccess_file() {
 			mb_internal_encoding( 'ISO-8859-1' );
 		}
   		
-		$archive = new PclZip(WP_PLUGIN_DIR . '/bulletproof-security/admin/wizard/root-htaccess-file.zip');
-		$v_list = $archive->create(ABSPATH . '.htaccess', PCLZIP_OPT_REMOVE_PATH, ABSPATH);
+		$root_htaccess = ABSPATH . '.htaccess';
+		$wp_admin_htaccess = ABSPATH . '/wp-admin/.htaccess';
+		$root_htaccess_dest = WP_PLUGIN_DIR . '/bulletproof-security/admin/wizard/root.htaccess';
+		$wp_admin_htaccess_dest = WP_PLUGIN_DIR . '/bulletproof-security/admin/wizard/wp-admin.htaccess';
+		$blank_dummy_file = WP_PLUGIN_DIR . '/bulletproof-security/admin/htaccess/blank.txt';;		
+		
+		if ( file_exists($root_htaccess) ) {
+			copy($root_htaccess, $root_htaccess_dest);
+		}
+		if ( file_exists($wp_admin_htaccess) ) {
+			copy($wp_admin_htaccess, $wp_admin_htaccess_dest);
+		}
+		// PclZip will lose its mind if the wp-admin htaccess file does not exist. So create a dummy file.
+		if ( ! file_exists($wp_admin_htaccess) ) {
+			copy($blank_dummy_file, $wp_admin_htaccess_dest);
+		}				
+
+		$archive = new PclZip(WP_PLUGIN_DIR . '/bulletproof-security/admin/wizard/htaccess-files.zip');
   	
-	return true;
+		$v_list = $archive->create(array(
+			array( PCLZIP_ATT_FILE_NAME => WP_PLUGIN_DIR . '/bulletproof-security/admin/wizard/root.htaccess', 
+				PCLZIP_ATT_FILE_NEW_SHORT_NAME => 'root.htaccess'
+				),
+			array( PCLZIP_ATT_FILE_NAME => WP_PLUGIN_DIR . '/bulletproof-security/admin/wizard/wp-admin.htaccess', 
+				PCLZIP_ATT_FILE_NEW_SHORT_NAME => 'wp-admin.htaccess' 
+				),
+			),
+			PCLZIP_OPT_REMOVE_PATH, WP_PLUGIN_DIR . '/bulletproof-security/admin/wizard/');
+
+		if ( $v_list >= 1 ) {
+			unlink($root_htaccess_dest);
+			unlink($wp_admin_htaccess_dest);
+	
+			return true;
+		}
 
 		if ( $v_list == 0 ) {
 			die("Error : ".$archive->errorInfo(true) );
-		return false;	
+			return false;	
 		}
 	}
 }

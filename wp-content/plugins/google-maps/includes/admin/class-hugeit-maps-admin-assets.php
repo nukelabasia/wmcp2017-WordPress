@@ -27,6 +27,8 @@ class Hugeit_Maps_Admin_Assets {
 
 			wp_enqueue_style( 'hugeit-simple-slider', Hugeit_Maps()->plugin_url().'/assets/css/simple-slider.css' );
 
+            wp_enqueue_style( 'hugeit-js-timepicker', Hugeit_Maps()->plugin_url().'/assets/css/jquery.timepicker.css' );
+
 			wp_enqueue_style( 'hugeit-animate-css', Hugeit_Maps()->plugin_url().'/assets/css/animate.css' );
 
 			wp_enqueue_style( 'roboto', 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;subset=cyrillic' );
@@ -39,6 +41,7 @@ class Hugeit_Maps_Admin_Assets {
 
         if( in_array( $hook, array('post.php', 'post-new.php') ) ){
             wp_enqueue_style( 'hugeit-simple-slider', Hugeit_Maps()->plugin_url().'/assets/css/simple-slider.css' );
+            wp_enqueue_style( 'hugeit-js-timepicker', Hugeit_Maps()->plugin_url().'/assets/css/jquery.timepicker.css' );
         }
 
         if($hook === Hugeit_Maps()->admin->pages['licensing']){
@@ -66,11 +69,13 @@ class Hugeit_Maps_Admin_Assets {
             }
 
             if( isset($_GET['task']) && $_GET['task'] == 'edit_map' ){
-                wp_enqueue_script( "hugeit-google-maps-api", 'https://maps.googleapis.com/maps/api/js?'.$key_param.'libraries=places' );
+                wp_enqueue_script( "hugeit-google-maps-api", 'https://maps.googleapis.com/maps/api/js?'.$key_param.'libraries=places,geometry' );
 
                 wp_enqueue_script( "hugeit-jscolor", Hugeit_Maps()->plugin_url()."/assets/jscolor/jscolor$suffix.js", array( 'jquery' ), false, true );
 
                 wp_enqueue_script( "hugeit-simple-slider", Hugeit_Maps()->plugin_url()."/assets/js/simple-slider.js", array( 'jquery' ), false, true );
+
+                wp_enqueue_script( "hugeit-js-timepicker", Hugeit_Maps()->plugin_url()."/assets/js/jquery.timepicker.min.js", array( 'jquery' ), false, true );
 
                 wp_enqueue_script( 'hugeit-maps-admin-accordion-sections', Hugeit_Maps()->plugin_url().'/assets/js/admin/accordion-sections.js', array( 'jquery' ), false, true );
 
@@ -88,6 +93,8 @@ class Hugeit_Maps_Admin_Assets {
 
                 wp_enqueue_script( 'hugeit-maps-admin-polygons', Hugeit_Maps()->plugin_url().'/assets/js/admin/polygons.js', array( 'jquery' ), false, true );
 
+                wp_enqueue_script( 'hugeit-maps-admin-locator', Hugeit_Maps()->plugin_url().'/assets/js/admin/locator.js', array( 'jquery' ), false, true );
+
                 wp_enqueue_script( 'hugeit-maps-admin-polylines', Hugeit_Maps()->plugin_url().'/assets/js/admin/polylines.js', array( 'jquery' ), false, true );
 
                 wp_enqueue_script( 'hugeit-maps-admin-circles', Hugeit_Maps()->plugin_url().'/assets/js/admin/circles.js', array( 'jquery' ), false, true );
@@ -102,6 +109,7 @@ class Hugeit_Maps_Admin_Assets {
 
                 wp_enqueue_script( 'hugeit-maps-admin-circles-save', Hugeit_Maps()->plugin_url().'/assets/js/admin/circles-save.js', array( 'jquery' ), false, true );
 
+                wp_enqueue_script( 'hugeit-maps-admin-locator-save', Hugeit_Maps()->plugin_url().'/assets/js/admin/locator-save.js', array( 'jquery' ), false, true );
             }
 
             wp_enqueue_script( 'hugeit-maps-admin-js', Hugeit_Maps()->plugin_url().'/assets/js/admin/admin.js', array( 'jquery' ), false, true );
@@ -112,6 +120,7 @@ class Hugeit_Maps_Admin_Assets {
         if( in_array( $hook, array('post.php', 'post-new.php') ) ){
             wp_enqueue_script( "hugeit-simple-slider", Hugeit_Maps()->plugin_url()."/assets/js/simple-slider.js", array( 'jquery' ), false, true );
             wp_enqueue_script( "hugeit-maps-inline-popup", Hugeit_Maps()->plugin_url()."/assets/js/admin/inline-popup.js", array( 'jquery' ), false, true );
+            wp_enqueue_script( "hugeit-js-timepicker", Hugeit_Maps()->plugin_url()."/assets/js/jquery.timepicker.min.js", array( 'jquery' ), false, true );
         }
 
         self::localize_scripts();
@@ -175,6 +184,13 @@ class Hugeit_Maps_Admin_Assets {
         wp_localize_script( 'hugeit-maps-admin-polylines', 'polylineL10n', array(
             'map'=>$localized_map,
         ) );
+
+        wp_localize_script( 'hugeit-maps-admin-locator', 'locatorL10n', array(
+            'map'=>$localized_map,
+            'startPointTitle' => __( 'Start Point', 'hugeit_maps' ),
+            'invalidLocatorPoints' => __( 'Could not construct a route with the given options', 'hugeit_maps' )
+        ) );
+
         wp_localize_script( 'hugeit-maps-admin-circles', 'circleL10n', array('map'=>$localized_map) );
 
         wp_localize_script( 'hugeit-maps-admin-maps-save', 'mapSaveL10n',array(
@@ -196,6 +212,10 @@ class Hugeit_Maps_Admin_Assets {
 
         wp_localize_script( 'hugeit-maps-admin-circles-save', 'circleSaveL10n',array(
             'nonce'=>wp_create_nonce( 'hugeit-maps-circle-save' )
+        ) );
+
+        wp_localize_script( 'hugeit-maps-admin-locator-save', 'locatorSaveL10n',array(
+            'nonce'=>wp_create_nonce( 'hugeit-maps-locator-save' )
         ) );
 
     }

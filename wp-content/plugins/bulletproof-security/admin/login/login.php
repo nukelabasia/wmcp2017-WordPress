@@ -164,7 +164,6 @@ if ( ! current_user_can('manage_options') ) {
 		</ul>
             
 <div id="bps-tabs-1" class="bps-tab-page">
-<h2><?php _e('Login Security & Monitoring (LSM) ~ ', 'bulletproof-security'); ?><span style="font-size:.75em;"><?php _e('Log All Account Logins or Log Only Account Lockouts ~ Brute Force Login Protection', 'bulletproof-security'); ?></span></h2>
 
 <?php
 	$BPS_wpadmin_Options = get_option('bulletproof_security_options_htaccess_res');
@@ -177,7 +176,9 @@ if ( ! current_user_can('manage_options') ) {
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="bps-help_faq_table">
   <tr>
-    <td class="bps-table_title">&nbsp;</td>
+    <td class="bps-table_title">
+<?php $text = '<h2>'.__('Login Security & Monitoring (LSM) ~ ', 'bulletproof-security').'<span style="font-size:.75em;">'.__('Log All Account Logins or Log Only Account Lockouts ~ Brute Force Login Protection', 'bulletproof-security').'</span></h2><div class="promo-text">'.__('Want even more security protection?', 'bulletproof-security').'<br>'.__('Protect against SpamBot & HackerBot (auto-registering, auto-logins, auto-posting, auto-commenting) & User Account Lockouts: ', 'bulletproof-security').'<a href="https://affiliates.ait-pro.com/po/" target="_blank" title="BPS Pro JTC Anti-Spam|Anti-Hacker">'.__('Get BPS Pro JTC Anti-Spam|Anti-Hacker', 'bulletproof-security').'</a>'; echo $text; ?>
+    </td>
   </tr>
   <tr>
     <td class="bps-table_cell_help">
@@ -498,7 +499,7 @@ if ( isset( $_POST['Submit-Login-Security-search'] ) && current_user_can('manage
 		echo '</table>';
 		echo '</div>';	
 
-		echo "<input type=\"submit\" name=\"Submit-Login-Search-Radio\" value=\"".__('Submit', 'bulletproof-security')."\" class=\"button bps-button\" onclick=\"return confirm('".__('Locking and Unlocking a User is reversible, but Deleting a User is not.\n\n-------------------------------------------------------------\n\nWhen you delete a User you are deleting that User database row from the BPS Login Security Database Table and not from the WordPress User Database Table.\n\n-------------------------------------------------------------\n\nTo delete a User Account from your WordPress website use the standard/normal WordPress Users page.\n\n-------------------------------------------------------------\n\nClick OK to proceed or click Cancel', 'bulletproof-security')."')\" />&nbsp;&nbsp;<input type=\"button\" name=\"cancel\" value=\"".__('Clear|Refresh', 'bulletproof-security')."\" class=\"button bps-button\" onclick=\"javascript:history.go(0)\" /></form>";
+		echo "<input type=\"submit\" name=\"Submit-Login-Search-Radio\" value=\"".__('Submit', 'bulletproof-security')."\" class=\"button bps-button\" onclick=\"return confirm('".__('Locking and Unlocking a User is reversible, but Deleting a User is not.\n\n-------------------------------------------------------------\n\nWhen you delete a User you are deleting that User database row from the BPS Login Security Database Table and not from the WordPress User Database Table.\n\n-------------------------------------------------------------\n\nTo delete a User Account from your WordPress website use the standard/normal WordPress Users page.\n\n-------------------------------------------------------------\n\nClick OK to proceed or click Cancel', 'bulletproof-security')."')\" />&nbsp;&nbsp;<input type=\"button\" name=\"cancel\" value=\"".__('Clear|Refresh', 'bulletproof-security')."\" class=\"button bps-button\" onclick=\"javascript:history.go(0)\" /></form><br>";
 	}
 	} else {
 
@@ -599,7 +600,7 @@ if ( isset( $_POST['Submit-Login-Security-search'] ) && current_user_can('manage
 		echo '</table>';
 		echo '</div>';	
 
-		echo "<input type=\"submit\" name=\"Submit-Login-Security-Radio\" value=\"".__('Submit', 'bulletproof-security')."\" class=\"button bps-button\" onclick=\"return confirm('".__('Locking and Unlocking a User is reversible, but Deleting a User is not.\n\n-------------------------------------------------------------\n\nWhen you delete a User you are deleting that User database row from the BPS Login Security Database Table and not from the WordPress User Database Table.\n\n-------------------------------------------------------------\n\nTo delete a User Account from your WordPress website use the standard/normal WordPress Users page.\n\n-------------------------------------------------------------\n\nClick OK to proceed or click Cancel', 'bulletproof-security')."')\" />&nbsp;&nbsp;<input type=\"button\" name=\"cancel\" value=\"".__('Clear|Refresh', 'bulletproof-security')."\" class=\"button bps-button\" onclick=\"javascript:history.go(0)\" /></form>";
+		echo "<input type=\"submit\" name=\"Submit-Login-Security-Radio\" value=\"".__('Submit', 'bulletproof-security')."\" class=\"button bps-button\" onclick=\"return confirm('".__('Locking and Unlocking a User is reversible, but Deleting a User is not.\n\n-------------------------------------------------------------\n\nWhen you delete a User you are deleting that User database row from the BPS Login Security Database Table and not from the WordPress User Database Table.\n\n-------------------------------------------------------------\n\nTo delete a User Account from your WordPress website use the standard/normal WordPress Users page.\n\n-------------------------------------------------------------\n\nClick OK to proceed or click Cancel', 'bulletproof-security')."')\" />&nbsp;&nbsp;<input type=\"button\" name=\"cancel\" value=\"".__('Clear|Refresh', 'bulletproof-security')."\" class=\"button bps-button\" onclick=\"javascript:history.go(0)\" /></form><br>";
 	}
 	}
 ?>
@@ -859,20 +860,16 @@ if ( isset($_POST['Submit-Login-Search-Radio'] ) && current_user_can('manage_opt
 ?>
 </td>
   </tr>
-  <tr>
-    <td class="bps-table_cell_bottom">&nbsp;</td>
-  </tr>
 </table>
 </div>
 
 <?php if ( is_multisite() && $blog_id != 1 ) { echo '<div style="margin:0px 0px 0px 0px;"></div>'; } else { ?>
 
 <div id="bps-tabs-2" class="bps-tab-page">
-<h2><?php _e('Idle Session Logout (ISL) ~ ', 'bulletproof-security'); ?><span style="font-size:.75em;"><?php _e('Automatically Logout Idle/Inactive User Accounts', 'bulletproof-security'); ?></span><br /><?php _e('Auth Cookie Expiration (ACE) ~ ', 'bulletproof-security'); ?></span><span style="font-size:.75em;"><?php _e('Change the WordPress Authentication Cookie Expiration Time', 'bulletproof-security'); ?></h2>
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="bps-help_faq_table">
   <tr>
-    <td class="bps-table_title">&nbsp;</td>
+    <td class="bps-table_title"><h2><?php _e('Idle Session Logout (ISL) ~ ', 'bulletproof-security'); ?><span style="font-size:.75em;"><?php _e('Automatically Logout Idle/Inactive User Accounts', 'bulletproof-security'); ?></span><br /><?php _e('Auth Cookie Expiration (ACE) ~ ', 'bulletproof-security'); ?></span><span style="font-size:.75em;"><?php _e('Change the WordPress Authentication Cookie Expiration Time', 'bulletproof-security'); ?></h2></td>
   </tr>
   <tr>
     <td class="bps-table_cell_help">
@@ -1228,9 +1225,6 @@ if ( isset( $_POST['Submit-ACE-Options'] ) && current_user_can('manage_options')
 
 </td>
   </tr>
-  <tr>
-    <td class="bps-table_cell_bottom">&nbsp;</td>
-  </tr>
 </table>
 
 </div>
@@ -1238,25 +1232,17 @@ if ( isset( $_POST['Submit-ACE-Options'] ) && current_user_can('manage_options')
 <?php } ?>
 
 <div id="bps-tabs-3" class="bps-tab-page">
-<h2><?php _e('BulletProof Security Help &amp; FAQ', 'bulletproof-security'); ?></h2>
+
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="bps-help_faq_table">
    <tr>
-    <td colspan="2" class="bps-table_title">&nbsp;</td>
+    <td class="bps-table_title"><h2><?php _e('BulletProof Security Help &amp; FAQ', 'bulletproof-security'); ?></h2></td>
   </tr>
   <tr>
-    <td width="50%" class="bps-table_cell_help_links"><a href="https://forum.ait-pro.com/forums/topic/security-log-event-codes/" target="_blank"><?php _e('Security Log Event Codes', 'bulletproof-security'); ?></a></td>
-    <td width="50%" class="bps-table_cell_help_links"><a href="https://www.ait-pro.com/aitpro-blog/category/bulletproof-security-contributors/" target="_blank"><?php _e('Contributors Page', 'bulletproof-security'); ?></a></td>
-  </tr>
-  <tr>
-    <td class="bps-table_cell_help_links"><a href="https://forum.ait-pro.com/forums/topic/plugin-conflicts-actively-blocked-plugins-plugin-compatibility/" target="_blank"><?php _e('Forum: Search, Troubleshooting Steps & Post Questions For Assistance', 'bulletproof-security'); ?></a></td>
-    <td class="bps-table_cell_help_links">&nbsp;</td>
-  </tr>
-  <tr>
-    <td class="bps-table_cell_help_links">&nbsp;</td>
-    <td class="bps-table_cell_help_links">&nbsp;</td>
-  </tr>
-  <tr>
-    <td colspan="2" class="bps-table_cell_bottom">&nbsp;</td>
+    <td class="bps-table_cell_help_links">
+    <a href="https://forum.ait-pro.com/forums/topic/security-log-event-codes/" target="_blank"><?php _e('Security Log Event Codes', 'bulletproof-security'); ?></a><br /><br />
+    <a href="https://www.ait-pro.com/aitpro-blog/category/bulletproof-security-contributors/" target="_blank"><?php _e('Contributors Page', 'bulletproof-security'); ?></a><br /><br />
+    <a href="https://forum.ait-pro.com/forums/topic/plugin-conflicts-actively-blocked-plugins-plugin-compatibility/" target="_blank"><?php _e('Forum: Search, Troubleshooting Steps & Post Questions For Assistance', 'bulletproof-security'); ?></a>
+    </td>
   </tr>
 </table>
 </div>

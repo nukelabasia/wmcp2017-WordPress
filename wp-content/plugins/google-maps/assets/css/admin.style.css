@@ -3,11 +3,11 @@
 }
 
 .active {
-    display: block
+    display: block;
 }
 
 .table {
-    display: table
+    display: table;
 }
 
 .clear {
@@ -1163,3 +1163,30 @@
     cursor: pointer;
     opacity: 0.6;
 }
+/* Store locator Days */
+#g_map_locator_options .timepicker {
+    width: 80px!important;
+    font-size: 13px;
+    padding: 3px;
+    background: #fff;
+}
+#g_map_locator_options .ui-timepicker-list li {
+    font-size: 14px;
+    font-family: "Open Sans",sans-serif;
+}
+
+#g_map_locator_options #store_days input {
+    float: none;
+}
+#g_map_locator_options #store_days {
+    font-family: "Open Sans",sans-serif;
+}
+#g_map_locator_options #store_days td {
+    padding:0px;
+}
+#g_map_locator_options .storeClosed {
+    position: absolute;
+    left: 0px;
+    top: 25px;
+}
+/* Store locator Days */

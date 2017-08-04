@@ -311,4 +311,57 @@ class Hugeit_Maps_Query {
 
 	}
 
+    /**
+     * Returns locators by arguments
+     *
+     * @param $args
+     *
+     * @return Hugeit_Maps_Locator[]
+     */
+    public static function get_locator( $args = array() ) {
+        global $wpdb;
+
+        $items = array();
+
+        $args = wp_parse_args(
+            $args,
+            array(
+                'search'  => '',
+                'orderby' => 'id',
+                'order'   => 'ASC',
+                'map_id'  => 0,
+            )
+        );
+
+        $query = "SELECT id FROM " . Hugeit_Maps()->get_table_name( 'stores' );
+
+        $where = array();
+
+        if ( ! empty( $args['search'] ) ) {
+            $where[] = "name LIKE '%{$args['search']}%'";
+        }
+
+        if ( $args['map_id'] ) {
+            $where[] = "map_id={$args['map_id']}";
+        }
+
+        if ( ! empty( $where ) ) {
+
+            $where_str = implode( $where, ' AND ' );
+
+            $query .= " WHERE " . $where_str;
+        }
+
+        $query_items = $wpdb->get_results( $query );
+
+        foreach ( $query_items as $query_item ) {
+
+            $items[] = new Hugeit_Maps_Locator( $query_item->id );
+
+        }
+
+        return $items;
+
+    }
+
 }

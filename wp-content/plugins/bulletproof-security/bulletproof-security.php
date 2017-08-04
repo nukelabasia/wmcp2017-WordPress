@@ -5,8 +5,8 @@ Plugin URI: https://forum.ait-pro.com/read-me-first/
 Text Domain: bulletproof-security
 Domain Path: /languages/
 Description: <strong>Feature Highlights:</strong> Setup Wizard &bull; .htaccess Website Security Protection (Firewalls) &bull; Security Logging|HTTP Error Logging &bull; DB Backup &bull; DB Table Prefix Changer &bull; Login Security & Monitoring &bull; Idle Session Logout (ISL) &bull; Auth Cookie Expiration (ACE) &bull; UI Theme Skin Changer &bull; System Info: Extensive System, Server and Security Status Information &bull; FrontEnd|BackEnd Maintenance Mode
-Version: 1.1
-Author: AITpro | Edward Alexander
+Version: 2.3
+Author: AITpro Website Security
 Author URI: https://forum.ait-pro.com/read-me-first/
 */
 
@@ -28,9 +28,9 @@ Author URI: https://forum.ait-pro.com/read-me-first/
 */
 
 // BPS variables
-define( 'BULLETPROOF_VERSION', '1.1' );
-$bps_last_version = '1.0';
-$bps_version = '1.1';
+define( 'BULLETPROOF_VERSION', '2.3' );
+$bps_last_version = '2.2';
+$bps_version = '2.3';
 $aitpro_bullet = '<img src="'.plugins_url('/bulletproof-security/admin/images/aitpro-bullet.png').'" style="padding:0px 3px 0px 3px;" />';
 // Top div & bottom div
 $bps_topDiv = '<div id="message" class="updated" style="background-color:#dfecf2;border:1px solid #999;-moz-border-radius-topleft:3px;-webkit-border-top-left-radius:3px;-khtml-border-top-left-radius:3px;border-top-left-radius:3px;-moz-border-radius-topright:3px;-webkit-border-top-right-radius:3px;-khtml-border-top-right-radius:3px;border-top-right-radius:3px;-webkit-box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);-moz-box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);"><p>';
@@ -48,7 +48,11 @@ function bulletproof_security_load_plugin_textdomain() {
 
 // BPS upgrade functions
 require_once( WP_PLUGIN_DIR . '/bulletproof-security/includes/functions.php' );
-// BPS HUD Dimiss functions
+// BPS HUD Dimiss functions - includes AutoFix AutoSetup checks
+require_once( WP_PLUGIN_DIR . '/bulletproof-security/includes/hud-autofix-setup.php' );
+// BPS HUD Dimiss functions - includes AutoFix AutoWhitelist checks
+require_once( WP_PLUGIN_DIR . '/bulletproof-security/includes/hud-autofix-whitelist.php' );
+// BPS HUD Dimiss functions - General Error Checks & Misc checks
 require_once( WP_PLUGIN_DIR . '/bulletproof-security/includes/hud-dismiss-functions.php' );
 // BPS Zip & Email Log File Cron functions
 require_once( WP_PLUGIN_DIR . '/bulletproof-security/includes/zip-email-cron-functions.php' );

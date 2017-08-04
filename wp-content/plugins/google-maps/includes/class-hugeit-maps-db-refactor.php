@@ -43,7 +43,7 @@ class Hugeit_Maps_DB_Refactor {
 
 		if ( $old_maps_count === $new_maps_count ) {
 
-			$wpdb->query( 'DROP TABLE `' . $wpdb->prefix . 'g_circles`, `' . $wpdb->prefix . 'g_directions`, `' . $wpdb->prefix . 'g_maps`, `' . $wpdb->prefix . 'g_markers`, `' . $wpdb->prefix . 'g_polygones`, `' . $wpdb->prefix . 'g_polylines`' );
+            $wpdb->query( 'DROP TABLE `' . $wpdb->prefix . 'g_circles`, `' . $wpdb->prefix . 'g_directions`, `' . $wpdb->prefix . 'g_maps`, `' . $wpdb->prefix . 'g_markers`, `' . $wpdb->prefix . 'g_polygones`, `' . $wpdb->prefix . 'g_polylines`' );
 
 		}
 
@@ -246,5 +246,6 @@ class Hugeit_Maps_DB_Refactor {
 
 		}
 	}
+
 
 }

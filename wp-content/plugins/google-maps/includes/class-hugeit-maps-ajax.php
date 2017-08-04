@@ -13,7 +13,7 @@ class Hugeit_Maps_Ajax {
 		add_action( 'wp_ajax_hugeit_maps_save_map', array( __CLASS__, 'save_map' ) );
 		add_action( 'wp_ajax_hugeit_maps_copy_map', array( __CLASS__, 'copy_map' ) );
 		add_action( 'wp_ajax_hugeit_maps_export_to_csv', array( __CLASS__, 'export_to_csv' ) );
-
+        add_action( 'wp_ajax_hugeit_maps_save_locator', array( __CLASS__, 'save_locator' ) );
 
 		add_action( 'wp_ajax_hugeit_maps_save_marker', array( __CLASS__, 'save_marker' ) );
 		add_action( 'wp_ajax_hugeit_maps_edit_marker', array( __CLASS__, 'edit_marker' ) );
@@ -30,6 +30,8 @@ class Hugeit_Maps_Ajax {
 		add_action( 'wp_ajax_hugeit_maps_save_circle', array( __CLASS__, 'save_circle' ) );
 		add_action( 'wp_ajax_hugeit_maps_edit_circle', array( __CLASS__, 'edit_circle' ) );
 
+        add_action( 'wp_ajax_hugeit_maps_edit_locator', array( __CLASS__, 'edit_locator' ) );
+        add_action( 'wp_ajax_hugeit_maps_save_new_locator', array( __CLASS__, 'save_new_locator' ) );
 
 		add_action( 'wp_ajax_hugeit_maps_delete_item', array( __CLASS__, 'delete_item' ) );
 
@@ -504,7 +506,158 @@ class Hugeit_Maps_Ajax {
 
 	}
 
-	/**
+    /**
+     * Save Front End Locator data
+     */
+    public static function save_locator() {
+
+        if ( ! isset( $_REQUEST['nonce'] ) || ! wp_verify_nonce( $_REQUEST['nonce'], 'hugeit-maps-map-save' ) ) {
+            wp_die( __( 'Security check failed', 'hugeit_maps' ) );
+        }
+
+        if ( ! isset( $_REQUEST['map_id'] ) ) {
+            wp_die( __( 'missing "map_id" parameter', 'hugeit_maps' ) );
+        }
+
+        $map_id = absint( $_REQUEST['map_id'] );
+
+        $map = new Hugeit_Maps_Map( $map_id );
+
+        $map
+            ->set_locator_enabled( (int)$_REQUEST['locator_enabled'] );
+
+        $saved = $map->save();
+
+        if ( $saved ) {
+
+            $map = new Hugeit_Maps_Map( $map_id );
+
+            echo json_encode( array(
+                "success"    => 1,
+                "hue"        => $map->get_styling_hue(),
+                "saturation" => $map->get_styling_saturation(),
+                "lightness"  => $map->get_styling_lightness(),
+                "gamma"      => $map->get_styling_gamma(),
+                "zoom"       => $map->get_zoom(),
+                "type"       => $map->get_type(),
+                "bike"       => $map->get_bike_layer(),
+                "traffic"    => $map->get_traffic_layer(),
+                "transit"    => $map->get_transit_layer(),
+                "animation"  => $map->get_animation(),
+            ) );
+            die();
+        }
+    }
+
+    /**
+     * Save locator info
+     */
+    public static function save_new_locator() {
+        if ( ! isset( $_REQUEST['nonce'] ) || ! wp_verify_nonce( $_REQUEST['nonce'], 'hugeit-maps-locator-save' ) ) {
+            wp_die( __( 'Security check failed', 'hugeit_maps' ) );
+        }
+
+        if ( ! isset( $_REQUEST['map_id'] ) ) {
+            wp_die( __( 'missing "map_id" parameter', 'hugeit_maps' ) );
+        }
+
+        $map_id = absint( $_REQUEST['map_id'] );
+
+        $locator = new Hugeit_Maps_Locator();
+
+        $locator
+            ->set_map_id( $map_id )
+            ->set_name( $_REQUEST['name'] )
+            ->set_locator_lat( $_REQUEST['locatorLat'] )
+            ->set_locator_lng( $_REQUEST['locatorLng'] )
+            ->set_locator_addr( $_REQUEST['locatorAddr'] )
+            ->set_locator_phone($_REQUEST['locatorPhone'])
+            ->set_locator_days($_REQUEST['locatorDays']);
+
+        $saved = $locator->save();
+
+        if ( $saved ) {
+
+            $map = new Hugeit_Maps_Map( $map_id );
+
+            echo json_encode( array(
+                "success"    => 1,
+                "hue"        => $map->get_styling_hue(),
+                "saturation" => $map->get_styling_saturation(),
+                "lightness"  => $map->get_styling_lightness(),
+                "gamma"      => $map->get_styling_gamma(),
+                "zoom"       => $map->get_zoom(),
+                "type"       => $map->get_type(),
+                "bike"       => $map->get_bike_layer(),
+                "traffic"    => $map->get_traffic_layer(),
+                "transit"    => $map->get_transit_layer(),
+                "animation"  => $map->get_animation(),
+                'last_id'    => $saved,
+            ) );
+            die();
+
+        }
+
+    }
+
+    public static function edit_locator() {
+
+        if ( ! isset( $_REQUEST['nonce'] ) || ! wp_verify_nonce( $_REQUEST['nonce'], 'hugeit-maps-locator-save' ) ) {
+            wp_die( __( 'Security check failed', 'hugeit_maps' ) );
+        }
+
+        if ( ! isset( $_REQUEST['id'] ) ) {
+            wp_die( __( 'missing "id" parameter', 'hugeit_maps' ) );
+        }
+
+        $id = $_REQUEST['id'];
+
+        if ( absint( $id ) != $id ) {
+            wp_die( __( '"id" parameter must be non negative integer', 'hugeit_maps' ) );
+        }
+
+        if ( ! isset( $_REQUEST['map_id'] ) ) {
+            wp_die( __( 'missing "map_id" parameter', 'hugeit_maps' ) );
+        }
+
+        $map_id = absint( $_REQUEST['map_id'] );
+
+        $locator = new Hugeit_Maps_Locator( absint( $id ) );
+
+        $locator
+            ->set_name( $_REQUEST['name'] )
+            ->set_locator_lat( $_REQUEST['locatorLat'] )
+            ->set_locator_lng( $_REQUEST['locatorLng'] )
+            ->set_locator_addr( $_REQUEST['locatorAddr'] )
+            ->set_locator_phone($_REQUEST['locatorPhone'])
+            ->set_locator_days($_REQUEST['locatorDays']);
+
+        $saved = $locator->save();
+
+        if ( $saved ) {
+
+            $map = new Hugeit_Maps_Map( $map_id );
+
+            echo json_encode( array(
+                "success"    => 1,
+                "hue"        => $map->get_styling_hue(),
+                "saturation" => $map->get_styling_saturation(),
+                "lightness"  => $map->get_styling_lightness(),
+                "gamma"      => $map->get_styling_gamma(),
+                "zoom"       => $map->get_zoom(),
+                "type"       => $map->get_type(),
+                "bike"       => $map->get_bike_layer(),
+                "traffic"    => $map->get_traffic_layer(),
+                "transit"    => $map->get_transit_layer(),
+                "animation"  => $map->get_animation(),
+            ) );
+            die();
+
+        }
+
+    }
+
+    /**
 	 * Save polygon data
 	 */
 	public static function save_polygon() {
@@ -767,7 +920,8 @@ class Hugeit_Maps_Ajax {
 			'polygons'   => array(),
 			'polylines'  => array(),
 			'circles'    => array(),
-			'directions' => array()
+			'directions' => array(),
+            'locators'   => array(),
 		);
 
 
@@ -888,6 +1042,20 @@ class Hugeit_Maps_Ajax {
 			);
 		}
 
+        $locators = Hugeit_Maps_Query::get_locator( array( 'map_id' => $id ) );
+
+        foreach ( $locators as $locator ) {
+            $response['locators'][] = array(
+                'id'            => $locator->get_id(),
+                'name'          => $locator->get_name(),
+                'locator_lat'   => $locator->get_locator_lat(),
+                'locator_lng'   => $locator->get_locator_lng(),
+                'locator_addr'  => $locator->get_locator_addr(),
+                'locator_phone' => $locator->get_locator_phone(),
+                'locator_days' => $locator->get_locator_days(),
+            );
+        }
+
 		$directions = Hugeit_Maps_Query::get_directions( array( 'map_id' => $id ) );
 
 		foreach ( $directions as $direction ) {
@@ -936,7 +1104,7 @@ class Hugeit_Maps_Ajax {
 
 		global $wpdb;
 		$table = $_POST['table'];
-		if ( $table == "hugeit_maps_markers" || $table == "hugeit_maps_polygons" || $table == "hugeit_maps_polylines" || $table == "hugeit_maps_circles" || $table == "hugeit_maps_directions" ) {
+		if ( $table == "hugeit_maps_markers" || $table == "hugeit_maps_polygons" || $table == "hugeit_maps_polylines" || $table == "hugeit_maps_circles" || $table == "hugeit_maps_directions" || $table == "hugeit_maps_stores" ) {
 			$table_name = $wpdb->prefix . $table;
 			$sql        = $wpdb->prepare( "DELETE FROM %s WHERE id=%d", $table_name, $_POST['id'] );
 			$sql        = str_replace( "'", "", $sql );
@@ -1031,6 +1199,15 @@ class Hugeit_Maps_Ajax {
 			}
 		}
 
+        $locators = $map->get_locator();
+
+        if ( $locators ) {
+            array_push( $map_array, 'Locators' );
+            foreach ( $locators as $locator ) {
+                array_push( $map_array, 'name:' . $locator->get_name() . ', locator latitude: ' . $locator->get_locator_lat() . ', locator longitude: ' . $locator->get_locator_lng() . ', locator address: ' . $locator->get_locator_addr() . ', locator phone: ' . $locator->get_locator_phone() . ', locator days: ' . $locator->get_locator_days());
+            }
+        }
+
 		$directions = $map->get_directions();
 
 		if ( $directions ) {
@@ -1122,6 +1299,19 @@ class Hugeit_Maps_Ajax {
 
 			}
 		}
+
+        $locators = Hugeit_Maps_Query::get_locator( array( 'map_id' => $map->get_id() ) );
+
+        if ( $locators ) {
+            foreach ( $locators as $locator ) {
+                $new_locator = clone $locator;
+
+                $new_locator->set_map_id( $new_map->get_id() );
+
+                $new_locator->save();
+
+            }
+        }
 
 
 		echo json_encode( array( "success"           => 1,

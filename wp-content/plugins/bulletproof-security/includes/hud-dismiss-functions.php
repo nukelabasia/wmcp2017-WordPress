@@ -11,29 +11,21 @@ if ( ! function_exists ('add_action') ) {
 function bps_HUD_WP_Dashboard() {
 	
 	if ( current_user_can('manage_options') ) { 
-		$plugin_var_w3tc = 'w3-total-cache/w3-total-cache.php';
-		$plugin_var_wpsc = 'wp-super-cache/wp-cache.php';
-		echo bps_check_php_version_error();
-		echo bps_check_safemode();
-		echo bps_check_permalinks_error();
-		echo bps_check_iis_supports_permalinks();
-		echo bps_hud_check_bpsbackup();
-		echo bpsPro_bonus_custom_code_dismiss_notices();
-		echo bps_hud_PhpiniHandlerCheck();
-		echo bps_hud_check_sucuri();
-		echo bps_hud_check_wordpress_firewall2();
-		echo bps_hud_broken_link_checker();
-		echo bps_hud_check_jetpack();
-		echo bps_hud_check_woocommerce();
-		echo bpsPro_hud_woocommerce_enable_lsm_jtc();
-		echo bps_hud_BPSQSE_old_code_check();
-		echo @bps_w3tc_htaccess_check($plugin_var_w3tc);
-		echo @bps_wpsc_htaccess_check($plugin_var_wpsc);
-		echo bpsPro_BBM_htaccess_check();
-		echo bpsPro_hud_speed_boost_cache_code();
-		echo bps_hud_check_autoupdate();
-		echo bpsPro_EPC_plugin_check();
-		//echo bps_hud_check_public_username();
+		bps_check_php_version_error();
+		bps_check_safemode();
+		bps_check_permalinks_error();
+		bps_check_iis_supports_permalinks();
+		bps_hud_check_bpsbackup();
+		bpsPro_bonus_custom_code_dismiss_notices();
+		bps_hud_PhpiniHandlerCheck();
+		bps_hud_check_sucuri();
+		bps_hud_check_wordpress_firewall2();
+		bpsPro_hud_woocommerce_enable_lsm_jtc();
+		bps_hud_BPSQSE_old_code_check();
+		bpsPro_BBM_htaccess_check();
+		bpsPro_hud_speed_boost_cache_code();
+		bps_hud_check_autoupdate();
+		//bps_hud_check_public_username();
 	}
 }
 add_action('admin_notices', 'bps_HUD_WP_Dashboard');
@@ -424,32 +416,35 @@ $user_id = $current_user->ID;
 // Unfortunately the limited whitelisting options provided by Sucuri in their settings don't provide any workable solutions for BPS.
 function bps_hud_check_sucuri() {
 $filename = WP_CONTENT_DIR . '/.htaccess';
-$plugin_var = 'sucuri-scanner/sucuri.php';
-$return_var = in_array( $plugin_var, apply_filters('active_plugins', get_option('active_plugins') ) );
+$sucuri = 'sucuri-scanner/sucuri.php';
+$sucuri_active = in_array( $sucuri, apply_filters('active_plugins', get_option('active_plugins') ) );
 
-	if ( $return_var == 1 && ! file_exists($filename) ) { // 1 equals active
+	if ( $sucuri_active == 1 && ! file_exists($filename) ) {
 		return;	
 	}
 	
 	if ( function_exists('sucuriscan_harden_wpcontent') ) {
 	
-		if ( $return_var == 1 && file_exists($filename) && preg_match( '/WP-content\sdirectory\sproperly\shardened/', sucuriscan_harden_wpcontent(), $matches ) ) {
-	
-			global $current_user;
-			$user_id = $current_user->ID;
+		if ( $sucuri_active == 1 || is_plugin_active_for_network( $sucuri ) ) {
 
-			if ( ! get_user_meta($user_id, 'bps_ignore_sucuri_notice') ) {
+			if ( file_exists($filename) && preg_match( '/WP-content\sdirectory\sproperly\shardened/', sucuriscan_harden_wpcontent(), $matches ) ) { 
+
+				global $current_user;
+				$user_id = $current_user->ID;
+
+				if ( ! get_user_meta($user_id, 'bps_ignore_sucuri_notice') ) {
 			
-			if ( esc_html($_SERVER['QUERY_STRING']) == '' && basename(esc_html($_SERVER['REQUEST_URI'])) != 'wp-admin' ) {
-				$bps_base = basename(esc_html($_SERVER['REQUEST_URI'])) . '?';
-			} elseif ( esc_html($_SERVER['QUERY_STRING']) == '' && basename(esc_html($_SERVER['REQUEST_URI'])) == 'wp-admin' ) {
-				$bps_base = basename( str_replace( 'wp-admin', 'index.php?', esc_html($_SERVER['REQUEST_URI'])));
-			} else {
-				$bps_base = str_replace( admin_url(), '', esc_html($_SERVER['REQUEST_URI']) ) . '&';
-			}		
+				if ( esc_html($_SERVER['QUERY_STRING']) == '' && basename(esc_html($_SERVER['REQUEST_URI'])) != 'wp-admin' ) {
+					$bps_base = basename(esc_html($_SERVER['REQUEST_URI'])) . '?';
+				} elseif ( esc_html($_SERVER['QUERY_STRING']) == '' && basename(esc_html($_SERVER['REQUEST_URI'])) == 'wp-admin' ) {
+					$bps_base = basename( str_replace( 'wp-admin', 'index.php?', esc_html($_SERVER['REQUEST_URI'])));
+				} else {
+					$bps_base = str_replace( admin_url(), '', esc_html($_SERVER['REQUEST_URI']) ) . '&';
+				}		
 			
-			$text = '<div class="update-nag" style="background-color:#dfecf2;border:1px solid #999;font-size:1em;font-weight:600;padding:2px 5px;margin-top:2px;-moz-border-radius-topleft:3px;-webkit-border-top-left-radius:3px;-khtml-border-top-left-radius:3px;border-top-left-radius:3px;-moz-border-radius-topright:3px;-webkit-border-top-right-radius:3px;-khtml-border-top-right-radius:3px;border-top-right-radius:3px;-webkit-box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);-moz-box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);"><font color="#fb0101">'.__('Sucuri Restrict wp-content access Hardening Option problem detected', 'bulletproof-security').'</font><br>'.__('Using the Sucuri Restrict wp-content access Hardening Option breaks BPS Security Logging, Plugin Firewall, Uploads Anti-Exploit Guard & probably other things in BPS and other plugins as well.', 'bulletproof-security').'<br>'.__('To fix this problem click this link: ', 'bulletproof-security').'<a href="'.admin_url( 'admin.php?page=sucuriscan_hardening#hardening' ).'">'.__('Sucuri Hardening Options', 'bulletproof-security').'</a>'.__(' and click the Sucuri Restrict wp-content access Revert hardening button.', 'bulletproof-security').'<br>'.__('To Dismiss this Notice click the Dismiss Notice button below. To Reset Dismiss Notices click the Reset|Recheck Dismiss Notices button on the Custom Code page.', 'bulletproof-security').'<br><div style="float:left;margin:3px 0px 3px 0px;padding:2px 6px 2px 6px;background-color:#e8e8e8;border:1px solid gray;"><a href="'.$bps_base.'bps_sucuri_nag_ignore=0'.'" style="text-decoration:none;font-weight:600;">'.__('Dismiss Notice', 'bulletproof-security').'</a></div></div>';
-			echo $text;
+				$text = '<div class="update-nag" style="background-color:#dfecf2;border:1px solid #999;font-size:1em;font-weight:600;padding:2px 5px;margin-top:2px;-moz-border-radius-topleft:3px;-webkit-border-top-left-radius:3px;-khtml-border-top-left-radius:3px;border-top-left-radius:3px;-moz-border-radius-topright:3px;-webkit-border-top-right-radius:3px;-khtml-border-top-right-radius:3px;border-top-right-radius:3px;-webkit-box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);-moz-box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);"><font color="#fb0101">'.__('Sucuri Restrict wp-content access Hardening Option problem detected', 'bulletproof-security').'</font><br>'.__('Using the Sucuri Restrict wp-content access Hardening Option breaks BPS Security Logging, Plugin Firewall, Uploads Anti-Exploit Guard & probably other things in BPS and other plugins as well.', 'bulletproof-security').'<br>'.__('To fix this problem click this link: ', 'bulletproof-security').'<a href="'.admin_url( 'admin.php?page=sucuriscan_hardening#hardening' ).'">'.__('Sucuri Hardening Options', 'bulletproof-security').'</a>'.__(' and click the Sucuri Restrict wp-content access Revert hardening button.', 'bulletproof-security').'<br>'.__('To Dismiss this Notice click the Dismiss Notice button below. To Reset Dismiss Notices click the Reset|Recheck Dismiss Notices button on the Custom Code page.', 'bulletproof-security').'<br><div style="float:left;margin:3px 0px 3px 0px;padding:2px 6px 2px 6px;background-color:#e8e8e8;border:1px solid gray;"><a href="'.$bps_base.'bps_sucuri_nag_ignore=0'.'" style="text-decoration:none;font-weight:600;">'.__('Dismiss Notice', 'bulletproof-security').'</a></div></div>';
+				echo $text;
+				}
 			}
 		}
 	}
@@ -468,14 +463,14 @@ $user_id = $current_user->ID;
 
 // Heads Up Display w/ Dismiss - WordPress Firewall 2 plugin - breaks BPS and lots of other stuff
 function bps_hud_check_wordpress_firewall2() {
-$plugin_var = 'wordpress-firewall-2/wordpress-firewall-2.php';
-$return_var = in_array( $plugin_var, apply_filters('active_plugins', get_option('active_plugins')));
+$firewall2 = 'wordpress-firewall-2/wordpress-firewall-2.php';
+$firewall2_active = in_array( $firewall2, apply_filters('active_plugins', get_option('active_plugins')));
 
-	if ( $return_var != 1 ) { // 1 equals active
+	if ( $firewall2_active != 1 && ! is_plugin_active_for_network( $firewall2 ) ) {
 		return;	
 	}
 	
-	if ( $return_var == 1 ) { // 1 equals active	
+	if ( $firewall2_active == 1 || is_plugin_active_for_network( $firewall2 ) ) {
 	
 		global $current_user;
 		$user_id = $current_user->ID;			
@@ -507,178 +502,15 @@ $user_id = $current_user->ID;
 	}
 }
 
-// Heads Up Display w/ Dismiss - Broken Link Checker plugin - HEAD Request Method filter check
-function bps_hud_broken_link_checker() {
-$filename = ABSPATH . '.htaccess';
-$plugin_var = 'broken-link-checker/broken-link-checker.php';
-$return_var = in_array( $plugin_var, apply_filters('active_plugins', get_option('active_plugins')));
-$pattern2 = '/#{1,}(\s|){1,}RewriteCond\s\%\{REQUEST_METHOD\}\s\^\(HEAD\)\s\[NC\](.*\s*){1}(#{1,}(\s|){1,}RewriteRule\s\^\(\.\*\)\$\s(.*)\/bulletproof-security\/405\.php\s\[L\]|#{1,}(\s|){1,}RewriteRule\s\^\(\.\*\)\$\s\-\s\[R=405,L\])/';
-
-	if ( file_exists($filename) ) {
-		$check_string = @file_get_contents($filename);
-
-    if ( $return_var == 1 && preg_match( $pattern2, $check_string, $matches ) ) { // 1 equals active
-		return;
-	}
-	
-	if ( $return_var == 1 ) {
-		
-		global $current_user;
-		$user_id = $current_user->ID;
-
-		if ( ! get_user_meta($user_id, 'bps_ignore_BLC_notice') ) {
-			
-		if ( esc_html($_SERVER['QUERY_STRING']) == '' && basename(esc_html($_SERVER['REQUEST_URI'])) != 'wp-admin' ) {
-			$bps_base = basename(esc_html($_SERVER['REQUEST_URI'])) . '?';
-		} elseif ( esc_html($_SERVER['QUERY_STRING']) == '' && basename(esc_html($_SERVER['REQUEST_URI'])) == 'wp-admin' ) {
-			$bps_base = basename( str_replace( 'wp-admin', 'index.php?', esc_html($_SERVER['REQUEST_URI'])));
-		} else {
-			$bps_base = str_replace( admin_url(), '', esc_html($_SERVER['REQUEST_URI']) ) . '&';
-		}			
-			
-			$text = '<div class="update-nag" style="background-color:#dfecf2;border:1px solid #999;font-size:1em;font-weight:600;padding:2px 5px;margin-top:2px;-moz-border-radius-topleft:3px;-webkit-border-top-left-radius:3px;-khtml-border-top-left-radius:3px;border-top-left-radius:3px;-moz-border-radius-topright:3px;-webkit-border-top-right-radius:3px;-khtml-border-top-right-radius:3px;border-top-right-radius:3px;-webkit-box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);-moz-box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);"><font color="#fb0101">'.__('Broken Link Checker plugin HEAD Request Method filter problem detected.', 'bulletproof-security').'</font><br>'.__('To fix this problem ', 'bulletproof-security').'<a href="https://forum.ait-pro.com/forums/topic/broken-link-checker-plugin-403-error/" target="_blank" title="Link opens in a new Browser window">'.__('Click Here', 'bulletproof-security').'</a><br>'.__('To Dismiss this Notice click the Dismiss Notice button below. To Reset Dismiss Notices click the Reset|Recheck Dismiss Notices button on the Custom Code page.', 'bulletproof-security').'<br><div style="float:left;margin:3px 0px 3px 0px;padding:2px 6px 2px 6px;background-color:#e8e8e8;border:1px solid gray;"><a href="'.$bps_base.'bps_BLC_nag_ignore=0'.'" style="text-decoration:none;font-weight:600;">'.__('Dismiss Notice', 'bulletproof-security').'</a></div></div>';
-			echo $text;
-		}
-	}
-	}
-}
-
-add_action('admin_init', 'bps_BLC_nag_ignore');
-
-function bps_BLC_nag_ignore() {
-global $current_user;
-$user_id = $current_user->ID;
-        
-	if ( isset( $_GET['bps_BLC_nag_ignore'] ) && '0' == $_GET['bps_BLC_nag_ignore'] ) {
-		add_user_meta($user_id, 'bps_ignore_BLC_notice', 'true', true);
-	}
-}
-
-// Heads Up Display w/ Dismiss - Jetpack plugin - displays forum links for Jetpack spefific HEAD Request code and Jetpack specific XML-RPC Bonus Custom Code.
-function bps_hud_check_jetpack() {
-$plugin_var = 'jetpack/jetpack.php';
-$return_var = in_array( $plugin_var, apply_filters('active_plugins', get_option('active_plugins')));
-
-	if ( $return_var != 1 ) { // 1 equals active
-		return;	
-	}
-	
-	$filename = ABSPATH . '.htaccess';
-
-	if ( $return_var == 1 && file_exists($filename) ) { // 1 equals active	
-	
-		global $current_user;
-		$user_id = $current_user->ID;			
-		
-		if ( ! get_user_meta($user_id, 'bps_ignore_jetpack_notice') ) {
-			
-		if ( esc_html($_SERVER['QUERY_STRING']) == '' && basename(esc_html($_SERVER['REQUEST_URI'])) != 'wp-admin' ) {
-			$bps_base = basename(esc_html($_SERVER['REQUEST_URI'])) . '?';
-		} elseif ( esc_html($_SERVER['QUERY_STRING']) == '' && basename(esc_html($_SERVER['REQUEST_URI'])) == 'wp-admin' ) {
-			$bps_base = basename( str_replace( 'wp-admin', 'index.php?', esc_html($_SERVER['REQUEST_URI'])));
-		} else {
-			$bps_base = str_replace( admin_url(), '', esc_html($_SERVER['REQUEST_URI']) ) . '&';
-		}			
-			
-		$check_string = @file_get_contents($filename);
-		$pattern1 = '/(\<FilesMatch\s\"\^\(xmlrpc\\\.php\)\"\>|\<FilesMatch\s\"\^\(xmlrpc\\\.php\|wp-trackback\\\.php\)\"\>)(.*\s*){1,8}Allow\sfrom\s192\.0\.64\.0\/18(.*\s*){1}Allow\sfrom\s209\.15\.0\.0\/16(.*\s*){1}Allow\sfrom\s66\.155\.0\.0\/17/';
-		$pattern2 = '/#{1,}(\s|){1,}RewriteCond\s\%\{REQUEST_METHOD\}\s\^\(HEAD\)\s\[NC\](.*\s*){1}(#{1,}(\s|){1,}RewriteRule\s\^\(\.\*\)\$\s(.*)\/bulletproof-security\/405\.php\s\[L\]|#{1,}(\s|){1,}RewriteRule\s\^\(\.\*\)\$\s\-\s\[R=405,L\])/';
-		$pattern3 = '/RewriteCond\s\%\{REQUEST_METHOD\}\s\^\(HEAD\)\s\[NC\](.*\s*){1}RewriteCond\s\%\{HTTP_USER_AGENT\}\s\!\^\(\.\*Jetpack\.\*\)\$/';
-
-			// User has older Jetpack XML-RPC Bonus Custom Code in the Root htaccess file.
-			if ( preg_match( $pattern1, $check_string, $matches ) ) {
-
-				$text = '<div class="update-nag" style="max-width:96.5%;background-color:#dfecf2;border:1px solid #999;font-size:1em;font-weight:600;padding:2px 5px;margin-top:2px;-moz-border-radius-topleft:3px;-webkit-border-top-left-radius:3px;-khtml-border-top-left-radius:3px;border-top-left-radius:3px;-moz-border-radius-topright:3px;-webkit-border-top-right-radius:3px;-khtml-border-top-right-radius:3px;border-top-right-radius:3px;-webkit-box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);-moz-box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);"><font color="blue">'.__('Jetpack XML-RPC Bonus Custom Code Notice', 'bulletproof-security').'</font><br>'.__('Older BPS XML-RPC Bonus Custom Code was found in your Root htaccess file. New XML-RPC Bonus Custom Code for specific usage with Jetpack has been created. Click the Click Here link below to get the new Jetpack XML-RPC Bonus Custom Code.', 'bulletproof-security').'<br><a href="https://forum.ait-pro.com/forums/topic/wordpress-xml-rpc-ddos-protection-protect-xmlrpc-php-block-xmlrpc-php-forbid-xmlrpc-php/" target="_blank" title="Jetpack XML-RPC Bonus Custom Code">'.__('Click Here', 'bulletproof-security').'</a>'.__(' To get and use the New Jetpack XML-RPC Bonus Custom Code, replace your existing XML-RPC Bonus Custom Code in BPS Custom Code with the newer Jetpack XML-RPC Bonus Custom Code.', 'bulletproof-security').'<br>'.__('To Dismiss these Jetpack Notices click the Dismiss Notice button below. To Reset Dismiss Notices click the Reset|Recheck Dismiss Notices button on the Custom Code page.', 'bulletproof-security').'</div>';
-				echo $text;
-			}
-		
-			// This HEAD Request checking condition needs to be an independent check.
-			// Notes: pattern2 match = user is not using # signs in the REQUEST METHODS FILTERED code to allow all HEAD Requests.
-			// pattern3 match = user is not using the new Jetpack whitelist by User Agent custom htaccess code for Jetpack.
-			if ( ! preg_match( $pattern2, $check_string, $matches ) && ! preg_match( $pattern3, $check_string, $matches ) ) {		
-		
-				$text = '<div class="update-nag" style="background-color:#dfecf2;border:1px solid #999;font-size:1em;font-weight:600;padding:2px 5px;margin-top:2px;-moz-border-radius-topleft:3px;-webkit-border-top-left-radius:3px;-khtml-border-top-left-radius:3px;border-top-left-radius:3px;-moz-border-radius-topright:3px;-webkit-border-top-right-radius:3px;-khtml-border-top-right-radius:3px;border-top-right-radius:3px;-webkit-box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);-moz-box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);"><font color="blue">'.__('Jetpack Site Uptime Monitor Notice', 'bulletproof-security').'</font><br>'.__('New Jetpack Site Uptime Monitor code has been created for specific usage with Jetpack to allow HEAD Requests made by Jetpack. Click the Click Here link below to get the new Jetpack Site Uptime Monitor code.', 'bulletproof-security').'<br><a href="https://forum.ait-pro.com/forums/topic/jetpack-site-uptime-monitor-403-error/#post-15400" target="_blank" title="Jetpack Site Uptime Monitor">'.__('Click Here', 'bulletproof-security').'</a>'.__(' To get and use the new Jetpack Site Uptime Monitor code, replace any existing REQUEST METHODS FILTERED code that you have added to BPS Custom Code with the newer Jetpack Site Uptime Monitor code.', 'bulletproof-security').'<br>'.__('To Dismiss these Jetpack Notices click the Dismiss Notice button below. To Reset Dismiss Notices click the Reset|Recheck Dismiss Notices button on the Custom Code page.', 'bulletproof-security').'</div>';
-				echo $text;
-		
-			}
-			
-			if ( preg_match( $pattern1, $check_string, $matches ) || ! preg_match( $pattern2, $check_string, $matches ) && ! preg_match( $pattern3, $check_string, $matches ) ) {
-				
-				echo '<div style="width:100px;text-align:center;margin:3px 0px 3px 0px;padding:2px 6px 2px 6px;background-color:#e8e8e8;border:1px solid gray;"><a href="'.$bps_base.'bps_jetpack_nag_ignore=0'.'" style="text-decoration:none;font-weight:600;">'.__('Dismiss Notice', 'bulletproof-security').'</a></div>';
-			
-			}
-		}
-	}
-}
-
-add_action('admin_init', 'bps_jetpack_nag_ignore');
-
-function bps_jetpack_nag_ignore() {
-global $current_user;
-$user_id = $current_user->ID;
-        
-	if ( isset( $_GET['bps_jetpack_nag_ignore'] ) && '0' == $_GET['bps_jetpack_nag_ignore'] ) {
-		add_user_meta($user_id, 'bps_ignore_jetpack_notice', 'true', true);
-	}
-}
-
-// Heads Up Display w/ Dismiss - WooCommerce plugin
-function bps_hud_check_woocommerce() {
-$plugin_var = 'woocommerce/woocommerce.php';
-$return_var = in_array( $plugin_var, apply_filters('active_plugins', get_option('active_plugins')));
-$filename = ABSPATH . '.htaccess';
-$pattern = '/RewriteCond\s\%\{REQUEST_URI\}\s\^\.\*\/\(shop\|cart\|checkout\|wishlist\)\.\*\s\[NC\](.*\s*){1}RewriteRule\s\.\s\-\s\[S=\d+\]/';
-
-	if ( file_exists($filename) ) {
-		$check_string = @file_get_contents($filename);
-
-    if ( $return_var == 1 && preg_match( $pattern, $check_string, $matches ) ) { // 1 equals active
-		return;
-	}
-	
-	if ( $return_var == 1 ) {
-
-		global $current_user;
-		$user_id = $current_user->ID;
-
-		if ( ! get_user_meta($user_id, 'bps_ignore_woocommerce_notice') ) { 
-			
-		if ( esc_html($_SERVER['QUERY_STRING']) == '' && basename(esc_html($_SERVER['REQUEST_URI'])) != 'wp-admin' ) {
-			$bps_base = basename(esc_html($_SERVER['REQUEST_URI'])) . '?';
-		} elseif ( esc_html($_SERVER['QUERY_STRING']) == '' && basename(esc_html($_SERVER['REQUEST_URI'])) == 'wp-admin' ) {
-			$bps_base = basename( str_replace( 'wp-admin', 'index.php?', esc_html($_SERVER['REQUEST_URI'])));
-		} else {
-			$bps_base = str_replace( admin_url(), '', esc_html($_SERVER['REQUEST_URI']) ) . '&';
-		}			
-			
-			$text = '<div class="update-nag" style="background-color:#dfecf2;border:1px solid #999;font-size:1em;font-weight:600;padding:2px 5px;margin-top:2px;-moz-border-radius-topleft:3px;-webkit-border-top-left-radius:3px;-khtml-border-top-left-radius:3px;border-top-left-radius:3px;-moz-border-radius-topright:3px;-webkit-border-top-right-radius:3px;-khtml-border-top-right-radius:3px;border-top-right-radius:3px;-webkit-box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);-moz-box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);"><font color="blue">'.__('WooCommerce Notice', 'bulletproof-security').'</font><br>'.__('New WooCommerce whitelisting code has been created to resolve problems where BPS is blocking something in WooCommerce.', 'bulletproof-security').'<br>'.__('If WooCommerce is working fine on your website then disregard this Notice and click the Dismiss Notice button below.', 'bulletproof-security').'<br><a href="https://forum.ait-pro.com/forums/topic/woocommerce-read-me-first/" target="_blank" title="WooCommerce Whitelisting Code">'.__('Click Here', 'bulletproof-security').'</a>'.__(' To get the WooCommerce whitelisting code. To Reset Dismiss Notices click the Reset|Recheck Dismiss Notices button on the Custom Code page.', 'bulletproof-security').'<br><div style="float:left;margin:3px 0px 3px 0px;padding:2px 6px 2px 6px;background-color:#e8e8e8;border:1px solid gray;"><a href="'.$bps_base.'bps_woocommerce_nag_ignore=0'.'" style="text-decoration:none;font-weight:600;">'.__('Dismiss Notice', 'bulletproof-security').'</a></div></div>';
-			echo $text;
-		}
-	}
-	}
-}
-
-add_action('admin_init', 'bps_woocommerce_nag_ignore');
-
-function bps_woocommerce_nag_ignore() {
-global $current_user;
-$user_id = $current_user->ID;
-        
-	if ( isset($_GET['bps_woocommerce_nag_ignore']) && '0' == $_GET['bps_woocommerce_nag_ignore'] ) {
-		add_user_meta($user_id, 'bps_ignore_woocommerce_notice', 'true', true);
-	}
-}
-
 // Heads Up Display w/ Dismiss - WooCommerce LSM enable options
 // Notes: This Notice needs to be displayed to everyone who already currently have WooCommerce installed until they Dismiss this Notice.
 // The reason for that is the BPS upgrade will automatically enable LSM for the WooCommerce custom login page.
 // If they install WooCommerce at a later time then this Notice is displayed.
 // Exception: This Notice should not be displayed for new BPS installations before or after the Setup Wizard has been run.
 function bpsPro_hud_woocommerce_enable_lsm_jtc() {
-$plugin_var = 'woocommerce/woocommerce.php';
-$return_var = in_array( $plugin_var, apply_filters('active_plugins', get_option('active_plugins')));
-$lsm_options = get_option('bulletproof_security_options_login_security');
-$sw_woo_options = get_option('bulletproof_security_options_setup_wizard_woo');
+
+	$lsm_options = get_option('bulletproof_security_options_login_security');
+	$sw_woo_options = get_option('bulletproof_security_options_setup_wizard_woo');
 
 	if ( ! $lsm_options['bps_enable_lsm_woocommerce'] ) {
 		return;
@@ -688,7 +520,10 @@ $sw_woo_options = get_option('bulletproof_security_options_setup_wizard_woo');
 		return;
 	}
 
-	if ( $return_var == 1 ) {
+	$woocommerce = 'woocommerce/woocommerce.php';
+	$woocommerce_active = in_array( $woocommerce, apply_filters('active_plugins', get_option('active_plugins')));
+
+	if ( $woocommerce_active == 1 || is_plugin_active_for_network( $woocommerce ) ) {
 
 		global $current_user;
 		$user_id = $current_user->ID;
@@ -740,118 +575,6 @@ $CustomCodeoptions = get_option('bulletproof_security_options_customcode');
 	}
 }
 
-// Heads Up Display - Check if W3TC is active or not and check root htaccess file for W3TC htaccess code 
-function bps_w3tc_htaccess_check($plugin_var_w3tc) {
-	
-	$plugin_var_w3tc = 'w3-total-cache/w3-total-cache.php';
-    $return_var = in_array( $plugin_var_w3tc, apply_filters('active_plugins', get_option('active_plugins')));
-
-	if ( $return_var == 1 || is_plugin_active_for_network( 'w3-total-cache/w3-total-cache.php' )) { // checks if W3TC is active for Single site or Network
-		
-		if ( ! is_multisite() ) {
-			$bpsSiteUrl = get_option('siteurl');
-			$bpsHomeUrl = get_option('home');
-		} else {
-			$bpsSiteUrl = get_site_option('siteurl');
-			$bpsHomeUrl = network_site_url();		
-		}
-
-			$filename = ABSPATH . '.htaccess';
-		
-			if ( file_exists($filename) ) {		
-
-			$string = file_get_contents($filename);	
-
-			if ( $bpsSiteUrl == $bpsHomeUrl ) {
-				if ( ! strpos( $string, "W3TC" ) ) {
-					$text = '<div style="background-color:#dfecf2;border:1px solid #999;font-size:1em;font-weight:600;padding:0px 5px;margin-top:2px;-moz-border-radius-topleft:3px;-webkit-border-top-left-radius:3px;-khtml-border-top-left-radius:3px;border-top-left-radius:3px;-moz-border-radius-topright:3px;-webkit-border-top-right-radius:3px;-khtml-border-top-right-radius:3px;border-top-right-radius:3px;-webkit-box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);-moz-box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);"><font color="#fb0101">'.__('W3 Total Cache is activated, but W3TC htaccess code was NOT found in your root htaccess file.', 'bulletproof-security').'</font><br>'.__('W3TC needs to be redeployed by clicking either the W3TC auto-install or deploy buttons. Your Root htaccess file must be temporarily unlocked so that W3TC can write to your Root htaccess file. Click to ', 'bulletproof-security').'<a href="'.admin_url( 'admin.php?page=w3tc_general' ).'">'.esc_attr__('Redeploy W3TC.', 'bulletproof-security').'</a><br>'.__('You can copy W3TC .htaccess code from your Root .htaccess file to BPS Custom Code to save it permanently so that you will not have to do these steps in the future.', 'bulletproof-security').'<br>'.__('Copy W3TC .htaccess code to this BPS Custom Code text box: CUSTOM CODE TOP PHP/PHP.INI HANDLER/CACHE CODE, click the Save Root Custom Code button, go to the BPS Security Modes page and click the Root folder BulletProof Mode button.', 'bulletproof-security').'</div>';
-					echo $text;
-				}
-			}
-		}
-	}
-	elseif ( $return_var != 1 || ! is_plugin_active_for_network( 'w3-total-cache/w3-total-cache.php' )) { // checks if W3TC is active for Single site or Network
-		
-		if ( ! is_multisite() ) {
-			$bpsSiteUrl = get_option('siteurl');
-			$bpsHomeUrl = get_option('home');
-		} else {
-			$bpsSiteUrl = get_site_option('siteurl');
-			$bpsHomeUrl = network_site_url();		
-		}
-
-		$filename = ABSPATH . '.htaccess';
-		
-		if ( file_exists($filename) ) {
-
-			$string = file_get_contents($filename);			
-		
-			if ( $bpsSiteUrl == $bpsHomeUrl ) {
-				if ( strpos( $string, "W3TC" ) ) {
-					$text = '<div style="background-color:#dfecf2;border:1px solid #999;font-size:1em;font-weight:600;padding:0px 5px;margin-top:2px;-moz-border-radius-topleft:3px;-webkit-border-top-left-radius:3px;-khtml-border-top-left-radius:3px;border-top-left-radius:3px;-moz-border-radius-topright:3px;-webkit-border-top-right-radius:3px;-khtml-border-top-right-radius:3px;border-top-right-radius:3px;-webkit-box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);-moz-box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);"><font color="#fb0101">'.__('W3 Total Cache is deactivated and W3TC .htaccess code was found in your root htaccess file.', 'bulletproof-security').'</font><br>'.__('If this is just temporary then this warning message will go away when you reactivate W3TC. If you are planning on uninstalling W3TC the W3TC htaccess code will be automatically removed from your root htaccess file when you uninstall W3TC. Your Root htaccess file must be temporarily unlocked so that W3TC can remove the W3TC Root htaccess code. If you manually edit your root htaccess file then refresh your browser to perform a new htaccess file check.', 'bulletproof-security').'</div>';
-					echo $text;
-				} 
-			}
-		}
-	}
-}
-
-// Heads Up Display - Check if WPSC is active or not and check root htaccess file for WPSC htaccess code 
-function bps_wpsc_htaccess_check($plugin_var_wpsc) {
-	
-	$plugin_var_wpsc = 'wp-super-cache/wp-cache.php';
-    $return_var = in_array( $plugin_var_wpsc, apply_filters('active_plugins', get_option('active_plugins')));
-
-	if ( $return_var == 1 || is_plugin_active_for_network( 'wp-super-cache/wp-cache.php' ) ) { // checks if WPSC is active for Single site or Network
-		
-		if ( ! is_multisite() ) {
-			$bpsSiteUrl = get_option('siteurl');
-			$bpsHomeUrl = get_option('home');
-		} else {
-			$bpsSiteUrl = get_site_option('siteurl');
-			$bpsHomeUrl = network_site_url();		
-		}
-		
-		$filename = ABSPATH . '.htaccess';
-
-		if ( file_exists($filename) ) {
-
-			$string = file_get_contents($filename);		
-		
-			if ( $bpsSiteUrl == $bpsHomeUrl ) {
-				if ( ! strpos($string, "WPSuperCache" ) ) { 
-					$text = '<div style="background-color:#dfecf2;border:1px solid #999;font-size:1em;font-weight:600;padding:0px 5px;margin-top:2px;-moz-border-radius-topleft:3px;-webkit-border-top-left-radius:3px;-khtml-border-top-left-radius:3px;border-top-left-radius:3px;-moz-border-radius-topright:3px;-webkit-border-top-right-radius:3px;-khtml-border-top-right-radius:3px;border-top-right-radius:3px;-webkit-box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);-moz-box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);"><font color="#fb0101">'.__('WP Super Cache is activated, but either you are not using WPSC mod_rewrite to serve cache files or the WPSC htaccess code was NOT found in your root htaccess file.', 'bulletproof-security').'</font><br>'.__('If you are not using WPSC mod_rewrite then copy this: # WPSuperCache to this BPS Custom Code text box: CUSTOM CODE TOP PHP/PHP.INI HANDLER/CACHE CODE, click the Save Root Custom Code button, go to the Security Modes page and click the Root folder BulletProof Mode button.', 'bulletproof-security').'<br>'.__('If you are using WPSC mod_rewrite and the WPSC htaccess code is not in your root htaccess file then unlock your Root htaccess file temporarily then click this ', 'bulletproof-security').'<a href="options-general.php?page=wpsupercache&tab=settings">'.__('Update WPSC link', 'bulletproof-security').'</a>'.__(' to go to the WPSC Settings page and click the Update Mod_Rewrite Rules button.', 'bulletproof-security').'<br>'.__('If you have deactivated Root Folder BulletProof Mode then disregard this Alert and DO NOT update your Mod_Rewrite Rules. Refresh your browser to perform a new htaccess file check.', 'bulletproof-security').'<br>'.__('You can copy WPSC .htaccess code from your Root .htaccess file to BPS Custom Code to save it permanently so that you will not have to do these steps in the future.', 'bulletproof-security').'<br>'.__('Copy WPSC .htaccess code to this BPS Custom Code text box: CUSTOM CODE TOP PHP/PHP.INI HANDLER/CACHE CODE, click the Save Root Custom Code button, go to the BPS Security Modes page and click the Root folder BulletProof Mode button.', 'bulletproof-security').'</div>';
-					echo $text;
-				}
-			}
-		}
-	}
-	elseif ( $return_var != 1 || ! is_plugin_active_for_network( 'wp-super-cache/wp-cache.php' )) { // checks if WPSC is NOT active for Single or Network
-		
-		if ( ! is_multisite() ) {
-			$bpsSiteUrl = get_option('siteurl');
-			$bpsHomeUrl = get_option('home');
-		} else {
-			$bpsSiteUrl = get_site_option('siteurl');
-			$bpsHomeUrl = network_site_url();		
-		}
-		
-		$filename = ABSPATH . '.htaccess';
-
-		if ( file_exists($filename) ) {
-
-			$string = file_get_contents($filename);				
-		
-			if ( $bpsSiteUrl == $bpsHomeUrl ) {
-				if ( strpos($string, "WPSuperCache" ) ) {
-					$text = '<div style="background-color:#dfecf2;border:1px solid #999;font-size:1em;font-weight:600;padding:0px 5px;margin-top:2px;-moz-border-radius-topleft:3px;-webkit-border-top-left-radius:3px;-khtml-border-top-left-radius:3px;border-top-left-radius:3px;-moz-border-radius-topright:3px;-webkit-border-top-right-radius:3px;-khtml-border-top-right-radius:3px;border-top-right-radius:3px;-webkit-box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);-moz-box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);"><font color="#fb0101">'.__('WP Super Cache is deactivated and WPSC htaccess code - # BEGIN WPSuperCache # END WPSuperCache - was found in your root htaccess file.', 'bulletproof-security').'</font><br>'.__('If this is just temporary then this warning message will go away when you reactivate WPSC. You will need to set up and reconfigure WPSC again when you reactivate WPSC. Your Root htaccess file must be temporarily unlocked if you are planning on uninstalling WPSC. The WPSC htaccess code will be automatically removed from your root htaccess file when you uninstall WPSC. If you added a commented out line of code in anywhere in your root htaccess file - # WPSuperCache - then delete it and refresh your browser. If you added WPSC code to BPS Custom Code then delete it if you are removing WPSC permanently.', 'bulletproof-security').'</div>';
-					echo $text;
-				} 
-			}
-		}
-	}
-}
-
 // Heads Up Display - Check if the /bps-backup/.htaccess file exists
 function bpsPro_BBM_htaccess_check() {
 
@@ -871,15 +594,23 @@ function bpsPro_BBM_htaccess_check() {
 	}
 }
 
+## Checks for older BPS Speed Boost Cache code saved in BPS Custom Code
+## 2.0: Checks for redundant Browser caching code & the BPS NOCHECK Marker in BPS Custom Code
 function bpsPro_hud_speed_boost_cache_code() {
-global $current_user;
-$user_id = $current_user->ID;	
 	
 	$CC_options = get_option('bulletproof_security_options_customcode');
+	$bps_customcode_one = htmlspecialchars_decode( $CC_options['bps_customcode_one'], ENT_QUOTES );	
 	
-	if ( $CC_options['bps_customcode_one'] == '') {
+	if ( $CC_options['bps_customcode_one'] == '' || strpos( $bps_customcode_one, "BPS NOCHECK" ) ) {
 		return;
 	}	
+	
+	if ( @$_POST['bps_customcode_submit'] == true ) {
+		return;
+	}
+
+	global $current_user;
+	$user_id = $current_user->ID;	
 	
 	$pattern1 = '/BEGIN\sWEBSITE\sSPEED\sBOOST/';
 	$pattern2 = '/AddOutputFilterByType\sDEFLATE\stext\/plain\s*AddOutputFilterByType\sDEFLATE\stext\/html\s*AddOutputFilterByType\sDEFLATE\stext\/xml\s*AddOutputFilterByType\sDEFLATE\stext\/css\s*AddOutputFilterByType\sDEFLATE\sapplication\/xml\s*AddOutputFilterByType\sDEFLATE\sapplication\/xhtml\+xml\s*AddOutputFilterByType\sDEFLATE\sapplication\/rss\+xml\s*AddOutputFilterByType\sDEFLATE\sapplication\/javascript\s*AddOutputFilterByType\sDEFLATE\sapplication\/x-javascript\s*AddOutputFilterByType\sDEFLATE\sapplication\/x-httpd-php\s*AddOutputFilterByType\sDEFLATE\sapplication\/x-httpd-fastphp\s*AddOutputFilterByType\sDEFLATE\simage\/svg\+xml/';
@@ -898,6 +629,14 @@ $user_id = $current_user->ID;
 
 			$text = '<div class="update-nag" style="background-color:#dfecf2;border:1px solid #999;font-size:1em;font-weight:600;padding:2px 5px;margin-top:2px;-moz-border-radius-topleft:3px;-webkit-border-top-left-radius:3px;-khtml-border-top-left-radius:3px;border-top-left-radius:3px;-moz-border-radius-topright:3px;-webkit-border-top-right-radius:3px;-khtml-border-top-right-radius:3px;border-top-right-radius:3px;-webkit-box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);-moz-box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);"><font color="blue">'.__('New Improved BPS Speed Boost Cache Code', 'bulletproof-security').'</font><br>'.__('Older BPS Speed Boost Cache Code was found saved in this BPS Custom Code text box: CUSTOM CODE TOP PHP/PHP.INI HANDLER/CACHE CODE', 'bulletproof-security').'.<br>'.__('Newer improved BPS Speed Boost Cache Code has been created, which should improve website load speed performance even more.', 'bulletproof-security').'<br><a href="https://forum.ait-pro.com/forums/topic/htaccess-caching-code-speed-boost-cache-code/" target="_blank" title="BPS Speed Boost Cache Code">'.__('Get The New Improved BPS Speed Boost Cache Code', 'bulletproof-security').'</a>'.__('. To dismiss this Notice click the Dismiss Notice button below.', 'bulletproof-security').'<br>'.__('To Reset Dismiss Notices click the Reset|Recheck Dismiss Notices button on the Custom Code page.', 'bulletproof-security').'<br><div style="float:left;margin:3px 0px 3px 0px;padding:2px 6px 2px 6px;background-color:#e8e8e8;border:1px solid gray;"><a href="'.$bps_base.'bpsPro_hud_speed_boost_nag_ignore=0'.'" style="text-decoration:none;font-weight:600;">'.__('Dismiss Notice', 'bulletproof-security').'</a></div></div>';
 			echo $text;
+		}
+
+		if ( strpos( $bps_customcode_one, "WEBSITE SPEED BOOST" ) ) {
+			if ( strpos( $bps_customcode_one, "WPSuperCache" ) || strpos( $bps_customcode_one, "W3TC Browser Cache" ) || strpos( $bps_customcode_one, "Comet Cache" ) || strpos( $bps_customcode_one, "GzipWpFastestCache" ) || strpos( $bps_customcode_one, "LBCWpFastestCache" ) || strpos( $bps_customcode_one, "WP Rocket" ) ) {
+			
+			$text = '<div class="update-nag" style="background-color:#dfecf2;border:1px solid #999;font-size:1em;font-weight:600;padding:2px 5px;margin-top:2px;-moz-border-radius-topleft:3px;-webkit-border-top-left-radius:3px;-khtml-border-top-left-radius:3px;border-top-left-radius:3px;-moz-border-radius-topright:3px;-webkit-border-top-right-radius:3px;-khtml-border-top-right-radius:3px;border-top-right-radius:3px;-webkit-box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);-moz-box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);"><font color="blue">'.__('BPS Speed Boost Cache Custom Code Notice', 'bulletproof-security').'</font><br>'.__('BPS Speed Boost Cache Code was found in this BPS Custom Code text box: CUSTOM CODE TOP PHP/PHP.INI HANDLER/CACHE CODE', 'bulletproof-security').'<br>'.__('and another caching plugin\'s Marker text was also found in this BPS Custom Code text box.', 'bulletproof-security').'<br>'.__('Click this link: ', 'bulletproof-security').'<a href="https://forum.ait-pro.com/forums/topic/bps-speed-boost-cache-custom-code-notice/" target="_blank" title="BPS SBC Custom Code Forum Topic">'.__('BPS Speed Boost Cache Custom Code Notice Forum Topic', 'bulletproof-security').'</a>'.__(' for help information on what this Notice means and what to do next.', 'bulletproof-security').'</div>';
+			echo $text;
+			}
 		}
 	}
 }
@@ -918,9 +657,12 @@ $user_id = $current_user->ID;
 // There are 3 common scenarios: only the dismiss all notice link was clicked, some of the individual dismiss notices were clicked and 
 // the dismiss all notice link was clicked and only all individual dimiss notice links were clicked, but not the dismiss all notice link.
 // which leaves 2 possible conditions: either the dismiss all notice value == true or all other dismiss notice values == true.
+// 1.2: New BPS MU Tools file created.
 function bps_hud_check_autoupdate() {
 	
-	if ( ! get_option('bulletproof_security_options_autoupdate') ) {
+	$MUTools_Options = get_option('bulletproof_security_options_MU_tools_free');
+	
+	if ( $MUTools_Options['bps_mu_tools_enable_disable_autoupdate'] == 'disable' ) {
 	
 		global $current_user;
 		$user_id = $current_user->ID;
@@ -946,7 +688,13 @@ function bps_hud_check_autoupdate() {
 				$bps_base = str_replace( admin_url(), '', esc_html($_SERVER['REQUEST_URI']) ) . '&';
 			}		
 			
-			$text = '<div class="update-nag" style="background-color:#dfecf2;border:1px solid #999;font-size:1em;font-weight:600;padding:2px 5px;margin-top:2px;-moz-border-radius-topleft:3px;-webkit-border-top-left-radius:3px;-khtml-border-top-left-radius:3px;border-top-left-radius:3px;-moz-border-radius-topright:3px;-webkit-border-top-right-radius:3px;-khtml-border-top-right-radius:3px;border-top-right-radius:3px;-webkit-box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);-moz-box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);"><font color="blue">'.__('BPS Plugin Automatic Update Notice', 'bulletproof-security').'</font><br>'.__('Would you like to have BPS plugin updates installed automatically? Click this link: ', 'bulletproof-security').'<a href="'.admin_url( 'admin.php?page=bulletproof-security/admin/theme-skin/theme-skin.php#bps-plugin-autoupdate' ).'">'.esc_attr__('BPS Plugin AutoUpdate', 'bulletproof-security').'</a>'.__(' and choose the AutoUpdate On option setting.', 'bulletproof-security').'<br>'.__('To Dismiss this Notice click the Dismiss Notice button below. To Reset Dismiss Notices click the Reset|Recheck Dismiss Notices button on the Custom Code page.', 'bulletproof-security').'<br><div style="float:left;margin:3px 0px 3px 0px;padding:2px 6px 2px 6px;background-color:#e8e8e8;border:1px solid gray;"><a href="'.$bps_base.'bps_autoupdate_nag_ignore=0'.'" style="text-decoration:none;font-weight:600;">'.__('Dismiss Notice', 'bulletproof-security').'</a></div></div>';
+			if ( is_multisite() ) {
+				$bps_mu_link = '<a href="'.network_admin_url( 'plugins.php?plugin_status=mustuse' ).'">'.esc_attr__('BPS Plugin AutoUpdates', 'bulletproof-security').'</a>';
+			} else {
+				$bps_mu_link = '<a href="'.admin_url( 'plugins.php?plugin_status=mustuse' ).'">'.esc_attr__('BPS Plugin AutoUpdates', 'bulletproof-security').'</a>';
+			}
+
+			$text = '<div class="update-nag" style="background-color:#dfecf2;border:1px solid #999;font-size:1em;font-weight:600;padding:2px 5px;margin-top:2px;-moz-border-radius-topleft:3px;-webkit-border-top-left-radius:3px;-khtml-border-top-left-radius:3px;border-top-left-radius:3px;-moz-border-radius-topright:3px;-webkit-border-top-right-radius:3px;-khtml-border-top-right-radius:3px;border-top-right-radius:3px;-webkit-box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);-moz-box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);"><font color="blue">'.__('BPS Plugin Automatic Update Notice', 'bulletproof-security').'</font><br>'.__('Would you like to have BPS plugin updates installed automatically? Click this link: ', 'bulletproof-security').$bps_mu_link.__(' and click the BPS MU Tools Enable BPS Plugin AutoUpdates link.', 'bulletproof-security').'<br>'.__('To Dismiss this Notice click the Dismiss Notice button below. To Reset Dismiss Notices click the Reset|Recheck Dismiss Notices button on the Custom Code page.', 'bulletproof-security').'<br><div style="float:left;margin:3px 0px 3px 0px;padding:2px 6px 2px 6px;background-color:#e8e8e8;border:1px solid gray;"><a href="'.$bps_base.'bps_autoupdate_nag_ignore=0'.'" style="text-decoration:none;font-weight:600;">'.__('Dismiss Notice', 'bulletproof-security').'</a></div></div>';
 			echo $text;
 			}
 		}
@@ -961,43 +709,6 @@ $user_id = $current_user->ID;
         
 	if ( isset( $_GET['bps_autoupdate_nag_ignore'] ) && '0' == $_GET['bps_autoupdate_nag_ignore'] ) {
 		add_user_meta($user_id, 'bps_ignore_autoupdate_notice', 'true', true);
-	}
-}
-
-// Heads Up Display w/ Dismiss Notice - Check if Endurance Page Cache must-use plugin is installed.
-function bpsPro_EPC_plugin_check() {
-	
-	$EPC_plugin_file = WP_CONTENT_DIR . '/mu-plugins/endurance-page-cache.php';
-	
-	if ( file_exists($EPC_plugin_file) ) {
-
-		global $current_user;
-		$user_id = $current_user->ID;		
-		
-		if ( ! get_user_meta($user_id, 'bpsPro_ignore_EPC_plugin_notice') ) {
-		
-		if ( esc_html($_SERVER['QUERY_STRING']) == '' && basename(esc_html($_SERVER['REQUEST_URI'])) != 'wp-admin' ) {
-			$bps_base = basename(esc_html($_SERVER['REQUEST_URI'])) . '?';
-		} elseif ( esc_html($_SERVER['QUERY_STRING']) == '' && basename(esc_html($_SERVER['REQUEST_URI'])) == 'wp-admin' ) {
-			$bps_base = basename( str_replace( 'wp-admin', 'index.php?', esc_html($_SERVER['REQUEST_URI'])));
-		} else {
-			$bps_base = str_replace( admin_url(), '', esc_html($_SERVER['REQUEST_URI']) ) . '&';
-		}
-
-		$text = '<div class="update-nag" style="background-color:#dfecf2;border:1px solid #999;font-size:1em;font-weight:600;padding:2px 5px;margin-top:2px;-moz-border-radius-topleft:3px;-webkit-border-top-left-radius:3px;-khtml-border-top-left-radius:3px;border-top-left-radius:3px;-moz-border-radius-topright:3px;-webkit-border-top-right-radius:3px;-khtml-border-top-right-radius:3px;border-top-right-radius:3px;-webkit-box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);-moz-box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);box-shadow: 3px 3px 5px -1px rgba(153,153,153,0.7);"><font color="blue">'.__('BPS Notice: The Endurance Page Cache (EPC) must-use plugin is installed', 'bulletproof-security').'</font><br>'.__('The EPC must-use plugin has been automatically installed by your Web Host and requires additional BPS Custom Code setup steps to make sure everything is working correctly.', 'bulletproof-security').'<br>'.__('Click this forum link: ', 'bulletproof-security').'<a href="https://forum.ait-pro.com/forums/topic/endurance-page-cache-infinite-redirect-loop-css-and-js-broken/" title="Endurance Page Cache Plugin Fix Forum Topic" target="_blank">'.__('Endurance Page Cache Plugin Fix', 'bulletproof-security').'</a>'.__(' and do the Custom Code setup steps in the forum topic.', 'bulletproof-security').'<br>'.__('If you want to disable the EPC plugin, see the "EPC Plugin Additional Notes" help section at the bottom of the forum topic.', 'bulletproof-security').'<br>'.__('To Dismiss this Notice click the Dismiss Notice button below. To Reset Dismiss Notices click the Reset|Recheck Dismiss Notices button on the Custom Code page.', 'bulletproof-security').'<br><div style="float:left;margin:3px 0px 3px 0px;padding:2px 6px 2px 6px;background-color:#e8e8e8;border:1px solid gray;"><a href="'.$bps_base.'bpsPro_EPC_plugin_nag_ignore=0'.'" style="text-decoration:none;font-weight:600;">'.__('Dismiss Notice', 'bulletproof-security').'</a></div></div>';
-		echo $text;
-	}
-	}
-}
-
-add_action('admin_init', 'bpsPro_EPC_plugin_nag_ignore');
-
-function bpsPro_EPC_plugin_nag_ignore() {
-global $current_user;
-$user_id = $current_user->ID;
-        
-	if ( isset($_GET['bpsPro_EPC_plugin_nag_ignore']) && '0' == $_GET['bpsPro_EPC_plugin_nag_ignore'] ) {
-		add_user_meta($user_id, 'bpsPro_ignore_EPC_plugin_notice', 'true', true);
 	}
 }
 

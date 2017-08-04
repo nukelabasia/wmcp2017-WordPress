@@ -146,7 +146,7 @@ global $bps_topDiv, $bps_bottomDiv;
 
 <table width="100%" border="0" cellspacing="0" cellpadding="10" class="bps-help_faq_table">
   <tr>
-    <td colspan="2" class="bps-table_title">&nbsp;</td>
+    <td colspan="2" class="bps-table_title"></td>
   </tr>
   <tr>
     
@@ -226,7 +226,7 @@ global $bps_topDiv, $bps_bottomDiv;
      <strong><label for="bps-CCode">
 	<?php echo number_format_i18n( 9 ).'. '; _e('CUSTOM CODE REQUEST METHODS FILTERED:', 'bulletproof-security'); ?><br />
 	<?php _e('Whitelist User Agents and allow HEAD Requests', 'bulletproof-security'); ?> </label></strong><br />
-<strong><?php $text = '<font color="#2ea2cc">'.__('You MUST copy and paste the entire REQUEST METHODS FILTERED section of code from your root .htaccess file into this text box first. You can then edit and modify the code in this text window and save your changes. To Allow HEAD Requests, comment out these 2 lines of code with # signs: ', 'bulletproof-security').'#RewriteCond %{REQUEST_METHOD} ^(HEAD) [NC] and #RewriteRule ^(.*)$ - [R=405,L].</font>'; echo $text ; ?></strong><br />
+<strong><?php $text = '<font color="#2ea2cc">'.__('You MUST copy and paste the entire REQUEST METHODS FILTERED section of code from your root .htaccess file into this text box first. You can then edit and modify the code in this text window and save your changes. To Allow HEAD Requests click the Read Me help button at the top of the Custom Code page for instructions and examples.', 'bulletproof-security').'</font>'; echo $text ; ?></strong><br />
     <textarea class="bps-text-area-custom-code" name="bps_customcode_request_methods" tabindex="9"><?php echo $CC_Options_root['bps_customcode_request_methods']; ?></textarea>   
     </td>
     <td class="bps-table_cell_help_custom_code" style="padding-top:75px;">
@@ -272,7 +272,7 @@ global $bps_topDiv, $bps_bottomDiv;
 
   <tr>
     <td class="bps-table_cell_help_custom_code">
-    <strong><label for="bps-CCode"><?php echo number_format_i18n( 12 ).'. '; _e('CUSTOM CODE WP REWRITE LOOP END: Add WP Rewrite Loop End code here', 'bulletproof-security'); ?> </label></strong><br />
+    <strong><label for="bps-CCode"><?php echo number_format_i18n( 12 ).'b. '; _e('CUSTOM CODE WP REWRITE LOOP END: Add WP Rewrite Loop End code here', 'bulletproof-security'); ?> </label></strong><br />
  <strong><?php $text = '<font color="#2ea2cc">'.__('This is a Special Custom Code text box that should only be used if the correct WP REWRITE LOOP END code is not being created in your root .htaccess file. See the Read Me help button for more information.', 'bulletproof-security').'</font>'; echo $text; ?></strong><br />
     <textarea class="bps-text-area-custom-code" name="bps_customcode_wp_rewrite_end" tabindex="13"><?php echo $CC_Options_root['bps_customcode_wp_rewrite_end']; ?></textarea>
 
@@ -325,9 +325,6 @@ global $bps_topDiv, $bps_bottomDiv;
     <td class="bps-table_cell_help">&nbsp;</td>
     <td class="bps-table_cell_help">&nbsp;</td>
   </tr>
-  <tr>
-    <td colspan="2" class="bps-table_cell_bottom">&nbsp;</td>
-  </tr>
 </table>
 
 <script type="text/javascript">
@@ -353,7 +350,7 @@ jQuery(document).ready(function($){
 
 <table width="100%" border="0" cellspacing="0" cellpadding="10" class="bps-help_faq_table">
   <tr>
-    <td colspan="2" class="bps-table_title">&nbsp;</td>
+    <td colspan="2" class="bps-table_title"></td>
   </tr>
   <tr>
     <td class="bps-table_cell_help_custom_code">
@@ -421,9 +418,6 @@ jQuery(document).ready(function($){
   <tr>
     <td class="bps-table_cell_help">&nbsp;</td>
     <td class="bps-table_cell_help">&nbsp;</td>
-  </tr>
-  <tr>
-    <td colspan="2" class="bps-table_cell_bottom">&nbsp;</td>
   </tr>
 </table>
 

@@ -60,6 +60,8 @@ Hugeit_Maps_Template_Loader::get_template( 'admin/api-key-form.php' );
 
 		Hugeit_Maps_Template_Loader::get_template( 'admin/edit-map-styling-section.php', array( 'map' => $map ) );
 
+        Hugeit_Maps_Template_Loader::get_template( 'admin/edit-map-locator-section.php', array( 'map' => $map ) );
+
 		?>
 	</ul>
 	<div id="g_maps" >

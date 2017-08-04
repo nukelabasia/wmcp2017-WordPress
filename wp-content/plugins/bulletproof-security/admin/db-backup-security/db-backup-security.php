@@ -264,18 +264,11 @@ function bpsSpinnerTableRefresh() {
             
 <div id="bps-tabs-1" class="bps-tab-page">
 
-<h2><?php _e('DB Backup ~ ', 'bulletproof-security'); ?><span style="font-size:.75em;"><?php _e('Full & Partial DB Backups, Manual & Scheduled DB Backups, Email Zip Backups, Automatically Delete Old Backups', 'bulletproof-security'); ?></span></h2>
-
-<div id="backup-job-time-estimates" style="font-size:1.13em;margin:0px 0px 10px 0px;">
-<?php
-	$text = '<font color="black"><strong>'.__('DB Backup Job Completion Time Estimates: ', 'bulletproof-security').'</strong><br><strong>'.__('10MB DB: ', 'bulletproof-security').'</strong>'.__('3 Seconds', 'bulletproof-security').'<br><strong>'.__('100MB DB: ', 'bulletproof-security').'</strong>'.__('30 Seconds', 'bulletproof-security').'</font>';
-	echo $text;
-?>
-</div>
-
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="bps-help_faq_table">
   <tr>
-    <td class="bps-table_title">&nbsp;</td>
+    <td class="bps-table_title">
+<?php $text = '<h2>'.__('DB Backup ~ ', 'bulletproof-security').'<span style="font-size:.75em;">'.__('Full & Partial DB Backups, Manual & Scheduled DB Backups, Email Zip Backups, Automatically Delete Old Backups', 'bulletproof-security').'</span></h2><div class="promo-text">'.__('Want even more security protection?', 'bulletproof-security').'<br>'.__('Protect all of your website files with AutoRestore|Quarantine Intrusion Detection & Prevention System: ', 'bulletproof-security').'<a href="https://affiliates.ait-pro.com/po/" target="_blank" title="BPS Pro ARQ IDPS">'.__('Get BPS Pro ARQ IDPS', 'bulletproof-security').'</a></div>'; echo $text; ?>    
+    </td>
   </tr>
   <tr>
     <td class="bps-table_cell_help">
@@ -717,7 +710,7 @@ if ( isset( $_POST['Submit-DBB-Files'] ) && current_user_can('manage_options') )
 	echo '</div>'; // jQuery div parent
 	echo '</th>';
 	
-	echo '<td>';		
+	echo '<td style="border:none">';		
 	echo '<div id="DBBOptions" style="margin:0px 0px 0px 0px;float:left;">';
 
 	$DBBDescription = ( isset( $_POST['DBBDescription'] ) ) ? $_POST['DBBDescription'] : '';
@@ -864,7 +857,7 @@ if ( isset( $_POST['Submit-DBB-Files'] ) && current_user_can('manage_options') )
 	echo '</div>';
 
 	echo '</td>';
-	echo '<td>';
+	echo '<td style="border:none">';
 	echo '<div id="DBBOptions" style="margin:0px 0px 0px 0px;float:left;">';
 	
 	// Form: Rename|Create|Reset DB Backup Folder Location and DB Backup File Download Link|URL
@@ -1129,20 +1122,17 @@ if ( isset($_POST['Submit-DBB-Create-Job']) && current_user_can('manage_options'
 
 </td>
   </tr>
-  <tr>
-    <td class="bps-table_cell_bottom">&nbsp;</td>
-  </tr>
 </table>
 
 </div>
 
 <div id="bps-tabs-2" class="bps-tab-page">
 
-<h2><?php _e('DB Backup Log ~ ', 'bulletproof-security'); ?><span style="font-size:.75em;"><?php _e('Logs Backup Job Settings, Completion Time, Memory Usage, Zip Backup File Name, Timestamp...', 'bulletproof-security'); ?></span></h2>
-
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="bps-help_faq_table">
   <tr>
-    <td class="bps-table_title">&nbsp;</td>
+    <td class="bps-table_title">
+<?php $text = '<h2>'.__('DB Backup Log ~ ', 'bulletproof-security').'<span style="font-size:.75em;">'.__('Logs Backup Job Settings, Completion Time, Memory Usage, Zip Backup File Name, Timestamp...', 'bulletproof-security').'</span></h2><div class="promo-text">'.__('Want even more security protection?', 'bulletproof-security').'<br>'.__('Protect all of your website files with AutoRestore|Quarantine Intrusion Detection & Prevention System: ', 'bulletproof-security').'<a href="https://affiliates.ait-pro.com/po/" target="_blank" title="BPS Pro ARQ IDPS">'.__('Get BPS Pro ARQ IDPS', 'bulletproof-security').'</a></div>'; echo $text; ?> 
+    </td>
   </tr>
   <tr>
     <td class="bps-table_cell_help">
@@ -1366,22 +1356,19 @@ jQuery(document).ready(function($){
 
 </td>
   </tr>
-  <tr>
-    <td class="bps-table_cell_bottom">&nbsp;</td>
-  </tr>
 </table>
 
 </div>
 
 <div id="bps-tabs-3" class="bps-tab-page">
 
-<h2><?php _e('DB Table Prefix Changer ~ ', 'bulletproof-security'); ?><span style="font-size:.75em;"><?php _e('Tools to change & check your WordPress Database Table Prefix', 'bulletproof-security'); ?></span></h2>
-
 <div id="DB-Table-Prefix-Changer-Table">
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="bps-help_faq_table">
   <tr>
-    <td colspan="2" class="bps-table_title">&nbsp;</td>
+    <td colspan="2" class="bps-table_title">
+<?php $text = '<h2>'.__('DB Table Prefix Changer ~ ', 'bulletproof-security').'<span style="font-size:.75em;">'.__('Tools to change & check your WordPress Database Table Prefix', 'bulletproof-security').'</span></h2><div class="promo-text">'.__('Want even more security protection?', 'bulletproof-security').'<br>'.__('Protect all of your website files with AutoRestore|Quarantine Intrusion Detection & Prevention System: ', 'bulletproof-security').'<a href="https://affiliates.ait-pro.com/po/" target="_blank" title="BPS Pro ARQ IDPS">'.__('Get BPS Pro ARQ IDPS', 'bulletproof-security').'</a></div>'; echo $text; ?>
+    </td>
   </tr>
   <tr>
     <td width="50%" valign="top" class="bps-table_cell_help">
@@ -1733,38 +1720,25 @@ jQuery(document).ready(function($) {
 
     </td>
   </tr>
-  <tr>
-    <td colspan="2" class="bps-table_cell_bottom">&nbsp;</td>
-  </tr>
 </table>
 
 </div>
 </div>
 
 <div id="bps-tabs-4" class="bps-tab-page">
-<h2><?php _e('Help &amp; FAQ', 'bulletproof-security'); ?></h2>
+
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="bps-help_faq_table">
   <tr>
-    <td colspan="2" class="bps-table_title">&nbsp;</td>
+    <td class="bps-table_title"><h2><?php _e('Help &amp; FAQ', 'bulletproof-security'); ?></h2></td>
   </tr>
   <tr>
-    <td class="bps-table_cell_help_links"><a href="<?php echo admin_url( 'admin.php?page=bulletproof-security/admin/core/core.php#bps-tabs-10' ); ?>" target="_blank"><?php _e('Whats New in ', 'bulletproof-security'); echo BULLETPROOF_VERSION; ?></a></td>
-    <td class="bps-table_cell_help_links"><a href="https://forum.ait-pro.com/forums/topic/bulletproof-security-pro-version-release-dates/" target="_blank"><?php _e('BPS Pro Features & Version Release Dates', 'bulletproof-security'); ?></a></td>
-  </tr>
-  <tr>
-    <td class="bps-table_cell_help_links"><a href="https://forum.ait-pro.com/video-tutorials/" target="_blank"><?php _e('Video Tutorials', 'bulletproof-security'); ?></a></td>
-    <td class="bps-table_cell_help_links"><a href="https://forum.ait-pro.com/forums/topic/database-backup-security-guide/" target="_blank"><?php _e('DB Backup & Security Guide & Troubleshooting', 'bulletproof-security'); ?></a></td>
-  </tr>
-  <tr>
-    <td class="bps-table_cell_help_links"><a href="https://forum.ait-pro.com/forums/topic/plugin-conflicts-actively-blocked-plugins-plugin-compatibility/" target="_blank"><?php _e('Forum: Search, Troubleshooting Steps & Post Questions For Assistance', 'bulletproof-security'); ?></a></td>
-    <td class="bps-table_cell_help_links">&nbsp;</td>
-  </tr>
-  <tr>
-    <td class="bps-table_cell_help_links">&nbsp;</td>
-    <td class="bps-table_cell_help_links">&nbsp;</td>
-  </tr>
-   <tr>
-    <td colspan="2" class="bps-table_cell_bottom">&nbsp;</td>
+    <td class="bps-table_cell_help_links">
+    <a href="<?php echo admin_url( 'admin.php?page=bulletproof-security/admin/core/core.php#bps-tabs-10' ); ?>" target="_blank"><?php _e('Whats New in ', 'bulletproof-security'); echo BULLETPROOF_VERSION; ?></a><br /><br />
+    <a href="https://forum.ait-pro.com/forums/topic/bulletproof-security-pro-version-release-dates/" target="_blank"><?php _e('BPS Pro Features & Version Release Dates', 'bulletproof-security'); ?></a><br /><br />
+    <a href="https://forum.ait-pro.com/video-tutorials/" target="_blank"><?php _e('Video Tutorials', 'bulletproof-security'); ?></a><br /><br />
+    <a href="https://forum.ait-pro.com/forums/topic/database-backup-security-guide/" target="_blank"><?php _e('DB Backup & Security Guide & Troubleshooting', 'bulletproof-security'); ?></a><br /><br />
+    <a href="https://forum.ait-pro.com/forums/topic/plugin-conflicts-actively-blocked-plugins-plugin-compatibility/" target="_blank"><?php _e('Forum: Search, Troubleshooting Steps & Post Questions For Assistance', 'bulletproof-security'); ?></a>
+    </td>
   </tr>
 </table>
 </div>

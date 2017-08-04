@@ -2,94 +2,75 @@
 function pinterest_master_load_system_wide() {
 global $wpdb, $blog_id;
 	if(is_multisite()){
-		if (get_blog_option($blog_id, 'pinterest_master_system_wide') == "true" ){
-			if (get_blog_option($blog_id, 'pinterest_master_system_wide_size') == "pinterest_master_system_wide_size_small" ){
-				$pinterest_master_system_wide_size_create = '';
-			}
-			if (get_blog_option($blog_id, 'pinterest_master_system_wide_size') == "pinterest_master_system_wide_size_large" ){
-				$pinterest_master_system_wide_size_create = 'data-pin-height="28"';
-			}
-			else{
-				$pinterest_master_system_wide_size_create = '';
-			}
-			if (get_blog_option($blog_id, 'pinterest_master_system_wide_shape') == "pinterest_master_system_wide_shape_rectangular" ){
-				$pinterest_master_system_wide_shape_create = '';
-			}
-			if (get_blog_option($blog_id, 'pinterest_master_system_wide_shape') == "pinterest_master_system_wide_shape_circular" ){
-				$pinterest_master_system_wide_shape_create = 'data-pin-shape="round"';
-			}
-			else{
-				$pinterest_master_system_wide_shape_create = '';
-			}
-	//		if (get_blog_option($blog_id, 'pinterest_master_system_wide_color') == "pinterest_master_system_wide_color_gray" ){
-	//			$pinterest_master_system_wide_color_create = '';
-	//		}
-			if (get_blog_option($blog_id, 'pinterest_master_system_wide_color') == "pinterest_master_system_wide_color_red" ){
-				$pinterest_master_system_wide_color_create = 'data-pin-color="red"';
-			}
-			if (get_blog_option($blog_id, 'pinterest_master_system_wide_color') == "pinterest_master_system_wide_color_white" ){
-				$pinterest_master_system_wide_color_create = 'data-pin-color="white"';
-			}
-			else{
-				$pinterest_master_system_wide_color_create = 'data-pin-color="red"';
-			}
-			if (get_blog_option($blog_id, 'pinterest_master_system_wide_hover') == "true" ){
-				$pinterest_master_system_wide_hover_create = 'data-pin-hover="true"';
+		$pinterest_master_system_wide = get_blog_option($blog_id, 'pinterest_master_system_wide');
+		if ($pinterest_master_system_wide == "true"){
+			$pinterest_master_system_wide_size = get_blog_option($blog_id, 'pinterest_master_system_wide_size');
+			$pinterest_master_system_wide_shape = get_blog_option($blog_id, 'pinterest_master_system_wide_shape');
+			$pinterest_master_system_wide_hover = get_blog_option($blog_id, 'pinterest_master_system_wide_hover');
+			if ($pinterest_master_system_wide_hover == "true" ){
+				if ($pinterest_master_system_wide_shape == "pinterest_master_system_wide_shape_circular" ){
+					$buttonpinitshape_create = 'data-pin-round="true"';
+					$buttonpinitsave_create = 'data-pin-save="false"';
+					if ($pinterest_master_system_wide_size == "pinterest_master_system_wide_size_small" ){
+						$buttonpinitsize_create = '';
+					}
+					if ($pinterest_master_system_wide_size == "pinterest_master_system_wide_size_large" ){
+						$buttonpinitsize_create = 'data-pin-tall="true"';
+					}
+				}
+				if ($pinterest_master_system_wide_shape == "pinterest_master_system_wide_shape_rectangular" ){
+					$buttonpinitshape_create = '';
+					$buttonpinitsave_create = 'data-pin-save="true"';
+					if ($pinterest_master_system_wide_size == "pinterest_master_system_wide_size_small" ){
+						$buttonpinitsize_create = '';
+					}
+					if ($pinterest_master_system_wide_size == "pinterest_master_system_wide_size_large" ){
+						$buttonpinitsize_create = 'data-pin-tall="true"';
+					}
+				}
+			$pinterest_master_system_wide_create = '<script async defer data-pin-hover="true" '.$buttonpinitsave_create.' '.$buttonpinitsize_create.' '.$buttonpinitshape_create.' src="//assets.pinterest.com/js/pinit.js"></script>';
 			}
 			else{
-				$pinterest_master_system_wide_hover_create = '';
+				$pinterest_master_system_wide_create = '<script async defer src="//assets.pinterest.com/js/pinit.js"></script>';
 			}
-		$pinterest_master_system_wide_create = '<script type="text/javascript" async '.$pinterest_master_system_wide_color_create.' '.$pinterest_master_system_wide_shape_create.' '.$pinterest_master_system_wide_size_create.' '.$pinterest_master_system_wide_hover_create.' src="//assets.pinterest.com/js/pinit.js"></script>';
-		}
-		else{
-		$pinterest_master_system_wide_create = '';
+		echo $pinterest_master_system_wide_create;
 		}
 	}
-	else {
-		if (get_option('pinterest_master_system_wide') == "true" ){
-			if (get_option('pinterest_master_system_wide_size') == "pinterest_master_system_wide_size_small" ){
-				$pinterest_master_system_wide_size_create = '';
-			}
-			if (get_option('pinterest_master_system_wide_size') == "pinterest_master_system_wide_size_large" ){
-				$pinterest_master_system_wide_size_create = 'data-pin-height="28"';
-			}
-			else{
-				$pinterest_master_system_wide_size_create = '';
-			}
-			if (get_option('pinterest_master_system_wide_shape') == "pinterest_master_system_wide_shape_rectangular" ){
-				$pinterest_master_system_wide_shape_create = '';
-			}
-			if (get_option('pinterest_master_system_wide_shape') == "pinterest_master_system_wide_shape_circular" ){
-				$pinterest_master_system_wide_shape_create = 'data-pin-shape="round"';
-			}
-			else{
-				$pinterest_master_system_wide_shape_create = '';
-			}
-	//		if (get_option('pinterest_master_system_wide_color') == "pinterest_master_system_wide_color_gray" ){
-	//			$pinterest_master_system_wide_color_create = '';
-	//		}
-			if (get_option('pinterest_master_system_wide_color') == "pinterest_master_system_wide_color_red" ){
-				$pinterest_master_system_wide_color_create = 'data-pin-color="red"';
-			}
-			if (get_option('pinterest_master_system_wide_color') == "pinterest_master_system_wide_color_white" ){
-				$pinterest_master_system_wide_color_create = 'data-pin-color="white"';
-			}
-			else{
-				$pinterest_master_system_wide_color_create = 'data-pin-color="red"';
-			}
-			if (get_option('pinterest_master_system_wide_hover') == "true" ){
-				$pinterest_master_system_wide_hover_create = 'data-pin-hover="true"';
+	else{
+		$pinterest_master_system_wide = get_option('pinterest_master_system_wide');
+		if ($pinterest_master_system_wide == "true"){
+			$pinterest_master_system_wide_size = get_option('pinterest_master_system_wide_size');
+			$pinterest_master_system_wide_shape = get_option('pinterest_master_system_wide_shape');
+			$pinterest_master_system_wide_hover = get_option('pinterest_master_system_wide_hover');
+			if ($pinterest_master_system_wide_hover == "true" ){
+				if ($pinterest_master_system_wide_shape == "pinterest_master_system_wide_shape_circular" ){
+					$buttonpinitshape_create = 'data-pin-round="true"';
+					$buttonpinitsave_create = 'data-pin-save="false"';
+					if ($pinterest_master_system_wide_size == "pinterest_master_system_wide_size_small" ){
+						$buttonpinitsize_create = '';
+					}
+					if ($pinterest_master_system_wide_size == "pinterest_master_system_wide_size_large" ){
+						$buttonpinitsize_create = 'data-pin-tall="true"';
+					}
+				}
+				if ($pinterest_master_system_wide_shape == "pinterest_master_system_wide_shape_rectangular" ){
+					$buttonpinitshape_create = '';
+					$buttonpinitsave_create = 'data-pin-save="true"';
+					if ($pinterest_master_system_wide_size == "pinterest_master_system_wide_size_small" ){
+						$buttonpinitsize_create = '';
+					}
+					if ($pinterest_master_system_wide_size == "pinterest_master_system_wide_size_large" ){
+						$buttonpinitsize_create = 'data-pin-tall="true"';
+					}
+				}
+			$pinterest_master_system_wide_create = '<script async defer data-pin-hover="true" '.$buttonpinitsave_create.' '.$buttonpinitsize_create.' '.$buttonpinitshape_create.' src="//assets.pinterest.com/js/pinit.js"></script>';
 			}
 			else{
-				$pinterest_master_system_wide_hover_create = '';
+				$pinterest_master_system_wide_create = '<script async defer src="//assets.pinterest.com/js/pinit.js"></script>';
 			}
-		$pinterest_master_system_wide_create = '<script type="text/javascript" async '.$pinterest_master_system_wide_color_create.' '.$pinterest_master_system_wide_shape_create.' '.$pinterest_master_system_wide_size_create.' '.$pinterest_master_system_wide_hover_create.' src="//assets.pinterest.com/js/pinit.js"></script>';
-		}
-		else{
-		$pinterest_master_system_wide_create = '';
+		echo $pinterest_master_system_wide_create;
 		}
 	}
-echo $pinterest_master_system_wide_create;
 }
 add_action( 'wp_footer', 'pinterest_master_load_system_wide' );
-add_action( 'admin_head', 'pinterest_master_load_system_wide' );
+//add_action( 'admin_head', 'pinterest_master_load_system_wide' );

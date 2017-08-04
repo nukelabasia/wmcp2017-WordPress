@@ -5,7 +5,9 @@
  * Description: WooCommerce Services: Hosted services for WooCommerce, including free real-time USPS and Canada Post rates and discounted USPS shipping labels.
  * Author: Automattic
  * Author URI: http://woocommerce.com/
- * Version: 1.4.0
+ * Text Domain: woocommerce-services
+ * Domain Path: /i18n/languages/
+ * Version: 1.6.2
  *
  * Copyright (c) 2017 Automattic
  *
@@ -106,14 +108,14 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 		protected $rest_shipping_label_refund_controller;
 
 		/**
-		 * @var WC_REST_Connect_Shipping_Labels_Preview_Controller
+		 * @var WC_REST_Connect_Shipping_Label_Preview_Controller
 		 */
-		protected $rest_shipping_labels_preview_controller;
+		protected $rest_shipping_label_preview_controller;
 
 		/**
-		 * @var WC_REST_Connect_Shipping_Labels_Print_Controller
+		 * @var WC_REST_Connect_Shipping_Label_Print_Controller
 		 */
-		protected $rest_shipping_labels_print_controller;
+		protected $rest_shipping_label_print_controller;
 
 		/**
 		 * @var WC_REST_Connect_Shipping_Rates_Controller
@@ -150,25 +152,18 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 		 */
 		protected $nux;
 
+		/**
+		 * @var WC_Connect_TaxJar_Integration
+		 */
+		protected $taxjar;
+
 		protected $services = array();
 
 		protected $service_object_cache = array();
 
 		protected $wc_connect_base_url;
 
-		static function load_tracks_for_activation_hooks() {
-			require_once( plugin_basename( 'classes/class-wc-connect-logger.php' ) );
-			require_once( plugin_basename( 'classes/class-wc-connect-tracks.php' ) );
-			$logger = null;
-			if ( class_exists( 'WC_Logger' ) ) {
-				$logger = new WC_Connect_Logger( new WC_Logger() );
-			}
-			return new WC_Connect_Tracks( $logger );
-		}
-
 		static function plugin_deactivation() {
-			$tracks = self::load_tracks_for_activation_hooks();
-			$tracks->opted_out();
 			wp_clear_scheduled_hook( 'wc_connect_fetch_service_schemas' );
 		}
 
@@ -179,7 +174,7 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 		public function __construct() {
 			$this->wc_connect_base_url = trailingslashit( defined( 'WOOCOMMERCE_CONNECT_DEV_SERVER_URL' ) ? WOOCOMMERCE_CONNECT_DEV_SERVER_URL : plugins_url( 'dist/', __FILE__ ) );
 			add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
-			add_action( 'woocommerce_init', array( $this, 'init' ) );
+			add_action( 'before_woocommerce_init', array( $this, 'pre_wc_init' ) );
 		}
 
 		public function get_logger() {
@@ -286,20 +281,20 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 			$this->rest_shipping_label_refund_controller = $rest_shipping_label_refund_controller;
 		}
 
-		public function get_rest_shipping_labels_preview_controller() {
-			return $this->rest_shipping_labels_preview_controller;
+		public function get_rest_shipping_label_preview_controller() {
+			return $this->rest_shipping_label_preview_controller;
 		}
 
-		public function set_rest_shipping_labels_preview_controller( WC_REST_Connect_Shipping_Labels_Preview_Controller $rest_shipping_labels_preview_controller ) {
-			$this->rest_shipping_labels_preview_controller = $rest_shipping_labels_preview_controller;
+		public function set_rest_shipping_label_preview_controller( WC_REST_Connect_Shipping_Label_Preview_Controller $rest_shipping_label_preview_controller ) {
+			$this->rest_shipping_label_preview_controller = $rest_shipping_label_preview_controller;
 		}
 
-		public function get_rest_shipping_labels_print_controller() {
-			return $this->rest_shipping_labels_print_controller;
+		public function get_rest_shipping_label_print_controller() {
+			return $this->rest_shipping_label_print_controller;
 		}
 
-		public function set_rest_shipping_labels_print_controller( WC_REST_Connect_Shipping_Labels_Print_Controller $rest_shipping_labels_print_controller ) {
-			$this->rest_shipping_labels_print_controller = $rest_shipping_labels_print_controller;
+		public function set_rest_shipping_label_print_controller( WC_REST_Connect_Shipping_Label_Print_Controller $rest_shipping_label_print_controller ) {
+			$this->rest_shipping_label_print_controller = $rest_shipping_label_print_controller;
 		}
 
 		public function set_rest_shipping_rates_controller( WC_REST_Connect_Shipping_Rates_Controller $rest_shipping_rates_controller ) {
@@ -342,13 +337,41 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 			$this->nux = $nux;
 		}
 
+		public function set_taxjar( WC_Connect_TaxJar_Integration $taxjar ) {
+			$this->taxjar = $taxjar;
+		}
+
 		/**
 		 * Load our textdomain
 		 *
 		 * @codeCoverageIgnore
 		 */
 		public function load_textdomain() {
-			load_plugin_textdomain( 'woocommerce-services', false, dirname( plugin_basename( __FILE__ ) ) . '/lang/' );
+			load_plugin_textdomain( 'woocommerce-services', false, dirname( plugin_basename( __FILE__ ) ) . '/i18n/languages' );
+		}
+
+		/**
+		 * Perform plugin bootstrapping that needs to happen before WC init.
+		 *
+		 * This allows the modification of extensions, integrations, etc.
+		 */
+		public function pre_wc_init() {
+			$this->load_dependencies();
+
+			add_action( 'admin_init', array( $this, 'admin_enqueue_scripts' ) );
+			add_action( 'admin_init', array( $this->nux, 'set_up_nux_notices' ) );
+
+			// Plugin should be enabled if dev mode or connected + TOS
+			$jetpack_status = $this->nux->get_jetpack_install_status();
+			$is_jetpack_connected = WC_Connect_Nux::JETPACK_CONNECTED === $jetpack_status;
+			$is_jetpack_dev_mode = WC_Connect_Nux::JETPACK_DEV === $jetpack_status;
+			$tos_accepted = WC_Connect_Options::get_option( 'tos_accepted' );
+			if (  ! ( $tos_accepted && ( $is_jetpack_connected || $is_jetpack_dev_mode ) ) ) {
+				return;
+			}
+
+			add_action( 'woocommerce_init', array( $this, 'after_wc_init' ) );
+			$this->taxjar->init();
 		}
 
 		/**
@@ -356,18 +379,7 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 		 *
 		 * @codeCoverageIgnore
 		 */
-		public function init() {
-			$this->load_dependencies();
-			add_action( 'admin_init', array( $this, 'admin_enqueue_scripts' ) );
-
-			if ( ! $this->check_jetpack_install() ) {
-				add_action( 'admin_init', array( $this, 'admin_jetpack_notice' ) );
-				return;
-			} else if ( ! WC_Connect_Options::get_option( 'tos_accepted', false ) ) {
-				add_action( 'admin_init', array( $this, 'admin_tos_notice' ) );
-				return;
-			}
-
+		public function after_wc_init() {
 			$this->schedule_service_schemas_fetch();
 			$this->service_settings_store->migrate_legacy_services();
 			$this->attach_hooks();
@@ -377,11 +389,12 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 		 * Load all plugin dependencies.
 		 */
 		public function load_dependencies() {
-			require_once( plugin_basename( 'classes/class-wc-connect-error-notice.php' ) );
-			require_once( plugin_basename( 'classes/class-wc-connect-compatibility.php' ) );
 			require_once( plugin_basename( 'classes/class-wc-connect-logger.php' ) );
 			require_once( plugin_basename( 'classes/class-wc-connect-api-client.php' ) );
 			require_once( plugin_basename( 'classes/class-wc-connect-service-schemas-validator.php' ) );
+			require_once( plugin_basename( 'classes/class-wc-connect-taxjar-integration.php' ) );
+			require_once( plugin_basename( 'classes/class-wc-connect-error-notice.php' ) );
+			require_once( plugin_basename( 'classes/class-wc-connect-compatibility.php' ) );
 			require_once( plugin_basename( 'classes/class-wc-connect-shipping-method.php' ) );
 			require_once( plugin_basename( 'classes/class-wc-connect-service-schemas-store.php' ) );
 			require_once( plugin_basename( 'classes/class-wc-connect-service-settings-store.php' ) );
@@ -391,16 +404,17 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 			require_once( plugin_basename( 'classes/class-wc-connect-shipping-label.php' ) );
 			require_once( plugin_basename( 'classes/class-wc-connect-nux.php' ) );
 
+
 			$logger                = new WC_Connect_Logger( new WC_Logger() );
 			$validator             = new WC_Connect_Service_Schemas_Validator();
 			$api_client            = new WC_Connect_API_Client( $validator, $this );
 			$schemas_store         = new WC_Connect_Service_Schemas_Store( $api_client, $logger );
 			$settings_store        = new WC_Connect_Service_Settings_Store( $schemas_store, $api_client, $logger );
 			$payment_methods_store = new WC_Connect_Payment_Methods_Store( $settings_store, $api_client, $logger );
-			$tracks                = new WC_Connect_Tracks( $logger );
-			$help_view             = new WC_Connect_Help_View( $schemas_store, $settings_store, $logger );
-			$nux                   = new WC_Connect_Nux();
+			$tracks                = new WC_Connect_Tracks( $logger, __FILE__ );
 			$shipping_label        = new WC_Connect_Shipping_Label( $api_client, $settings_store, $schemas_store, $payment_methods_store );
+			$nux                   = new WC_Connect_Nux( $tracks, $shipping_label );
+			$taxjar                = new WC_Connect_TaxJar_Integration( $api_client );
 
 			$this->set_logger( $logger );
 			$this->set_api_client( $api_client );
@@ -409,9 +423,9 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 			$this->set_service_settings_store( $settings_store );
 			$this->set_payment_methods_store( $payment_methods_store );
 			$this->set_tracks( $tracks );
-			$this->set_help_view( $help_view );
 			$this->set_shipping_label( $shipping_label );
 			$this->set_nux( $nux );
+			$this->set_taxjar( $taxjar );
 
 			add_action( 'admin_init', array( $this, 'load_admin_dependencies' ) );
 		}
@@ -424,9 +438,13 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 			new WC_Connect_Debug_Tools( $this->api_client );
 
 			require_once( plugin_basename( 'classes/class-wc-connect-settings-pages.php' ) );
-			$settings_pages = new WC_Connect_Settings_Pages( $this->payment_methods_store, $this->service_settings_store, $this->service_schemas_store, $this->logger );
+			$settings_pages = new WC_Connect_Settings_Pages( $this->payment_methods_store, $this->service_settings_store, $this->service_schemas_store );
 			$this->set_settings_pages( $settings_pages );
 
+			$schema = $this->get_service_schemas_store();
+			$settings = $this->get_service_settings_store();
+			$logger = $this->get_logger();
+			$this->set_help_view( new WC_Connect_Help_View( $schema, $settings, $logger ) );
 			add_action( 'admin_notices', array( WC_Connect_Error_Notice::instance(), 'render_notice' ) );
 		}
 
@@ -459,6 +477,11 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 			add_filter( 'woocommerce_get_order_address', array( $this, 'get_shipping_phone_from_order' ), 10, 3 );
 			add_action( 'admin_enqueue_scripts', array( $this->nux, 'show_pointers' ) );
 			add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), array( $this, 'add_plugin_action_links' ) );
+			add_action( 'enqueue_wc_connect_script', array( $this, 'enqueue_wc_connect_script' ), 10, 2 );
+			add_action( 'admin_init', array( $this, 'load_admin_dependencies' ) );
+
+			$tracks = $this->get_tracks();
+			$tracks->init();
 		}
 
 		/**
@@ -479,12 +502,12 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 			require_once( plugin_basename( 'classes/class-wc-rest-connect-base-controller.php' ) );
 
 			require_once( plugin_basename( 'classes/class-wc-rest-connect-packages-controller.php' ) );
-			$rest_packages_controller = new WC_REST_Connect_Packages_Controller( $this->api_client, $settings_store, $logger );
+			$rest_packages_controller = new WC_REST_Connect_Packages_Controller( $this->api_client, $settings_store, $logger, $this->service_schemas_store );
 			$this->set_rest_packages_controller( $rest_packages_controller );
 			$rest_packages_controller->register_routes();
 
 			require_once( plugin_basename( 'classes/class-wc-rest-connect-account-settings-controller.php' ) );
-			$rest_account_settings_controller = new WC_REST_Connect_Account_Settings_Controller( $this->api_client, $settings_store, $logger );
+			$rest_account_settings_controller = new WC_REST_Connect_Account_Settings_Controller( $this->api_client, $settings_store, $logger, $this->payment_methods_store );
 			$this->set_rest_account_settings_controller( $rest_account_settings_controller );
 			$rest_account_settings_controller->register_routes();
 
@@ -518,15 +541,15 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 			$this->set_rest_shipping_label_refund_controller( $rest_shipping_label_refund_controller );
 			$rest_shipping_label_refund_controller->register_routes();
 
-			require_once( plugin_basename( 'classes/class-wc-rest-connect-shipping-labels-preview-controller.php' ) );
-			$rest_shipping_labels_preview_controller = new WC_REST_Connect_Shipping_Labels_Preview_Controller( $this->api_client, $settings_store, $logger );
-			$this->set_rest_shipping_labels_preview_controller( $rest_shipping_labels_preview_controller );
-			$rest_shipping_labels_preview_controller->register_routes();
+			require_once( plugin_basename( 'classes/class-wc-rest-connect-shipping-label-preview-controller.php' ) );
+			$rest_shipping_label_preview_controller = new WC_REST_Connect_Shipping_Label_Preview_Controller( $this->api_client, $settings_store, $logger );
+			$this->set_rest_shipping_label_preview_controller( $rest_shipping_label_preview_controller );
+			$rest_shipping_label_preview_controller->register_routes();
 
-			require_once( plugin_basename( 'classes/class-wc-rest-connect-shipping-labels-print-controller.php' ) );
-			$rest_shipping_labels_print_controller = new WC_REST_Connect_Shipping_Labels_Print_Controller( $this->api_client, $settings_store, $logger );
-			$this->set_rest_shipping_labels_print_controller( $rest_shipping_labels_print_controller );
-			$rest_shipping_labels_print_controller->register_routes();
+			require_once( plugin_basename( 'classes/class-wc-rest-connect-shipping-label-print-controller.php' ) );
+			$rest_shipping_label_print_controller = new WC_REST_Connect_Shipping_Label_Print_Controller( $this->api_client, $settings_store, $logger );
+			$this->set_rest_shipping_label_print_controller( $rest_shipping_label_print_controller );
+			$rest_shipping_label_print_controller->register_routes();
 
 			require_once( plugin_basename( 'classes/class-wc-rest-connect-shipping-rates-controller.php' ) );
 			$rest_shipping_rates_controller = new WC_REST_Connect_Shipping_Rates_Controller( $this->api_client, $settings_store, $logger );
@@ -588,7 +611,7 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 
 			$path = $instance ? "/wc/v1/connect/services/{$id}/{$instance}" : "/wc/v1/connect/services/{$id}";
 
-			$admin_array = array(
+			do_action( 'enqueue_wc_connect_script', 'wc-connect-service-settings', array(
 				'storeOptions'       => $settings_store->get_store_options(),
 				'formSchema'         => $service_schema->service_settings,
 				'formLayout'         => $service_schema->form_layout,
@@ -597,14 +620,9 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 				'instanceId'         => $instance,
 				'callbackURL'        => get_rest_url( null, $path ),
 				'nonce'              => wp_create_nonce( 'wp_rest' ),
-				'rootView'           => 'wc-connect-service-settings',
 				'noticeDismissed'    => $this->nux->is_notice_dismissed( 'service_settings' ),
 				'dismissURL'         => get_rest_url( null, '/wc/v1/connect/services/dismiss_notice' )
-			);
-
-			wp_localize_script( 'wc_connect_admin', 'wcConnectData', array( $admin_array ) );
-			wp_enqueue_script( 'wc_connect_admin' );
-			wp_enqueue_style( 'wc_connect_admin' );
+			) );
 		}
 
 		/**
@@ -698,6 +716,18 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 			return $payment_gateways;
 		}
 
+		function get_i18n_json() {
+			$i18n_json = plugin_dir_path( __FILE__ ) . 'i18n/json/woocommerce-services-' . get_locale() . '.json';
+			if ( is_file( $i18n_json ) && is_readable( $i18n_json ) ) {
+				$locale_data = @file_get_contents( $i18n_json );
+				if ( $locale_data ) {
+					return $locale_data;
+				}
+			}
+			// Return empty if we have nothing to return so it doesn't fail when parsed in JS
+			return '{}';
+		}
+
 		/**
 		 * Registers the React UI bundle
 		 */
@@ -712,9 +742,12 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 			wp_register_style( 'wc_connect_banner', $this->wc_connect_base_url . 'woocommerce-services-banner.css', array(), $plugin_version );
 			wp_register_script( 'wc_connect_banner', $this->wc_connect_base_url . 'woocommerce-services-banner.js', array( 'updates' ), $plugin_version );
 
-			require_once( plugin_basename( 'i18n/strings.php' ) );
+			$i18n_json = $this->get_i18n_json();
 			/** @var array $i18nStrings defined in i18n/strings.php */
-			wp_localize_script( 'wc_connect_admin', 'i18nLocaleStrings', $i18nStrings );
+			wp_localize_script( 'wc_connect_admin', 'i18nLocale', array(
+					'json' => $i18n_json,
+					'localeSlug' => join( '-', explode( '_', get_locale() ) ),
+			) );
 		}
 
 		public function get_active_shipping_services() {
@@ -734,150 +767,6 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 			}
 
 			return $active_shipping_services;
-		}
-
-		/**
-		 * Checks for TOS accept/decline and renders the notice as needed
-		 */
-		public function admin_tos_notice() {
-			// Do nothing if the TOS has been accepted or declined
-			if ( $this->dismiss_tos_notice() ) {
-				return;
-			}
-
-			if ( $this->can_accept_tos() ) {
-				add_action( 'admin_notices', array( $this, 'show_tos_notice' ) );
-			}
-		}
-
-		private function dismiss_tos_notice() {
-			if ( ! isset( $_GET['wc-connect-notice'] ) ) {
-				return false;
-			}
-
-			if ( 'accept' === $_GET['wc-connect-notice'] ) {
-				$tracks = self::load_tracks_for_activation_hooks();
-				$tracks->opted_in();
-				WC_Connect_Options::update_option( 'tos_accepted', true );
-				wp_safe_redirect( admin_url( 'admin.php?page=wc-settings&tab=shipping' ) );
-
-				exit;
-			}
-
-			deactivate_plugins( plugin_basename( __FILE__ ) );
-			add_action( 'admin_notices', array( $this, 'deactivate_notice' ) );
-			return true;
-		}
-
-		/**
-		 * Check that the current user is the owner of the Jetpack connection
-		 * Only that person can accept the TOS
-		 * @return bool
-		 */
-		private function can_accept_tos() {
-			$user_token = Jetpack_Data::get_access_token( JETPACK_MASTER_USER );
-			return get_current_user_id() === $user_token->external_user_id;
-		}
-
-		public function show_tos_notice() {
-			wp_enqueue_style( 'wc_connect_banner' );
-			$accept_url = admin_url( 'admin.php?page=wc-settings&tab=shipping&wc-connect-notice=accept' );
-			$decline_url = admin_url( 'plugins.php?wc-connect-notice=decline' );
-
-			?>
-			<div class="notice wcc-admin-notice">
-				<h2><?php _e( 'Welcome to WooCommerce Services', 'woocommerce-services' ) ?></h2>
-				<a href="<?php echo esc_url( $decline_url ); ?>" class="notice-dismiss" title="<?php esc_attr_e( 'Dismiss and deactivate the plugin', 'woocommerce-services' ); ?>"></a>
-				<p>
-					<b><?php _e( 'Connect to get live shipping rates and print discounted labels. You will also get access to new features as we add them.', 'woocommerce-services' ); ?></b>
-				</p>
-				<p>
-					<?php
-					printf(
-						__( 'By clicking "Connect" below, you agree to our <a target="_blank" href="%s">Terms of Service</a>, and understand that WooCommerce Services passes some data to external servers in order to enable its features. You can find more information about how WooCommerce Services handles your store\'s data <a target="_blank" href="%s">here</a>.', 'woocommerce-services' ),
-						esc_url( 'https://woocommerce.com/terms-conditions/' ),
-						esc_url( 'https://woocommerce.com/terms-conditions/services-privacy/' )
-					);
-					?>
-				</p>
-				<p>
-					<a href="<?php echo( esc_url( $accept_url ) ) ?>" class="button-primary"><?php _e( 'Connect' ) ?></a>
-				</p>
-			</div>
-			<?php
-		}
-
-		public function deactivate_notice() {
-			?>
-			<div class="notice notice-success is-dismissible">
-				<p><?php _e( 'WooCommerce Services plugin has been disabled.', 'woocommerce-services' ); ?></p>
-			</div>
-			<?php
-		}
-
-		public function check_jetpack_install() {
-			if ( defined( 'JETPACK_DEV_DEBUG' ) ) {
-				return true;
-			}
-
-			if ( ! class_exists( 'Jetpack_Data' ) ) {
-				return false;
-			}
-
-			$user_token = Jetpack_Data::get_access_token( JETPACK_MASTER_USER );
-			return $user_token && is_object( $user_token ) && isset( $user_token->external_user_id );
-		}
-
-		public function admin_jetpack_notice() {
-			wp_enqueue_style( 'wc_connect_banner' ); // Including the CSS this early will mostly prevent a flash of Core styles in the banner
-			add_action( 'admin_notices', array( $this, 'show_jetpack_notice' ) );
-		}
-
-		public function show_jetpack_notice() {
-			$button_class = 'button-primary';
-
-			if ( class_exists( 'Jetpack_Data' ) ) {
-				$screen = get_current_screen();
-				if ( 'jetpack' === $screen->parent_base || 'plugins' === $screen->base ) {
-					return; // Jetpack Dashboard and the plugins list screen already have big "Connect to WordPress.com" buttons
-				}
-
-				$notice_text = __( 'To get started, please connect Jetpack to your WordPress.com account.', 'woocommerce-services' );
-				$button_label = __( 'Connect to WordPress.com', 'woocommerce-services' );
-				$redirect_to = admin_url( 'admin.php?page=wc-settings&tab=shipping' );
-				$button_url = Jetpack::init()->build_connect_url( false, $redirect_to, 'woocommerce-services' );
-			} else {
-				$activate_url = wp_nonce_url( 'plugins.php?action=activate&plugin=jetpack/jetpack.php', 'activate-plugin_jetpack/jetpack.php' );
-
-				if ( 0 === validate_plugin( 'jetpack/jetpack.php' ) ) {
-					$notice_text = __( 'To get started you need to activate Jetpack.', 'woocommerce-services' );
-					$button_label = __( 'Activate Jetpack', 'woocommerce-services' );
-					$button_url = $activate_url;
-				} else {
-					$notice_text = __( 'To get started you need to install Jetpack.', 'woocommerce-services' );
-					$button_label = __( 'Install Jetpack', 'woocommerce-services' );
-					$button_url = '#';
-					$button_class .= ' wcc-install-jetpack';
-
-					wp_enqueue_script( 'wc_connect_banner' );
-				}
-			}
-
-			?>
-			<div class="notice wcc-admin-notice">
-				<h2><?php _e( 'Welcome to WooCommerce Services', 'woocommerce-services' ) ?></h2>
-				<p>
-					<b><?php echo $notice_text ?></b>
-				</p>
-				<p>
-					<a href="<?php echo esc_url( $button_url ) ?>"
-					   data-error-message="<?php esc_attr_e( 'There was an error installing Jetpack. Please try installing it manually.', 'woocommerce-services' ) ?>"
-					   class="<?php echo esc_attr( $button_class ) ?>">
-						<?php echo $button_label ?>
-					</a>
-				</p>
-			</div>
-			<?php
 		}
 
 		public function get_active_services() {
@@ -929,7 +818,7 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 
 		function add_shipping_phone_to_checkout( $fields ) {
 			$fields[ 'shipping_phone' ] = array(
-				'label'        => __( 'Phone', 'woocommerce' ),
+				'label'        => __( 'Phone', 'woocommerce-services' ),
 				'type'         => 'tel',
 				'required'     => false,
 				'class'        => array( 'form-row-wide' ),
@@ -942,7 +831,7 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 
 		function add_shipping_phone_to_order_fields( $fields ) {
 			$fields[ 'phone' ] = array(
-				'label' => __( 'Phone', 'woocommerce' ),
+				'label' => __( 'Phone', 'woocommerce-services' ),
 			);
 			return $fields;
 		}
@@ -969,6 +858,33 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 				esc_url( 'https://woocommerce.com/my-account/create-a-ticket/' )
 			);
 			return $links;
+		}
+
+		function enqueue_wc_connect_script( $root_view, $extra_args = array() ) {
+			$payload = array(
+				'nonce'        => wp_create_nonce( 'wp_rest' ),
+				'baseURL'      => get_rest_url(),
+			);
+
+			wp_localize_script( 'wc_connect_admin', 'wcConnectData', $payload );
+			wp_enqueue_script( 'wc_connect_admin' );
+			wp_enqueue_style( 'wc_connect_admin' );
+
+			$debug_page_uri = esc_url( add_query_arg(
+				array(
+					'page' => 'wc-status',
+					'tab' => 'connect'
+				),
+				admin_url( 'admin.php' )
+			) );
+
+			?>
+				<div class="wcc-root <?php echo esc_attr( $root_view ) ?>" data-args="<?php echo esc_attr( wp_json_encode( $extra_args ) ) ?>">
+					<span class="form-troubles" style="opacity: 0">
+						<?php printf( __( 'Section not loading? Visit the <a href="%s">status page</a> for troubleshooting steps.', 'woocommerce-services' ), $debug_page_uri ); ?>
+					</span>
+				</div>
+			<?php
 		}
 	}
 

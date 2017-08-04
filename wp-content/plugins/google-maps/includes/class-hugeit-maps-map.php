@@ -30,6 +30,15 @@ class Hugeit_Maps_Map implements Hugeit_Maps_Map_Interface {
 	 */
 	private $type;
 
+
+    /**
+     * Enable Frontend Store Locator for map
+     *
+     * @values [1,0]
+     * @var  int
+     */
+    private $locator_enabled;
+
 	/**
 	 * Map Default Zoom that displays on page load
 	 *
@@ -248,6 +257,13 @@ class Hugeit_Maps_Map implements Hugeit_Maps_Map_Interface {
 	 */
 	private $markers;
 
+    /**
+     * Locators that belong to current map
+     * Array of Hugeit_Maps_Locator instances
+     * @var array
+     */
+    private $locators;
+
 	/**
 	 * Polygons that belong to current map
 	 * Array of Hugeit_Maps_Polygon instances
@@ -320,6 +336,7 @@ class Hugeit_Maps_Map implements Hugeit_Maps_Map_Interface {
 			$this->polylines  = Hugeit_Maps_Query::get_polylines( array( 'map_id' => $this->id ) );
 			$this->circles    = Hugeit_Maps_Query::get_circles( array( 'map_id' => $this->id ) );
 			$this->directions = Hugeit_Maps_Query::get_directions( array( 'map_id' => $this->id ) );
+            $this->locators   = Hugeit_Maps_Query::get_locator( array( 'map_id' => $this->id ) );
 
 		} else {
 
@@ -590,6 +607,13 @@ class Hugeit_Maps_Map implements Hugeit_Maps_Map_Interface {
 		return $this;
 	}
 
+    /**
+     * @return int
+     */
+    public function get_locator_enabled() {
+        return $this->locator_enabled;
+    }
+
 	/**
 	 * @return string
 	 */
@@ -760,6 +784,21 @@ class Hugeit_Maps_Map implements Hugeit_Maps_Map_Interface {
         }
 
         $this->open_infowindows_onload = (int) $open_infowindows_onload;
+
+        return $this;
+    }
+
+    /**
+     * @param int $locator_enabled
+     * @return Hugeit_Maps_Map
+     * @throws Exception
+     */
+    public function set_locator_enabled( $locator_enabled ) {
+        if ( ! in_array( $locator_enabled, array( 0, 1 ) ) ) {
+            throw new Exception( 'Invalid value for "locator_enabled" field' );
+        }
+
+        $this->locator_enabled = (int) $locator_enabled;
 
         return $this;
     }
@@ -1295,6 +1334,32 @@ class Hugeit_Maps_Map implements Hugeit_Maps_Map_Interface {
 		return $this->circles;
 	}
 
+    /**
+     * @return Hugeit_Maps_Locator[]
+     */
+    public function get_locator() {
+        return $this->locators;
+    }
+
+    /**
+     * @param Hugeit_Maps_Locator[] $locators
+     *
+     * @return Hugeit_Maps_Map
+     * @throws Exception
+     */
+    public function set_locators( $locators ) {
+        foreach ( $locators as $locator ) {
+
+            if ( ! ( $locator instanceof Hugeit_Maps_Locator ) ) {
+                throw new Exception( 'Locator must be an instance of Hugeit_Maps_Locator class.' );
+            }
+
+        }
+        $this->locators = $locators;
+
+        return $this;
+    }
+
 	/**
 	 * @param Hugeit_Maps_Circle[] $circles
 	 *
@@ -1427,6 +1492,7 @@ class Hugeit_Maps_Map implements Hugeit_Maps_Map_Interface {
 		$this->set_if_not_null( 'styling_hue', $this->styling_hue, $map_data );
 		$this->set_if_not_null( 'styling_lightness', $this->styling_lightness, $map_data );
 		$this->set_if_not_null( 'styling_gamma', $this->styling_gamma, $map_data );
+        $this->set_if_not_null( 'locator_enabled', $this->locator_enabled, $map_data );
 		$this->set_if_not_null( 'styling_saturation', $this->styling_saturation, $map_data );
 		$this->set_if_not_null( 'animation', $this->animation, $map_data );
 

@@ -38,6 +38,7 @@ function bps_get_wp_root_install_folder() {
 	$hostname = @gethostbyaddr($_SERVER['REMOTE_ADDR']);
 	$timeNow = time();
 	$gmt_offset = get_option( 'gmt_offset' ) * 3600;
+	$query_string = parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY);
 
 	if ( ! get_option( 'gmt_offset' ) ) {
 		$timestamp = date("F j, Y g:i a", time() );
@@ -47,7 +48,7 @@ function bps_get_wp_root_install_folder() {
 	
 	if ( $_SERVER['REQUEST_URI'] != bps_get_wp_root_install_folder() . '0' ) {
 
-	$log_contents = "\r\n" . '[Maintenance Mode - Visitor Logged: ' . $timestamp . ']' . "\r\n" . 'BPS: ' . $bps_version ."\r\n" . 'WP: ' . $wp_version . "\r\n" . 'REMOTE_ADDR: '.$_SERVER['REMOTE_ADDR']."\r\n" . 'Host Name: ' . $hostname . "\r\n" . 'SERVER_PROTOCOL: '.$_SERVER['SERVER_PROTOCOL']."\r\n" . 'HTTP_CLIENT_IP: '.$_SERVER['HTTP_CLIENT_IP']."\r\n" . 'HTTP_FORWARDED: '.$_SERVER['HTTP_FORWARDED']."\r\n" . 'HTTP_X_FORWARDED_FOR: '.$_SERVER['HTTP_X_FORWARDED_FOR']."\r\n" . 'HTTP_X_CLUSTER_CLIENT_IP: '.$_SERVER['HTTP_X_CLUSTER_CLIENT_IP']."\r\n" . 'REQUEST_METHOD: '.$_SERVER['REQUEST_METHOD']."\r\n" . 'HTTP_REFERER: '.$_SERVER['HTTP_REFERER']."\r\n" . 'REQUEST_URI: '.$_SERVER['REQUEST_URI']."\r\n" . 'QUERY_STRING: '.$_SERVER['QUERY_STRING']."\r\n" . 'HTTP_USER_AGENT: '.$_SERVER['HTTP_USER_AGENT']."\r\n";
+	$log_contents = "\r\n" . '[Maintenance Mode - Visitor Logged: ' . $timestamp . ']' . "\r\n" . 'BPS: ' . $bps_version ."\r\n" . 'WP: ' . $wp_version . "\r\n" . 'REMOTE_ADDR: '.$_SERVER['REMOTE_ADDR']."\r\n" . 'Host Name: ' . $hostname . "\r\n" . 'SERVER_PROTOCOL: '.$_SERVER['SERVER_PROTOCOL']."\r\n" . 'HTTP_CLIENT_IP: '.$_SERVER['HTTP_CLIENT_IP']."\r\n" . 'HTTP_FORWARDED: '.$_SERVER['HTTP_FORWARDED']."\r\n" . 'HTTP_X_FORWARDED_FOR: '.$_SERVER['HTTP_X_FORWARDED_FOR']."\r\n" . 'HTTP_X_CLUSTER_CLIENT_IP: '.$_SERVER['HTTP_X_CLUSTER_CLIENT_IP']."\r\n" . 'REQUEST_METHOD: '.$_SERVER['REQUEST_METHOD']."\r\n" . 'HTTP_REFERER: '.$_SERVER['HTTP_REFERER']."\r\n" . 'REQUEST_URI: '.$_SERVER['REQUEST_URI']."\r\n" . 'QUERY_STRING: '.$query_string."\r\n" . 'HTTP_USER_AGENT: '.$_SERVER['HTTP_USER_AGENT']."\r\n";
 
 	if ( is_writable( $bpsProLog ) ) {
 
@@ -207,10 +208,11 @@ global $bps_maint_countdown_email, $bps_maint_email_to, $bps_maint_email_from, $
 	$message = '<p><font color="blue"><strong>The Maintenance Mode Countdown Timer has completed for:</strong></font></p>';
 	$message .= '<p>Website: '.$site_link.'</p>';
 	
-	$mailed = mail( $bps_maint_email_to, $subject, $message, $headers );
-	
-	if ( $mailed ) {
-		// do something else if/when email is sent
+	if ( function_exists('wp_mail') ) {
+		$mailed = wp_mail( $bps_maint_email_to, $subject, $message, $headers );
+		if ( $mailed ) {
+			// do something else if/when email is sent
+		}
 	}
 	}
 }

@@ -9,16 +9,15 @@ if ( class_exists( 'WC_REST_Connect_Shipping_Label_Controller' ) ) {
 }
 
 class WC_REST_Connect_Shipping_Label_Controller extends WC_REST_Connect_Base_Controller {
+	protected $rest_base = 'connect/label/(?P<order_id>\d+)';
 
-	protected $method = 'POST';
-	protected $rest_base = 'connect/label/purchase';
-
-	public function run( $request ) {
+	public function post( $request ) {
 		$settings = $request->get_json_params();
-		$order_id = $settings[ 'order_id' ];
+		$order_id = $request[ 'order_id' ];
 
 		$settings[ 'payment_method_id' ] = $this->settings_store->get_selected_payment_method_id();
 		$settings[ 'ship_date' ] = date( 'Y-m-d', time() + 86400 ); // tomorrow
+		$settings[ 'order_id' ] = $order_id;
 
 		$service_names = array();
 		foreach ( $settings[ 'packages' ] as $index => $package ) {
@@ -40,12 +39,7 @@ class WC_REST_Connect_Shipping_Label_Controller extends WC_REST_Connect_Base_Con
 		}
 
 		$label_ids = array();
-		$labels_order_meta = array();
 		$purchased_labels_meta = array();
-		$existing_labels_data = get_post_meta( $order_id, 'wc_connect_labels', true );
-		if ( $existing_labels_data ) {
-			$labels_order_meta = json_decode( $existing_labels_data, true, WOOCOMMERCE_CONNECT_MAX_JSON_DECODE_DEPTH );
-		}
 		$package_lookup = $this->settings_store->get_package_lookup();
 		foreach ( $response->labels as $index => $label_data ) {
 			if ( isset( $label_data->error ) ) {
@@ -80,21 +74,22 @@ class WC_REST_Connect_Shipping_Label_Controller extends WC_REST_Connect_Base_Con
 
 			$product_names = array();
 			foreach ( $package[ 'products' ] as $product_id ) {
-				$product =  wc_get_product( $product_id );
-				if ( ! isset( $product ) ) {
-					continue;
-				}
+				$product = wc_get_product( $product_id );
 
-				$product_names[] = $product->get_title();
+				if ( $product ) {
+					$product_names[] = $product->get_title();
+				} else {
+					$order = wc_get_order( $order_id );
+					$product_names[] = WC_Connect_Compatibility::instance()->get_product_name_from_order( $product_id, $order );
+				}
 			}
 
 			$label_meta[ 'product_names' ] = $product_names;
 
-			array_unshift( $labels_order_meta, $label_meta );
 			array_unshift( $purchased_labels_meta, $label_meta );
 		}
 
-		update_post_meta( $order_id, 'wc_connect_labels', json_encode( $labels_order_meta ) );
+		$this->settings_store->add_labels_to_order( $order_id, $purchased_labels_meta );
 
 		return array(
 			'labels' => $purchased_labels_meta,

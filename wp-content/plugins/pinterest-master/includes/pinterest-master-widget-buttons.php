@@ -39,32 +39,89 @@ class pinterest_master_widget_buttons extends WP_Widget {
 	}
 	//Display Pinterest Follow Me Button
 	if ( $show_pinterestfollow ){
-			$show_pinterestfollow_create = '<a data-pin-do="buttonFollow" href="https://pinterest.com/'.$pinterestusername.'/">Pinterest</a>';
+		if(empty($pinterestusername)){
+			$show_pinterestfollow_create = '<div style="padding-left:15px;"><font color="red">You forgot to Insert your Pinterest Username for the follow button.</font></div>';
+		}
+		else{
+			$show_pinterestfollow_create = '<div style="padding-left:5px;"><a data-pin-do="buttonFollow" href="https://pinterest.com/'.$pinterestusername.'/">Pinterest</a></div>';
+		}
 	}
 	else{
-	$show_pinterestfollow_create = false;
+		$show_pinterestfollow_create = false;
 	}
 	//Display Pinterest Pin It Button
 	if ( $show_pinterestpin ){
 		if(is_multisite()){
+			$pinterest_master_system_wide = get_blog_option($blog_id, 'pinterest_master_system_wide');
+				if($pinterest_master_system_wide == "false"){
+					echo '<font color="red">Go to Pinterest Master Settings page and Activate TechGasp Pinterest System.</font>';
+				}
 			$pinterest_master_system_wide_shape = get_blog_option($blog_id, 'pinterest_master_system_wide_shape');
-			$pinterest_master_system_wide_shape_b = get_blog_option($blog_id, 'pinterest_master_system_wide_shape_b');
-			$pinterest_master_system_wide_color_b = get_blog_option($blog_id, 'pinterest_master_system_wide_color_b');
-			$pinterest_master_system_wide_size_b = get_blog_option($blog_id, 'pinterest_master_system_wide_size_b');
+			$pinterest_master_system_wide_size = get_blog_option($blog_id, 'pinterest_master_system_wide_size');
+			if ($pinterest_master_system_wide_shape == "pinterest_master_system_wide_shape_circular" ){
+				$buttonpinitshape_create = 'data-pin-round="true"';
+				$buttonpinitsave_create = 'data-pin-save="false"';
+				if ($pinterest_master_system_wide_size == "pinterest_master_system_wide_size_small" ){
+					$buttonpinitsize_create = '';
+					$buttonpinitsize_px = '';
+				}
+				if ($pinterest_master_system_wide_size == "pinterest_master_system_wide_size_large" ){
+					$buttonpinitsize_create = 'data-pin-tall="true"';
+					$buttonpinitsize_px = '';
+				}
+			}
+			if ($pinterest_master_system_wide_shape == "pinterest_master_system_wide_shape_rectangular" ){
+				$buttonpinitshape_create = '';
+				$buttonpinitsave_create = 'data-pin-save="true"';
+				if ($pinterest_master_system_wide_size == "pinterest_master_system_wide_size_small" ){
+					$buttonpinitsize_create = '';
+					$buttonpinitsize_px = '<img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_round_red_16.png" />';	
+				}
+				if ($pinterest_master_system_wide_size == "pinterest_master_system_wide_size_large" ){
+					$buttonpinitsize_create = 'data-pin-tall="true"';
+					$buttonpinitsize_px = '<img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_round_red_32.png" />';
+				}
+			}
 		}
 		else{
+			$pinterest_master_system_wide = get_option('pinterest_master_system_wide');
+				if($pinterest_master_system_wide == "false"){
+					echo '<font color="red">Go to Pinterest Master Settings page and Activate TechGasp Pinterest System.</font>';
+				}
 			$pinterest_master_system_wide_shape = get_option('pinterest_master_system_wide_shape');
-			$pinterest_master_system_wide_shape_b = get_option('pinterest_master_system_wide_shape_b');
-			$pinterest_master_system_wide_color_b = get_option('pinterest_master_system_wide_color_b');
-			$pinterest_master_system_wide_size_b = get_option('pinterest_master_system_wide_size_b');
+			$pinterest_master_system_wide_size = get_option('pinterest_master_system_wide_size');
+			if ($pinterest_master_system_wide_shape == "pinterest_master_system_wide_shape_circular" ){
+					$buttonpinitshape_create = 'data-pin-round="true"';
+					$buttonpinitsave_create = 'data-pin-save="false"';
+					if ($pinterest_master_system_wide_size == "pinterest_master_system_wide_size_small" ){
+						$buttonpinitsize_create = '';
+						$buttonpinitsize_px = '';
+					}
+					if ($pinterest_master_system_wide_size == "pinterest_master_system_wide_size_large" ){
+						$buttonpinitsize_create = 'data-pin-tall="true"';
+						$buttonpinitsize_px = '';
+					}
+			}
+			if ($pinterest_master_system_wide_shape == "pinterest_master_system_wide_shape_rectangular" ){
+				$buttonpinitshape_create = '';
+				$buttonpinitsave_create = 'data-pin-save="true"';
+				if ($pinterest_master_system_wide_size == "pinterest_master_system_wide_size_small" ){
+					$buttonpinitsize_create = '';
+					$buttonpinitsize_px = '<img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_round_red_16.png" />';	
+				}
+				if ($pinterest_master_system_wide_size == "pinterest_master_system_wide_size_large" ){
+					$buttonpinitsize_create = 'data-pin-tall="true"';
+					$buttonpinitsize_px = '<img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_round_red_32.png" />';
+				}
+			}
 		}
-	$show_pinterestpin_create = '<a href="//www.pinterest.com/pin/create/button/" '.$pinterest_master_system_wide_shape.' data-pin-do="buttonBookmark"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_'.$pinterest_master_system_wide_shape_b.''.$pinterest_master_system_wide_color_b.''.$pinterest_master_system_wide_size_b.'" /></a>';
+	$show_pinterestpin_create = '<a data-pin-do="buttonPin" '.$buttonpinitsize_create.' '.$buttonpinitshape_create.' '.$buttonpinitsave_create.' href="https://www.pinterest.com/pin/create/button/">'.$buttonpinitsize_px.'</a>';
 	}
 	else{
 	$show_pinterestpin_create = false;
 	}
 
-	echo '<div style="display:flex;">' . $show_pinterestpin_create . '&nbsp;&nbsp;' . $show_pinterestfollow_create . '</div>' .
+	echo '<div style="display:flex;"><div>' . $show_pinterestpin_create . '</div>' . $show_pinterestfollow_create . '</div>' .
 		$after_widget;
 	}
 	//Update the widget
@@ -116,7 +173,7 @@ class pinterest_master_widget_buttons extends WP_Widget {
 	<label for="<?php echo $this->get_field_id( 'show_pinterestpin' ); ?>"><b><?php _e('Display Pin It Button', 'pinterest_master'); ?></b></label></br>
 	</p>
 	<p>
-	<div class="description">Remember to visit the Pinterest Master Settings page to set pin-it button size, shape, colour and automatic hover.</div>
+	<div class="description">Remember to visit the Pinterest Master Settings page to set pin-it / save button size, shape or automatic hover in all website photos.</div>
 	</p>
 	<p>
 	<img src="<?php echo plugins_url('images/techgasp-minilogo-16.png', dirname(__FILE__)); ?>" style="float:left; width:18px; vertical-align:middle;" />

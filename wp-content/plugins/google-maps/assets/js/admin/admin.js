@@ -124,6 +124,67 @@ jQuery(document).ready(function () {
         return false;
     });
 
+    /** Add Store Locator Button handling */
+    jQuery("#locator_add_button").on('click', function (e) {
+        jQuery(this).hide("fast").addClass("tab_options_hidden_section");
+        /* Temporarily unnecessary      jQuery("#g_maps > div").not("#g_map_locator").addClass("hide"); */
+        jQuery("#g_map_locator").removeClass("hide");
+        jQuery("#locator_edit_exist_section").hide(200).addClass("tab_options_hidden_section");
+        jQuery("#g_map_locator_options .hidden_edit_content").show(200).addClass("tab_options_active_section");
+        jQuery("#locator_name,#locator_addr,#locator_lat,#locator_lng,#locator_phone,#locator_days").val("");
+        jQuery("#store_days").find("input").val("");
+        var input        = document.getElementById('locator_addr');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        var searchBox    = new google.maps.places.SearchBox(input);
+        var geocoder = new google.maps.Geocoder();
+        google.maps.event.addDomListener(searchBox,'places_changed',function () {
+            var address= document.getElementById('locator_addr').value;
+            geocoder.geocode({'address': address}, function(results, status) {
+                if (status === 'OK') {
+
+                    document.getElementById('locator_lat').value = results[0].geometry.location.lat();
+                    document.getElementById('locator_lng').value = results[0].geometry.location.lng();
+
+                }
+                else {
+
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+
+            });
+
+        });
+        return false;
+    });
+
+    /** Cancel creating a Store Locator */
+    jQuery("#cancel_locator, #back_locator").on("click", function (e) {
+        jQuery("#locator_add_button").show(200);
+        jQuery("#g_maps > div").addClass("hide");
+        jQuery("#g_map_canvas").removeClass("hide");
+        jQuery("#locator_edit_exist_section").show(200);
+        jQuery("#g_map_locator_options .hidden_edit_content").hide(200);
+        jQuery('html, body').animate({scrollTop: 0}, 250);
+        jQuery("#locator_addr, #locator_lat, #locator_lng,#locator_phone,#locator_days").val("");
+        jQuery("#locator_options_input").removeAttr("checked");
+
+        return false;
+    });
+
+    /** Cancel Editing a Store Locator */
+    jQuery("#cancel_edit_locator, #back_edit_locator").on("click", function (e) {
+        jQuery(".edit_locator_list_delete a").show(200);
+        jQuery("#g_maps > div").addClass("hide");
+        jQuery("#g_map_canvas").removeClass("hide");
+        jQuery("#locator_edit_exist_section").show(200);
+        jQuery(this).parent().parent().parent().parent().parent().find(".update_list_item").hide(200);
+        jQuery("#locator_add_button").show(200);
+        jQuery('html, body').animate({scrollTop: 0}, 250);
+
+
+        return false;
+    });
+
 
     jQuery("#cancel_circle, #back_circle").on("click", function (e) {
         jQuery("#circle_add_button").show("fast");

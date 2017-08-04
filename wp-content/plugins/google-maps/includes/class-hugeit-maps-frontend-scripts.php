@@ -31,7 +31,7 @@ class Hugeit_Maps_Frontend_Scripts {
 		$key_param = ( ! is_null( $api_key ) && $api_key != "" ) ? 'key=' . $api_key . '&' : '';
 
 
-		wp_enqueue_script( 'hugeit-google-maps-api', 'https://maps.googleapis.com/maps/api/js?' . $key_param . 'libraries=places', false, null, true );
+		wp_enqueue_script( 'hugeit-google-maps-api', 'https://maps.googleapis.com/maps/api/js?' . $key_param . 'libraries=places,geometry', false, null, true );
 
 		wp_enqueue_script( 'hugeit_maps_frontend', Hugeit_Maps()->plugin_url() . '/assets/js/frontend/frontend.js', array(
 			'hugeit-google-maps-api',
@@ -49,6 +49,10 @@ class Hugeit_Maps_Frontend_Scripts {
 			'styling_gamma'      => $map->get_styling_gamma()
 		) );
 
+        wp_localize_script( 'hugeit_maps_frontend', 'frontdir_options', array(
+            'locator_enabled'      => $map->get_locator_enabled(),
+            'imgurl'               => HUGEIT_MAPS_IMAGES_URL,
+        ) );
 
 	}
 
@@ -72,5 +76,6 @@ class Hugeit_Maps_Frontend_Scripts {
 	 */
 	public static function add_styles( $map_id ) {
 		wp_enqueue_style( 'hugeit_maps_frontend', Hugeit_Maps()->plugin_url() . '/assets/css/frontend.css' );
+        wp_enqueue_style( 'hugeit_maps_store_locator', Hugeit_Maps()->plugin_url() . '/assets/css/store-locator.css' );
 	}
 }

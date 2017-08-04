@@ -39,7 +39,7 @@ $DBBLogMaster = WP_PLUGIN_DIR . '/bulletproof-security/admin/htaccess/db_backup_
 
 switch ( $options['bps_security_log_size'] ) {
     case "256KB":
-		if ( filesize($SecurityLog) >= 262144 && filesize($SecurityLog) < 524288 || filesize($SecurityLog) > 2097152) {
+		if ( file_exists($SecurityLog) && filesize($SecurityLog) >= 262144 && filesize($SecurityLog) < 524288 || file_exists($SecurityLog) && filesize($SecurityLog) > 2097152) {
 		if ( $options['bps_security_log_emailL'] == 'email') {
 			if ( bps_Zip_Security_Log_File()==TRUE ) {
 				bps_Email_Security_Log_File();
@@ -50,7 +50,7 @@ switch ( $options['bps_security_log_size'] ) {
 		break;
 		}
     case "500KB":
-		if ( filesize($SecurityLog) >= 524288 && filesize($SecurityLog) < 1048576 || filesize($SecurityLog) > 2097152) {
+		if ( file_exists($SecurityLog) && filesize($SecurityLog) >= 524288 && filesize($SecurityLog) < 1048576 || file_exists($SecurityLog) && filesize($SecurityLog) > 2097152) {
 		if ( $options['bps_security_log_emailL'] == 'email') {
 			if ( bps_Zip_Security_Log_File()==TRUE ) {
 				bps_Email_Security_Log_File();
@@ -61,7 +61,7 @@ switch ( $options['bps_security_log_size'] ) {
 		break;
 		}
     case "1MB":
-		if ( filesize($SecurityLog) >= 1048576 && filesize($SecurityLog) < 2097152 || filesize($SecurityLog) > 2097152) {
+		if ( file_exists($SecurityLog) && filesize($SecurityLog) >= 1048576 && filesize($SecurityLog) < 2097152 || file_exists($SecurityLog) && filesize($SecurityLog) > 2097152) {
 		if ( $options['bps_security_log_emailL'] == 'email') {
 			if ( bps_Zip_Security_Log_File()==TRUE ) {
 				bps_Email_Security_Log_File();
@@ -75,7 +75,7 @@ switch ( $options['bps_security_log_size'] ) {
 
 switch ( $options['bps_dbb_log_size'] ) {
     case "256KB":
-		if ( filesize($DBBLog) >= 262144 && filesize($DBBLog) < 524288 || filesize($DBBLog) > 2097152) {
+		if ( file_exists($DBBLog) && filesize($DBBLog) >= 262144 && filesize($DBBLog) < 524288 || file_exists($DBBLog) && filesize($DBBLog) > 2097152) {
 		if ( $options['bps_dbb_log_email'] == 'email') {
 			if ( bps_Zip_DBB_Log_File()==TRUE ) {
 				bps_Email_DBB_Log_File();
@@ -86,7 +86,7 @@ switch ( $options['bps_dbb_log_size'] ) {
 		break;
 		}
     case "500KB":
-		if ( filesize($DBBLog) >= 524288 && filesize($DBBLog) < 1048576 || filesize($DBBLog) > 2097152) {
+		if ( file_exists($DBBLog) && filesize($DBBLog) >= 524288 && filesize($DBBLog) < 1048576 || file_exists($DBBLog) && filesize($DBBLog) > 2097152) {
 		if ( $options['bps_dbb_log_email'] == 'email') {
 			if ( bps_Zip_DBB_Log_File()==TRUE ) {
 				bps_Email_DBB_Log_File();
@@ -97,7 +97,7 @@ switch ( $options['bps_dbb_log_size'] ) {
 		break;
 		}
     case "1MB":
-		if ( filesize($DBBLog) >= 1048576 && filesize($DBBLog) < 2097152 || filesize($DBBLog) > 2097152) {
+		if ( file_exists($DBBLog) && filesize($DBBLog) >= 1048576 && filesize($DBBLog) < 2097152 || file_exists($DBBLog) && filesize($DBBLog) > 2097152) {
 		if ( $options['bps_dbb_log_email'] == 'email') {
 			if ( bps_Zip_DBB_Log_File()==TRUE ) {
 				bps_Email_DBB_Log_File();
